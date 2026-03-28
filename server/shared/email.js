@@ -3,12 +3,17 @@
 // ─────────────────────────────────────────────
 const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const FROM_ADDRESS = process.env.EMAIL_FROM || 'Beanhive <onboarding@resend.dev>';
 
 const emailService = {
   async sendVerificationEmail(toEmail, firstName, verificationUrl) {
+    if (!resend) {
+      console.log('[Email] No RESEND_API_KEY set — skipping email to', toEmail);
+      return false;
+    }
+
     try {
       const { data, error } = await resend.emails.send({
         from: FROM_ADDRESS,
