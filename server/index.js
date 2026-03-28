@@ -110,9 +110,9 @@ app.use('/Images', express.static(path.join(__dirname, '..', 'Images'), {
   immutable: true
 }));
 
-// CSS/JS: no cache in development, 1 day in production
+// CSS/JS: no cache (ensures latest code is always served)
 app.use('/src', express.static(path.join(__dirname, '..', 'src'), {
-  maxAge: process.env.NODE_ENV === 'production' ? '1d' : 0
+  maxAge: 0
 }));
 
 // Everything else (HTML): no cache
