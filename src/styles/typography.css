@@ -1,0 +1,52 @@
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY
+   Base type styles and heading scale.
+   Font-face declarations would go here when
+   licensed Starbucks fonts are available.
+   ───────────────────────────────────────────── */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-gray-dark);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+}
+
+p {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+small {
+  font-size: var(--text-sm);
+}

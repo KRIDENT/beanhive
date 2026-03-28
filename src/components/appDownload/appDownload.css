@@ -1,0 +1,400 @@
+/* Component: App Download
+   ─────────────────────────
+   Promotional section encouraging users to
+   download the Starbucks mobile app. Split layout
+   with phone mockup and feature highlights.
+   Deep forest background per extended greens. */
+
+/* ── App Section ──────────────────────────── */
+
+.appSection {
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  background-color: var(--color-green-dark);
+}
+
+.appInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .appInner {
+    flex-direction: row;
+  }
+}
+
+/* ── Phone Mockup Panel ───────────────────── */
+
+.appGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  min-height: 360px;
+  padding: var(--space-12) var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .appGraphic {
+    min-height: 520px;
+    padding: var(--space-12);
+  }
+}
+
+/* Phone device frame */
+.appPhoneMockup {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 380px;
+
+  background-color: #111111;
+  border: 3px solid #333333;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .appPhoneMockup {
+    width: 240px;
+    height: 460px;
+  }
+}
+
+/* Phone notch */
+.appPhoneNotch {
+  width: 80px;
+  height: 20px;
+  margin-top: 8px;
+
+  background-color: #111111;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Phone screen content */
+.appPhoneScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  flex: 1;
+  padding: var(--space-6) var(--space-4);
+
+  background-color: var(--color-white);
+  border-radius: 0 0 24px 24px;
+
+  text-align: center;
+}
+
+/* Mini siren on phone screen */
+.appPhoneLogo {
+  width: 40px;
+  height: 40px;
+  margin-top: var(--space-2);
+
+  border-radius: var(--radius-full);
+}
+
+.appPhoneGreeting {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-gray-dark);
+}
+
+/* Stars progress bar on phone */
+.appPhoneStarsBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 85%;
+}
+
+.appPhoneStarsTrack {
+  flex: 1;
+  height: 6px;
+
+  background-color: var(--color-gray-light);
+  border-radius: 3px;
+}
+
+.appPhoneStarsFill {
+  width: 65%;
+  height: 100%;
+
+  background-color: var(--color-starbucks-green);
+  border-radius: 3px;
+}
+
+.appPhoneStarsLabel {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--color-gray-mid);
+}
+
+/* Quick action buttons on phone */
+.appPhoneActions {
+  display: flex;
+  gap: var(--space-2);
+  width: 85%;
+  margin-top: var(--space-2);
+}
+
+.appPhoneActionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  padding: var(--space-2) var(--space-1);
+
+  background-color: var(--color-green-pale);
+  border-radius: var(--radius-md);
+
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--color-green-dark);
+}
+
+.appPhoneActionBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Drink card on phone */
+.appPhoneDrinkCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 85%;
+  margin-top: auto;
+  padding: var(--space-2);
+
+  background-color: var(--color-cream);
+  border-radius: var(--radius-md);
+
+  text-align: left;
+}
+
+.appPhoneDrinkThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  background-color: var(--color-green-pale);
+  border-radius: var(--radius-sm);
+}
+
+.appPhoneDrinkThumb svg {
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-starbucks-green);
+}
+
+.appPhoneDrinkInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.appPhoneDrinkName {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-gray-dark);
+}
+
+.appPhoneDrinkMeta {
+  font-size: 7px;
+  color: var(--color-gray-mid);
+}
+
+/* ── Content Panel ────────────────────────── */
+
+.appContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--space-6);
+  padding: var(--space-16) var(--space-6);
+
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .appContent {
+    align-items: flex-start;
+    padding: var(--space-16) var(--space-12);
+
+    text-align: left;
+  }
+}
+
+/* ── Heading ──────────────────────────────── */
+
+.appHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .appHeading {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ── Description ──────────────────────────── */
+
+.appDescription {
+  max-width: 480px;
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width: 768px) {
+  .appDescription {
+    font-size: var(--text-md);
+  }
+}
+
+/* ── Feature List ─────────────────────────── */
+
+.appFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.appFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+
+  text-align: left;
+}
+
+.appFeatureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.appFeatureIcon svg {
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-green-accent);
+}
+
+.appFeatureText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.appFeatureTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.appFeatureDesc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Store Badges ─────────────────────────── */
+
+.appBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.appBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 48px;
+  padding: 0 var(--space-4);
+
+  background-color: var(--color-black);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              transform    var(--duration-fast) var(--ease-default);
+}
+
+.appBadge:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+
+  transform: translateY(-1px);
+}
+
+.appBadge:active {
+  transform: translateY(0);
+}
+
+.appBadge svg {
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-white);
+}
+
+.appBadgeText {
+  display: flex;
+  flex-direction: column;
+}
+
+.appBadgeLabel {
+  font-size: 8px;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.appBadgeStore {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+}

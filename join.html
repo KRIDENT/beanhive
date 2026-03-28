@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Handcrafted coffee drinks, rewards, and more.">
+  <title>Join Beanhive Rewards</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/forms/joinForm.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="joinPage">
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <!-- Hamburger — mobile only -->
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Beanhive Logo -->
+      <a href="index.html" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <!-- Main Navigation Links — desktop -->
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <!-- Right Side Actions — desktop -->
+      <div class="navActions">
+
+        <!-- Search -->
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <!-- Find a Store -->
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Find a store
+        </a>
+
+        <span class="navDivider" aria-hidden="true"></span>
+
+        <!-- Sign In -->
+        <a href="signin.html" class="navSignIn">Sign in</a>
+
+        <!-- Join Now (active) -->
+        <a href="join.html" class="navBtnSecondary" aria-current="page">Join now</a>
+
+        <!-- Order Now CTA -->
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- ── Join Form ────────────────────────── -->
+  <main class="joinMain" style="padding-top: var(--nav-height);">
+    <div class="joinFormWrapper">
+
+      <div class="joinFormHeader">
+        <h1 class="joinFormTitle">Create an account</h1>
+        <p class="joinFormSubtitle">Join Beanhive Rewards and start earning Stars for free drinks and more.</p>
+      </div>
+
+      <form class="joinForm" id="joinForm" novalidate>
+
+        <!-- First & Last Name -->
+        <div class="formRow">
+          <div class="formGroup">
+            <label class="formLabel" for="firstName">First name</label>
+            <input class="formInput" type="text" id="firstName" name="firstName" placeholder="e.g. Alex" required autocomplete="given-name" />
+          </div>
+          <div class="formGroup">
+            <label class="formLabel" for="lastName">Last name</label>
+            <input class="formInput" type="text" id="lastName" name="lastName" placeholder="e.g. Rivera" required autocomplete="family-name" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="formGroup">
+          <label class="formLabel" for="email">Email address</label>
+          <input class="formInput" type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="formGroup">
+          <label class="formLabel" for="phone">Phone number <span style="text-transform:none;font-weight:400;color:var(--color-gray-mid)">(optional)</span></label>
+          <input class="formInput" type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+        </div>
+
+        <!-- Password -->
+        <div class="formGroup">
+          <label class="formLabel" for="password">Password</label>
+          <div class="formInputWrapper">
+            <input class="formInput" type="password" id="password" name="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password" />
+            <button type="button" class="passwordToggle" aria-label="Show password">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="formCheckGroup">
+          <input class="formCheckbox" type="checkbox" id="terms" name="terms" required />
+          <label class="formCheckLabel" for="terms">
+            I agree to the <a href="/legal/terms">Terms of Use</a> and <a href="/legal/privacy">Privacy Notice</a>, and I'm at least 13 years old.
+          </label>
+        </div>
+
+        <!-- Email Opt-in -->
+        <div class="formCheckGroup">
+          <input class="formCheckbox" type="checkbox" id="emailOptIn" name="emailOptIn" />
+          <label class="formCheckLabel" for="emailOptIn">
+            Yes, I'd like email updates about new drinks, rewards, and special offers from Beanhive.
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="joinSubmitBtn">Create account</button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="signinDivider" style="margin: 20px 0;">
+        <span class="signinDividerLine"></span>
+        <span class="signinDividerText">or</span>
+        <span class="signinDividerLine"></span>
+      </div>
+
+      <!-- Google OAuth -->
+      <a href="/v1/auth/google" class="googleOAuthBtn" aria-label="Continue with Google">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.93 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          <path fill="none" d="M0 0h48v48H0z"/>
+        </svg>
+        Continue with Google
+      </a>
+
+      <p class="joinSigninPrompt" style="margin-top: 16px;">Already have an account? <a href="signin.html">Sign in</a></p>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footerInner">
+
+      <!-- Link Columns -->
+      <div class="footerColumns">
+
+        <!-- About Us -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            About Us
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/coffee" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+            <a href="/about/shareholders" class="footerLink">Investor Relations</a>
+            <a href="/about/policies" class="footerLink">Policies and Standards</a>
+          </div>
+        </div>
+
+        <!-- Careers -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Careers
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/careers" class="footerLink">Culture and Values</a>
+            <a href="/careers/inclusion" class="footerLink">Inclusion and Diversity</a>
+            <a href="/careers/college" class="footerLink">College Achievement Plan</a>
+            <a href="/careers/alumni" class="footerLink">Alumni Community</a>
+            <a href="/careers/veterans" class="footerLink">U.S. Careers</a>
+            <a href="/careers/international" class="footerLink">International Careers</a>
+          </div>
+        </div>
+
+        <!-- Social Impact -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Social Impact
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/social-impact/people" class="footerLink">People</a>
+            <a href="/social-impact/planet" class="footerLink">Planet</a>
+            <a href="/social-impact/sourcing" class="footerLink">Ethical Sourcing</a>
+            <a href="/social-impact/environment" class="footerLink">Environmental Stewardship</a>
+            <a href="/social-impact/community" class="footerLink">Community Giving</a>
+          </div>
+        </div>
+
+        <!-- For Business Partners -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            For Business Partners
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/business/landlord" class="footerLink">Landlord Support Center</a>
+            <a href="/business/suppliers" class="footerLink">Suppliers</a>
+            <a href="/business/corporate-sales" class="footerLink">Corporate Gift Card Sales</a>
+            <a href="/business/office-coffee" class="footerLink">Office and Foodservice Coffee</a>
+          </div>
+        </div>
+
+        <!-- Order & Pick Up -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Order &amp; Pick Up
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/menu" class="footerLink">Order on the App</a>
+            <a href="/menu" class="footerLink">Order on the Web</a>
+            <a href="/delivery" class="footerLink">Delivery</a>
+            <a href="/menu" class="footerLink">Order and Pick Up Options</a>
+            <a href="/menu/explore" class="footerLink">Explore and Find Coffee for Home</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social Links -->
+      <div class="footerSocial">
+        <!-- Spotify -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.06 20.04 8.94c.6.36.72 1.02.36 1.56-.36.481-1.08.721-1.56.36l.241-.18z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <!-- Pinterest -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <!-- Twitter / X -->
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/cookies" class="footerLegalLink">Cookie Preferences</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/ca-supply-chain" class="footerLegalLink">CA Supply Chain Act</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/accessibility" class="footerLegalLink">Accessibility</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/skeleton/skeleton.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    // Password visibility toggle
+    document.querySelector('.passwordToggle').addEventListener('click', function () {
+      const input = document.getElementById('password');
+      const isHidden = input.type === 'password';
+      input.type = isHidden ? 'text' : 'password';
+      this.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+    });
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+/* ─────────────────────────────────────────────
+   SIGN IN PAGE
+   Responsive centered sign-in form.
+   ───────────────────────────────────────────── */
+
+.signinPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+
+.signinMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+/* ── Form Card ──────────────────────────── */
+
+.signinFormWrapper {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  padding: var(--space-12) var(--space-8);
+  box-shadow: var(--card-shadow);
+}
+
+.signinFormHeader {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.signinFormTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-green-dark);
+  margin-bottom: var(--space-2);
+}
+
+.signinFormSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-mid);
+  line-height: var(--leading-normal);
+}
+
+/* ── Form Fields ────────────────────────── */
+
+.signinForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  margin-bottom: var(--space-1);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.formInput {
+  width: 100%;
+  box-sizing: border-box;
+  height: var(--input-height);
+  padding: var(--input-padding);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-dark);
+  background: var(--input-bg);
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--input-radius);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.formInput::placeholder {
+  color: var(--color-gray-mid);
+  opacity: 0.6;
+}
+
+.formInput:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--color-green-pale);
+}
+
+.formInput:invalid:not(:placeholder-shown) {
+  border-color: #d32f2f;
+}
+
+/* ── Password Toggle ────────────────────── */
+
+.formInputWrapper {
+  position: relative;
+}
+
+.formInputWrapper .formInput {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray-mid);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.passwordToggle:hover {
+  color: var(--color-gray-dark);
+}
+
+/* ── Remember Me & Forgot Password ────── */
+
+.signinOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formCheckGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.formCheckbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-starbucks-green);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.formCheckLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-dark);
+  line-height: var(--leading-normal);
+  cursor: pointer;
+}
+
+.signinForgotLink {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.signinForgotLink:hover {
+  text-decoration: underline;
+  color: var(--color-green-accent);
+}
+
+/* ── Submit Button ──────────────────────── */
+
+.signinSubmitBtn {
+  width: 100%;
+  height: 48px;
+  background-color: var(--color-green-dark);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--btn-font);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--btn-tracking);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              transform 0.1s ease;
+}
+
+.signinSubmitBtn:hover {
+  background-color: #162e28;
+}
+
+.signinSubmitBtn:active {
+  transform: scale(0.98);
+}
+
+/* ── Divider ────────────────────────────── */
+
+.signinDivider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+}
+
+.signinDividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-gray-light);
+}
+
+.signinDividerText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+  text-transform: lowercase;
+}
+
+/* ── Join Prompt ────────────────────────── */
+
+.signinJoinPrompt {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+}
+
+.signinJoinPrompt a {
+  color: var(--color-starbucks-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signinJoinPrompt a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────────────── */
+
+@media (max-width: 600px) {
+  .signinFormWrapper {
+    padding: var(--space-8) var(--space-4);
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .signinMain {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .signinOptions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PASSWORD RESET PAGES
+   Styles for forgot-password & reset-password.
+   ───────────────────────────────────────────── */
+
+.resetSuccessIcon {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.resetSuccessText {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-dark);
+  text-align: center;
+  line-height: var(--leading-relaxed);
+}
+
+.resetDemoNote {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: #fef9e7;
+  border: 1px solid #f0d878;
+  border-radius: var(--input-radius);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: #7a6c1a;
+  line-height: var(--leading-relaxed);
+  text-align: center;
+  word-break: break-all;
+}
+
+.resetDemoNote a {
+  color: var(--color-starbucks-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.resetDemoNote a:hover {
+  text-decoration: underline;
+}
+
+.resetPasswordHint {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+  margin-top: calc(-1 * var(--space-2));
+}
+
+/* ── Google OAuth Button ─────────────────────── */
+.googleOAuthBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  margin-top: var(--space-3);
+  border: 1.5px solid #dadce0;
+  border-radius: 24px;
+  background: #fff;
+  color: #3c4043;
+  font-size: var(--text-base, 15px);
+  font-weight: 500;
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.googleOAuthBtn:hover {
+  background: #f8f9fa;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  border-color: #c1c8d4;
+}
+
+.googleOAuthBtn:active {
+  background: #f0f0f0;
+}
+
+[data-theme="dark"] .googleOAuthBtn {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e8eaed;
+}
+
+[data-theme="dark"] .googleOAuthBtn:hover {
+  background: #333;
+  border-color: #666;
+}

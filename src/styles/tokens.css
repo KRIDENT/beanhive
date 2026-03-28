@@ -1,0 +1,315 @@
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS
+   All design tokens (colors, spacing, type, radii,
+   motion) live here. Import this file first.
+   ───────────────────────────────────────────── */
+
+:root {
+
+  /* ─────────────────────────────────────────────
+     PRIMARY PALETTE
+     These three are the foundation of all design.
+     ───────────────────────────────────────────── */
+
+  --color-starbucks-green:  #00704A;
+  --color-black:            #000000;
+  --color-white:            #FFFFFF;
+
+  /* ─────────────────────────────────────────────
+     EXTENDED GREEN PALETTE
+     Use these to add depth; always pair with
+     the primary Starbucks Green as an anchor.
+     ───────────────────────────────────────────── */
+
+  --color-green-dark:       #1E3932;
+  --color-green-mid:        #00704A;
+  --color-green-light:      #CBA258;
+  --color-green-pale:       #D4E9E2;
+  --color-green-accent:     #00A862;
+
+  /* ─────────────────────────────────────────────
+     NEUTRALS
+     Support readability and layout breathing room.
+     ───────────────────────────────────────────── */
+
+  --color-warm-white:       #F2F0EB;
+  --color-cream:            #F9F5EE;
+  --color-gray-light:       #EDEBE8;
+  --color-gray-mid:         #767676;
+  --color-gray-dark:        #1E1E1E;
+
+  /* ─────────────────────────────────────────────
+     FONT STACK FALLBACKS
+     Closest publicly available alternatives.
+     Replace with licensed Starbucks fonts in
+     official brand work.
+     ───────────────────────────────────────────── */
+
+  --font-body:     'Sodo Sans', 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  --font-serif:    'Lander',    'Playfair Display', Georgia, serif;
+  --font-display:  'Pike',      'Trade Gothic LT Condensed', 'Arial Narrow', sans-serif;
+
+  /* ─────────────────────────────────────────────
+     TYPOGRAPHIC SCALE
+     Based on a 1.25 modular scale (Major Third).
+     All sizes in rem (root = 16px).
+     ───────────────────────────────────────────── */
+
+  --text-xs:    0.64rem;
+  --text-sm:    0.8rem;
+  --text-base:  1rem;
+  --text-md:    1.25rem;
+  --text-lg:    1.563rem;
+  --text-xl:    1.953rem;
+  --text-2xl:   2.441rem;
+  --text-3xl:   3.052rem;
+  --text-4xl:   3.815rem;
+
+  /* ─────────────────────────────────────────────
+     LINE HEIGHT & LETTER SPACING
+     ───────────────────────────────────────────── */
+
+  --leading-tight:   1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.08em;
+
+  /* ─────────────────────────────────────────────
+     SPACING SCALE
+     Base unit: 8px. All spacing is a multiple.
+     ───────────────────────────────────────────── */
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ─────────────────────────────────────────────
+     BORDER RADIUS
+     ───────────────────────────────────────────── */
+
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────────
+     COMPONENT DESIGN TOKENS — Buttons
+     ───────────────────────────────────────────── */
+
+  --btn-primary-bg:       var(--color-starbucks-green);
+  --btn-primary-text:     var(--color-white);
+  --btn-primary-hover:    #005a3a;
+  --btn-secondary-bg:     transparent;
+  --btn-secondary-border: var(--color-starbucks-green);
+  --btn-secondary-text:   var(--color-starbucks-green);
+  --btn-height:           48px;
+  --btn-padding:          0 24px;
+  --btn-radius:           var(--radius-full);
+  --btn-font:             var(--font-body);
+  --btn-weight:           600;
+  --btn-tracking:         var(--tracking-wide);
+
+  /* ─────────────────────────────────────────────
+     COMPONENT DESIGN TOKENS — Navigation
+     ───────────────────────────────────────────── */
+
+  --nav-bg:               var(--color-white);
+  --nav-height:           72px;
+  --nav-text:             var(--color-gray-dark);
+  --nav-text-hover:       var(--color-starbucks-green);
+  --nav-border:           var(--color-gray-light);
+
+  /* ─────────────────────────────────────────────
+     COMPONENT DESIGN TOKENS — Cards
+     ───────────────────────────────────────────── */
+
+  --card-bg:              var(--color-white);
+  --card-border:          var(--color-gray-light);
+  --card-radius:          var(--radius-lg);
+  --card-shadow:          0 2px 12px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover:    0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* ─────────────────────────────────────────────
+     COMPONENT DESIGN TOKENS — Inputs
+     ───────────────────────────────────────────── */
+
+  --input-bg:             var(--color-white);
+  --input-border:         #BEBBB7;
+  --input-border-focus:   var(--color-starbucks-green);
+  --input-radius:         var(--radius-md);
+  --input-height:         48px;
+  --input-padding:        0 16px;
+
+  /* ─────────────────────────────────────────────
+     MOTION TOKENS
+     Keep animations purposeful and brief.
+     ───────────────────────────────────────────── */
+
+  --ease-default:   cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-in:        cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:       cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --duration-xslow:   600ms;
+
+  /* ─────────────────────────────────────────────
+     RESPONSIVE BREAKPOINTS
+     Mobile-first approach. Styles apply upward.
+     ───────────────────────────────────────────── */
+
+  --bp-sm:  480px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+  --bp-2xl: 1440px;
+}
+
+/* ═══════════════════════════════════════════
+   DARK MODE
+   Activated by [data-theme="dark"] on <html>.
+   Overrides all semantic tokens while keeping
+   the palette intact.
+   ═══════════════════════════════════════════ */
+
+[data-theme="dark"] {
+
+  /* ── Core Colors ───────────────────────── */
+  --color-white:            #1a1a1a;
+  --color-black:            #f0f0f0;
+  --color-warm-white:       #121212;
+  --color-cream:            #1e1e1e;
+  --color-gray-light:       #2a2a2a;
+  --color-gray-mid:         #a0a0a0;
+  --color-gray-dark:        #e8e8e8;
+
+  /* ── Green Palette (slightly brighter) ── */
+  --color-green-dark:       #1a3a30;
+  --color-green-pale:       #1a3028;
+  --color-green-accent:     #00c76e;
+
+  /* ── Navigation ────────────────────────── */
+  --nav-bg:                 #1a1a1a;
+  --nav-text:               #e8e8e8;
+  --nav-border:             #2a2a2a;
+
+  /* ── Cards ─────────────────────────────── */
+  --card-bg:                #1e1e1e;
+  --card-border:            #2a2a2a;
+  --card-shadow:            0 2px 12px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover:      0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* ── Inputs ────────────────────────────── */
+  --input-bg:               #252525;
+  --input-border:           #3a3a3a;
+
+  /* ── Buttons ───────────────────────────── */
+  --btn-primary-bg:         #00854a;
+  --btn-primary-hover:      #009e58;
+  --btn-secondary-border:   #00854a;
+  --btn-secondary-text:     #00c76e;
+}
+
+/* ── Dark mode body and global overrides ── */
+[data-theme="dark"] body {
+  background-color: #121212;
+  color: #e8e8e8;
+}
+
+/* ── Dark mode images: slight dimming ───── */
+[data-theme="dark"] img {
+  filter: brightness(0.88);
+}
+
+/* ── Dark mode specific component fixes ── */
+[data-theme="dark"] .navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .footer {
+  background-color: #0f0f0f;
+  border-top: 1px solid #2a2a2a;
+}
+
+[data-theme="dark"] .footerColumnHeading {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .footerLink {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .footerLink:hover {
+  color: #00c76e;
+}
+
+[data-theme="dark"] .footerSocialLink {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .footerLegalLink {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .preloader {
+  background: #121212;
+}
+
+[data-theme="dark"] .preloader .cupBody path,
+[data-theme="dark"] .preloader .cupBody ellipse {
+  stroke: #a0a0a0;
+}
+
+[data-theme="dark"] .preloader .cupLiquid {
+  fill: #a0a0a0;
+}
+
+[data-theme="dark"] .preloader .steam path {
+  stroke: #666;
+}
+
+[data-theme="dark"] .preloaderText {
+  color: #a0a0a0;
+}
+
+/* ── Respect system preference as default ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-white:            #1a1a1a;
+    --color-black:            #f0f0f0;
+    --color-warm-white:       #121212;
+    --color-cream:            #1e1e1e;
+    --color-gray-light:       #2a2a2a;
+    --color-gray-mid:         #a0a0a0;
+    --color-gray-dark:        #e8e8e8;
+    --color-green-dark:       #1a3a30;
+    --color-green-pale:       #1a3028;
+    --color-green-accent:     #00c76e;
+    --nav-bg:                 #1a1a1a;
+    --nav-text:               #e8e8e8;
+    --nav-border:             #2a2a2a;
+    --card-bg:                #1e1e1e;
+    --card-border:            #2a2a2a;
+    --card-shadow:            0 2px 12px rgba(0, 0, 0, 0.3);
+    --card-shadow-hover:      0 8px 32px rgba(0, 0, 0, 0.4);
+    --input-bg:               #252525;
+    --input-border:           #3a3a3a;
+    --btn-primary-bg:         #00854a;
+    --btn-primary-hover:      #009e58;
+    --btn-secondary-border:   #00854a;
+    --btn-secondary-text:     #00c76e;
+  }
+}

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Handcrafted coffee drinks, rewards, and more.">
+  <title>Menu — Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/menu/menu.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="menuPage">
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="steam steam--1">
+          <path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--2">
+          <path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--3">
+          <path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="cupBody">
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z" stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84" stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+          <path d="M28 48 Q55 42 82 48" stroke="#3d3631" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <path d="M38 60 Q55 64 72 60" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.25"/>
+          <path d="M36 72 Q55 76 74 72" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.2"/>
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="index.html" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink" aria-current="page">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <div class="navActions">
+
+        <!-- Search -->
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Find a store
+        </a>
+        <span class="navDivider" aria-hidden="true"></span>
+        <a href="signin.html" class="navSignIn">Sign in</a>
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- ── Menu Sub-Nav Tabs ───────────────────── -->
+  <div class="menuSubNav">
+    <div class="menuSubNavInner">
+      <button class="menuSubNavTab active">Menu</button>
+      <button class="menuSubNavTab">Featured</button>
+      <button class="menuSubNavTab">Previous</button>
+      <button class="menuSubNavTab">Favorites</button>
+    </div>
+  </div>
+
+  <!-- ── Store Availability Banner ───────────── -->
+  <div class="menuStoreBanner">
+    <div class="menuStoreBannerInner">
+      <div class="menuStoreBannerText">
+        <span class="menuStoreBannerLabel">For item availability</span>
+        <button class="menuStoreBannerBtn">
+          Choose a store
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+      </div>
+      <button class="menuStoreBannerCart" aria-label="Shopping bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Featured Tab Content ─────────────────── -->
+  <div class="featuredTab" style="display:none;">
+    <div class="ftContent">
+      <h1 class="ftHeading">Featured</h1>
+      <div id="featuredGrid" class="ftCardGrid4"></div>
+    </div>
+  </div>
+
+  <!-- ── Previous Tab Content ────────────────── -->
+  <div class="previousTab" style="display:none;">
+    <div class="prevContent">
+      <h1 class="prevTitle">Previous</h1>
+      <div id="prevBody"></div>
+    </div>
+  </div>
+
+  <!-- ── Favorites Tab Content ───────────────── -->
+  <div class="favoritesTab" style="display:none;">
+    <div class="favContent">
+      <h1 class="favPageTitle">Favorites</h1>
+      <div id="favBody"></div>
+    </div>
+  </div>
+
+  <!-- ── Main Layout: Sidebar + Content ──────── -->
+  <div class="menuLayout">
+
+    <!-- Sidebar -->
+    <aside class="menuSidebar">
+      <nav class="menuSidebarNav" aria-label="Menu categories">
+
+        <div class="menuSidebarGroup">
+          <h3 class="menuSidebarHeading">Fan Favorites</h3>
+          <a href="#trending" class="menuSidebarLink">Trending</a>
+        </div>
+
+        <div class="menuSidebarGroup">
+          <h3 class="menuSidebarHeading">Drinks</h3>
+          <a href="#hot-coffee" class="menuSidebarLink">Hot Coffee</a>
+          <a href="#cold-coffee" class="menuSidebarLink">Cold Coffee</a>
+          <a href="#matcha" class="menuSidebarLink">Matcha</a>
+          <a href="#hot-tea" class="menuSidebarLink">Hot Tea</a>
+          <a href="#cold-tea" class="menuSidebarLink">Cold Tea</a>
+          <a href="#frappuccino" class="menuSidebarLink">Frappuccino &amp; Blended</a>
+          <a href="#refreshers" class="menuSidebarLink">Refreshers</a>
+          <a href="#hot-chocolate" class="menuSidebarLink">Hot Chocolate, Lemonade &amp; More</a>
+          <a href="#bottled" class="menuSidebarLink">Bottled Beverages</a>
+        </div>
+
+        <div class="menuSidebarGroup">
+          <h3 class="menuSidebarHeading">Food</h3>
+          <a href="#breakfast" class="menuSidebarLink">Breakfast</a>
+          <a href="#bakery" class="menuSidebarLink">Bakery</a>
+          <a href="#treats" class="menuSidebarLink">Treats</a>
+          <a href="#lunch" class="menuSidebarLink">Lunch</a>
+          <a href="#lite-bites" class="menuSidebarLink">Lite Bites</a>
+        </div>
+
+        <div class="menuSidebarGroup">
+          <h3 class="menuSidebarHeading">At Home Coffee</h3>
+          <a href="#whole-bean" class="menuSidebarLink">Whole Bean</a>
+          <a href="#instant" class="menuSidebarLink">Beanhive VIA Instant</a>
+          <a href="#shopping-bag" class="menuSidebarLink">Merchandise</a>
+        </div>
+
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="menuMain" style="padding-top: var(--nav-height);">
+
+      <!-- ── Page Title ──────────────────── -->
+      <h1 class="menuPageTitle">Menu</h1>
+
+      <!-- ── Fan Favorites ───────────────── -->
+      <section class="menuSection" id="trending">
+        <h2 class="menuSectionTitle">Fan Favorites</h2>
+        <div class="menuCategoryGrid">
+
+          <a href="#" class="menuCategoryCard">
+            <div class="menuCategoryThumb">
+              <img src="Images/Caramel Macchiato.png" alt="Trending" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Trending</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ── Drinks ──────────────────────── -->
+      <section class="menuSection" id="drinks">
+        <h2 class="menuSectionTitle">Drinks</h2>
+        <div class="menuCategoryGrid">
+
+          <a href="#" class="menuCategoryCard" id="hot-coffee">
+            <div class="menuCategoryThumb">
+              <img src="Images/Pumpkin Spice Latte.png" alt="Hot Coffee" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Hot Coffee</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="cold-coffee">
+            <div class="menuCategoryThumb">
+              <img src="Images/Cold Brew.png" alt="Cold Coffee" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Cold Coffee</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="matcha">
+            <div class="menuCategoryThumb">
+              <img src="Images/Iced Matcha Latte.png" alt="Matcha" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Matcha</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="hot-tea">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Hot Tea" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Hot Tea</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="cold-tea">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Cold Tea" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Cold Tea</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="frappuccino">
+            <div class="menuCategoryThumb">
+              <img src="Images/Caramel Macchiato.png" alt="Frappuccino &amp; Blended Beverage" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Frappuccino &amp; Blended Beverage</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="refreshers">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Refreshers" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Refreshers</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="hot-chocolate">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Hot Chocolate, Lemonade &amp; More" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Hot Chocolate, Lemonade &amp; More</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="bottled">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Bottled Beverages" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Bottled Beverages</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ── Food ────────────────────────── -->
+      <section class="menuSection" id="food">
+        <h2 class="menuSectionTitle">Food</h2>
+        <div class="menuCategoryGrid">
+
+          <a href="#" class="menuCategoryCard" id="breakfast">
+            <div class="menuCategoryThumb">
+              <img src="Images/foods.jpg" alt="Breakfast" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Breakfast</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="bakery">
+            <div class="menuCategoryThumb">
+              <img src="Images/foods.jpg" alt="Bakery" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Bakery</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="treats">
+            <div class="menuCategoryThumb">
+              <img src="Images/foods.jpg" alt="Treats" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Treats</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="lunch">
+            <div class="menuCategoryThumb">
+              <img src="Images/foods.jpg" alt="Lunch" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Lunch</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="lite-bites">
+            <div class="menuCategoryThumb">
+              <img src="Images/foods.jpg" alt="Lite Bites" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Lite Bites</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ── At Home Coffee ──────────────── -->
+      <section class="menuSection" id="at-home">
+        <h2 class="menuSectionTitle">At Home Coffee</h2>
+        <div class="menuCategoryGrid">
+
+          <a href="#" class="menuCategoryCard" id="whole-bean">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Whole Bean" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Whole Bean</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="instant">
+            <div class="menuCategoryThumb">
+              <img src="Images/close-up-coffee-cup-with-beans.png" alt="Beanhive VIA Instant" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Beanhive VIA Instant</span>
+          </a>
+
+          <a href="#" class="menuCategoryCard" id="shopping-bag">
+            <div class="menuCategoryThumb">
+              <img src="Images/beanhive_logo-removebg-preview.png" alt="Merchandise" loading="lazy" />
+            </div>
+            <span class="menuCategoryLabel">Merchandise</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ── Category Detail View (hidden) ──── -->
+      <div class="catDetail" style="display:none;">
+        <div class="catDetailBreadcrumb">
+          <a href="#" class="catDetailBreadcrumbBack">Menu</a>
+          <span class="catDetailBreadcrumbSep">/</span>
+          <span class="catDetailBreadcrumbCurrent"></span>
+        </div>
+        <h1 class="catDetailTitle"></h1>
+        <div class="catDetailSections"></div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footerInner">
+
+      <div class="footerColumns">
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            About Us
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/coffee" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+            <a href="/about/shareholders" class="footerLink">Investor Relations</a>
+            <a href="/about/policies" class="footerLink">Policies and Standards</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Careers
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/careers" class="footerLink">Culture and Values</a>
+            <a href="/careers/inclusion" class="footerLink">Inclusion and Diversity</a>
+            <a href="/careers/college" class="footerLink">College Achievement Plan</a>
+            <a href="/careers/alumni" class="footerLink">Alumni Community</a>
+            <a href="/careers/veterans" class="footerLink">U.S. Careers</a>
+            <a href="/careers/international" class="footerLink">International Careers</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Social Impact
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/social-impact/people" class="footerLink">People</a>
+            <a href="/social-impact/planet" class="footerLink">Planet</a>
+            <a href="/social-impact/sourcing" class="footerLink">Ethical Sourcing</a>
+            <a href="/social-impact/environment" class="footerLink">Environmental Stewardship</a>
+            <a href="/social-impact/community" class="footerLink">Community Giving</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            For Business Partners
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/business/landlord" class="footerLink">Landlord Support Center</a>
+            <a href="/business/suppliers" class="footerLink">Suppliers</a>
+            <a href="/business/corporate-sales" class="footerLink">Corporate Gift Card Sales</a>
+            <a href="/business/office-coffee" class="footerLink">Office and Foodservice Coffee</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Order &amp; Pick Up
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/menu" class="footerLink">Order on the App</a>
+            <a href="/menu" class="footerLink">Order on the Web</a>
+            <a href="/delivery" class="footerLink">Delivery</a>
+            <a href="/menu" class="footerLink">Order and Pick Up Options</a>
+            <a href="/menu/explore" class="footerLink">Explore and Find Coffee for Home</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footerSocial">
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.06 20.04 8.94c.6.36.72 1.02.36 1.56-.36.481-1.08.721-1.56.36l.241-.18z"/></svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/></svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Beanhive on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/cookies" class="footerLegalLink">Cookie Preferences</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/ca-supply-chain" class="footerLegalLink">CA Supply Chain Act</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/accessibility" class="footerLegalLink">Accessibility</a>
+      </div>
+
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/skeleton/skeleton.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/preloader/preloader.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    // ── Menu data fetched from API ──────────────
+    var placeholder = "Images/close-up-coffee-cup-with-beans.png";
+    var _menuApiHost = window.location.hostname || "localhost";
+    var _menuApiBase = "http://" + _menuApiHost + ":3001/v1";
+
+    // Map sidebar labels to DB category names
+    var categoryMap = {
+      "Trending": null,
+      "Hot Coffee": "Hot Coffees",
+      "Cold Coffee": "Cold Coffees",
+      "Matcha": "Matcha",
+      "Hot Tea": "Hot Teas",
+      "Cold Tea": "Cold Teas",
+      "Frappuccino u0026 Blended": "Frappuccinos",
+      "Refreshers": "Refreshers",
+      "Hot Chocolate, Lemonade u0026 More": "Hot Chocolate",
+      "Bottled Beverages": "Bottled Beverages",
+      "Breakfast": "Breakfast",
+      "Bakery": "Bakery",
+      "Treats": "Treats",
+      "Lunch": "Lunch",
+      "Lite Bites": "Lite Bites",
+      "Whole Bean": "Whole Bean",
+      "VIA Instant": "VIA Instant",
+      "Merchandise": "Merchandise"
+    };
+
+    var categoryData = {};
+
+    // ── DOM references ──────────────────────
+    var allTabs = document.querySelectorAll('.menuSubNavTab');
+    var menuView = document.querySelector('.menuLayout');
+    var featuredView = document.querySelector('.featuredTab');
+    var previousView = document.querySelector('.previousTab');
+    var favoritesView = document.querySelector('.favoritesTab');
+    var storeBanner = document.querySelector('.menuStoreBanner');
+
+    var menuMainOverview = document.querySelectorAll('.menuMain > .menuPageTitle, .menuMain > .menuSection');
+    var catDetail = document.querySelector('.catDetail');
+    var catDetailTitle = catDetail.querySelector('.catDetailTitle');
+    var catDetailBreadcrumbCurrent = catDetail.querySelector('.catDetailBreadcrumbCurrent');
+    var catDetailSections = catDetail.querySelector('.catDetailSections');
+    var catDetailBack = catDetail.querySelector('.catDetailBreadcrumbBack');
+
+    // ── Show category detail (fetches from API) ──
+    function showCategoryDetail(categoryName) {
+      // Hide overview, show detail
+      menuMainOverview.forEach(function(el) { el.style.display = 'none'; });
+      catDetail.style.display = 'block';
+      catDetailBreadcrumbCurrent.textContent = categoryName;
+      catDetailTitle.textContent = categoryName;
+      catDetailSections.innerHTML = '<p style="text-align:center;color:var(--color-gray-mid);padding:40px;">Loading...</p>';
+
+      // Map sidebar label to DB category, then fetch
+      var dbCategory = categoryMap[categoryName] || categoryName;
+      var url = _menuApiBase + '/menu?category=' + encodeURIComponent(dbCategory);
+
+      // Special case: "Trending" fetches all featured items
+      if (categoryName === 'Trending') {
+        url = _menuApiBase + '/menu/featured';
+      }
+
+      fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          var items = (json.data && json.data.items) || [];
+          // Convert API items to the format showCategoryDetail expects
+          var data = { sections: [{ title: categoryName, items: items.map(function(i) {
+            return { name: i.name, img: i.image || placeholder, price: i.price };
+          })}]};
+          renderCategoryDetail(data);
+        })
+        .catch(function() {
+          catDetailSections.innerHTML = '<p style="text-align:center;color:var(--color-gray-mid);padding:40px;">Could not load items.</p>';
+        });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderCategoryDetail(data) {
+
+      catDetailSections.innerHTML = '';
+      data.sections.forEach(function(section) {
+        var sectionEl = document.createElement('div');
+        sectionEl.className = 'catDetailGroup';
+
+        var heading = document.createElement('h2');
+        heading.className = 'catDetailGroupTitle';
+        heading.textContent = section.title;
+        sectionEl.appendChild(heading);
+
+        var grid = document.createElement('div');
+        grid.className = 'catDetailGrid';
+
+        section.items.forEach(function(item) {
+          var card = document.createElement('div');
+          card.className = 'catDetailItem';
+
+          var priceStr = item.price ? '$' + item.price.toFixed(2) : '$5.25';
+          var drinkId = item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          var detailUrl = 'drink-detail.html?drink=' + encodeURIComponent(drinkId);
+
+          card.innerHTML =
+            '<a href="' + detailUrl + '" class="catDetailItemLink">' +
+              '<div class="catDetailItemThumb">' +
+                '<img src="' + item.img + '" alt="' + item.name + '" loading="lazy" />' +
+              '</div>' +
+              '<span class="catDetailItemName">' + item.name + '</span>' +
+            '</a>' +
+            '<span class="catDetailItemPrice">' + priceStr + '</span>' +
+            '<button class="catDetailAddBtn" data-price="' + (item.price || 5.25) + '">Add to Order</button>';
+
+          grid.appendChild(card);
+        });
+
+        sectionEl.appendChild(grid);
+        catDetailSections.appendChild(sectionEl);
+      });
+    }
+
+    // ── Back to overview ────────────────────
+    function showMenuOverview() {
+      catDetail.style.display = 'none';
+      menuMainOverview.forEach(function(el) { el.style.display = ''; });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    catDetailBack.addEventListener('click', function(e) {
+      e.preventDefault();
+      showMenuOverview();
+    });
+
+    // ── Wire up category card clicks ────────
+    document.querySelectorAll('.menuCategoryCard').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        var label = card.querySelector('.menuCategoryLabel').textContent.trim();
+        showCategoryDetail(label);
+      });
+    });
+
+    // ── Wire up sidebar links ───────────────
+    document.querySelectorAll('.menuSidebarLink').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var label = link.textContent.trim();
+        e.preventDefault();
+        showCategoryDetail(label);
+      });
+    });
+
+    // ── Sub-nav tabs ────────────────────────
+    function hideAllViews() {
+      menuView.style.display = 'none';
+      featuredView.style.display = 'none';
+      previousView.style.display = 'none';
+      favoritesView.style.display = 'none';
+      storeBanner.style.display = 'none';
+    }
+
+    allTabs.forEach(function(tab, index) {
+      tab.addEventListener('click', function() {
+        allTabs.forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+
+        showMenuOverview();
+        hideAllViews();
+
+        if (index === 0) {
+          menuView.style.display = 'flex';
+          storeBanner.style.display = '';
+        } else if (index === 1) {
+          featuredView.style.display = 'block';
+          loadFeaturedItems();
+        } else if (index === 2) {
+          previousView.style.display = 'block';
+          setTimeout(function() { if (typeof loadPreviousOrders === 'function') loadPreviousOrders(); }, 300);
+        } else if (index === 3) {
+          favoritesView.style.display = 'block';
+          setTimeout(function() { if (typeof loadFavorites === 'function') loadFavorites(); }, 300);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // ── Sidebar active link on scroll ───────
+    var sidebarLinks = document.querySelectorAll('.menuSidebarLink');
+    var sections = document.querySelectorAll('.menuSection');
+
+    function updateActiveSidebar() {
+      var current = '';
+      sections.forEach(function(section) {
+        var top = section.getBoundingClientRect().top;
+        if (top <= 200) current = section.id;
+      });
+      sidebarLinks.forEach(function(link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+    var sidebarTicking = false;
+    window.addEventListener('scroll', function() {
+      if (!sidebarTicking) {
+        requestAnimationFrame(function() {
+          updateActiveSidebar();
+          sidebarTicking = false;
+        });
+        sidebarTicking = true;
+      }
+    }, { passive: true });
+
+    // ── Previous Orders ─────────────────────────
+    var _apiHost = window.location.hostname || 'localhost';
+    var _apiBase = 'http://' + _apiHost + ':3001/v1';
+    var _imgMap = {
+      'caramel macchiato': 'Images/Caramel Macchiato.png',
+      'pumpkin spice latte': 'Images/Pumpkin Spice Latte.png',
+      'iced matcha latte': 'Images/Iced Matcha Latte.png',
+      'cold brew': 'Images/Cold Brew.png'
+    };
+    var _placeholder = 'Images/close-up-coffee-cup-with-beans.png';
+
+    function _img(n) { return _imgMap[n.toLowerCase()] || _placeholder; }
+    function _slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, '-'); }
+    function _date(s) {
+      var d = new Date(s);
+      return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+
+    function _prevSignedOut(el) {
+      el.innerHTML =
+        '<div style="text-align:center;padding:60px 20px;">' +
+          '<svg viewBox="0 0 200 200" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 24px;display:block;opacity:0.6;">' +
+            '<circle cx="100" cy="95" r="50" stroke="#d4d1ca" stroke-width="2" fill="#f1f0eb"/>' +
+            '<line x1="100" y1="95" x2="100" y2="65" stroke="#d4d1ca" stroke-width="2.5" stroke-linecap="round"/>' +
+            '<line x1="100" y1="95" x2="120" y2="95" stroke="#d4d1ca" stroke-width="2.5" stroke-linecap="round"/>' +
+            '<circle cx="100" cy="95" r="3" fill="#d4d1ca"/>' +
+          '</svg>' +
+          '<h2 style="font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-gray-dark);margin-bottom:12px;">When history repeats itself</h2>' +
+          '<p style="color:var(--color-gray-mid);max-width:400px;margin:0 auto 24px;">Items you\'ve previously ordered will appear here, so you can easily find and reorder your favorites.</p>' +
+          '<a href="signin.html" style="display:inline-block;padding:10px 24px;border:1.5px solid var(--color-gray-dark);border-radius:9999px;color:var(--color-gray-dark);text-decoration:none;font-weight:600;margin-right:12px;">Sign in</a>' +
+          '<a href="join.html" style="display:inline-block;padding:10px 24px;background:var(--color-green-dark);border-radius:9999px;color:#F8F5FC;text-decoration:none;font-weight:600;">Join now</a>' +
+        '</div>';
+    }
+
+    function _prevNoOrders(el) {
+      // Check if there are items in the cart (localStorage)
+      var cartItems = [];
+      try { var raw = localStorage.getItem('beanhive-cart'); if (raw) cartItems = JSON.parse(raw); } catch(e) {}
+
+      if (cartItems.length > 0) {
+        // Show cart items as "ready to order"
+        var h = '<div style="text-align:center;padding:30px 20px 20px;">' +
+          '<h2 style="font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-gray-dark);margin-bottom:8px;">Items in your bag</h2>' +
+          '<p style="color:var(--color-gray-mid);margin-bottom:24px;">You have ' + cartItems.length + ' item' + (cartItems.length > 1 ? 's' : '') + ' waiting. Checkout to save them to your order history.</p>' +
+        '</div>';
+        h += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;padding:0 20px 40px;">';
+        cartItems.forEach(function(it) {
+          var url = 'drink-detail.html?drink=' + encodeURIComponent(_slug(it.name));
+          var price = '$' + (typeof it.price === 'number' ? it.price.toFixed(2) : it.price);
+          h +=
+            '<div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;">' +
+              '<a href="' + url + '" style="text-decoration:none;color:inherit;">' +
+                '<div style="width:100%;aspect-ratio:1;overflow:hidden;background:var(--color-cream);">' +
+                  '<img src="' + (it.img || _img(it.name)) + '" alt="' + it.name + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />' +
+                '</div>' +
+                '<div style="padding:14px;">' +
+                  '<h3 style="font-weight:700;font-size:15px;color:var(--color-gray-dark);margin-bottom:4px;">' + it.name + '</h3>' +
+                  '<p style="font-size:13px;color:var(--color-gray-mid);">' + (it.size || 'Grande') + ' &middot; Qty: ' + (it.qty || 1) + '</p>' +
+                  '<p style="font-weight:700;color:var(--color-starbucks-green);margin-top:4px;">' + price + '</p>' +
+                '</div>' +
+              '</a>' +
+            '</div>';
+        });
+        h += '</div>';
+        el.innerHTML = h;
+        return;
+      }
+
+      el.innerHTML =
+        '<div style="text-align:center;padding:60px 20px;">' +
+          '<svg viewBox="0 0 200 200" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 24px;display:block;opacity:0.6;">' +
+            '<circle cx="100" cy="95" r="50" stroke="#d4d1ca" stroke-width="2" fill="#f1f0eb"/>' +
+            '<line x1="100" y1="95" x2="100" y2="65" stroke="#d4d1ca" stroke-width="2.5" stroke-linecap="round"/>' +
+            '<line x1="100" y1="95" x2="120" y2="95" stroke="#d4d1ca" stroke-width="2.5" stroke-linecap="round"/>' +
+            '<circle cx="100" cy="95" r="3" fill="#d4d1ca"/>' +
+          '</svg>' +
+          '<h2 style="font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-gray-dark);margin-bottom:12px;">No orders yet</h2>' +
+          '<p style="color:var(--color-gray-mid);max-width:400px;margin:0 auto 24px;">Once you place an order, your items will appear here for easy reordering.</p>' +
+          '<a href="menu.html" style="display:inline-block;padding:10px 24px;background:var(--color-starbucks-green);border-radius:9999px;color:#F8F5FC;text-decoration:none;font-weight:600;">Browse Menu</a>' +
+        '</div>';
+    }
+
+    function _prevShowOrders(el, orders) {
+      var seen = {};
+      var items = [];
+      orders.forEach(function(o) {
+        var parsed = [];
+        try {
+          parsed = typeof o.items === 'string' ? JSON.parse(o.items) : o.items;
+        } catch(e) {}
+        parsed.forEach(function(it) {
+          var k = it.name.toLowerCase();
+          if (!seen[k]) {
+            seen[k] = true;
+            items.push({ name: it.name, price: it.price, size: it.size || 'Grande', img: it.img || _img(it.name), date: o.created_at });
+          }
+        });
+      });
+
+      if (items.length === 0) { _prevNoOrders(el); return; }
+
+      var h = '<p style="color:var(--color-gray-mid);margin-bottom:24px;">' + items.length + ' item' + (items.length > 1 ? 's' : '') + ' from your order history</p>';
+      h += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">';
+      items.forEach(function(it) {
+        var url = 'drink-detail.html?drink=' + encodeURIComponent(_slug(it.name));
+        var price = '$' + (typeof it.price === 'number' ? it.price.toFixed(2) : it.price);
+        h +=
+          '<div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform=\'translateY(-3px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.1)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">' +
+            '<a href="' + url + '" style="text-decoration:none;color:inherit;">' +
+              '<div style="width:100%;aspect-ratio:1;overflow:hidden;background:var(--color-cream);">' +
+                '<img src="' + _img(it.name) + '" alt="' + it.name + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />' +
+              '</div>' +
+              '<div style="padding:14px;">' +
+                '<h3 class="productCardName" style="font-weight:700;font-size:15px;color:var(--color-gray-dark);margin-bottom:4px;">' + it.name + '</h3>' +
+                '<p style="font-size:13px;color:var(--color-gray-mid);margin-bottom:2px;">' + it.size + '</p>' +
+                '<p class="productCardPrice" style="font-weight:700;color:var(--color-starbucks-green);">' + price + '</p>' +
+                '<p style="font-size:12px;color:var(--color-gray-mid);margin-top:6px;">Ordered ' + _date(it.date) + '</p>' +
+              '</div>' +
+            '</a>' +
+            '<div style="padding:0 14px 14px;display:flex;gap:8px;">' +
+              '<a href="' + url + '" style="flex:1;text-align:center;padding:8px;border:1px solid var(--card-border);border-radius:9999px;font-size:13px;font-weight:600;color:var(--color-gray-dark);text-decoration:none;">Customize</a>' +
+              '<button class="productCardCta" data-price="' + it.price + '" style="flex:1;padding:8px;background:var(--color-starbucks-green);border:none;border-radius:9999px;font-size:13px;font-weight:600;color:#F8F5FC;cursor:pointer;">Reorder</button>' +
+            '</div>' +
+          '</div>';
+      });
+      h += '</div>';
+      el.innerHTML = h;
+    }
+
+    // ── Featured tab — dynamic from API ───────
+    var _featuredLoaded = false;
+    function loadFeaturedItems() {
+      var grid = document.getElementById('featuredGrid');
+      if (!grid) return;
+
+      // Show skeleton placeholders
+      if (!_featuredLoaded) {
+        var sk = '';
+        for (var s = 0; s < 4; s++) {
+          sk += '<div class="ftMiniCard skeleton-card" style="height:260px;border-radius:12px;background:var(--skeleton-bg, #e0e0e0);animation:pulse 1.5s infinite"></div>';
+        }
+        grid.innerHTML = sk;
+      }
+
+      fetch(_menuApiBase + '/menu/featured')
+        .then(function(res) { return res.json(); })
+        .then(function(json) {
+          var items = (json.data && json.data.items) || [];
+          if (items.length === 0) {
+            grid.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">No featured items yet.</p>';
+            return;
+          }
+          var html = '';
+          items.forEach(function(item) {
+            var imgSrc = item.image || 'Images/close-up-coffee-cup-with-beans.png';
+            html +=
+              '<article class="ftMiniCard">' +
+                '<a href="drink-detail.html?drink=' + item.slug + '" class="ftMiniCardLink">' +
+                  '<div class="ftMiniCardImage">' +
+                    '<img src="' + imgSrc + '" alt="' + item.name.replace(/"/g, '&quot;') + '" loading="lazy" />' +
+                  '</div>' +
+                  '<h3 class="ftMiniCardTitle">' + item.name + '</h3>' +
+                  '<p class="ftMiniCardPrice">$' + Number(item.price).toFixed(2) + '</p>' +
+                  '<span class="ftMiniCardCategory">' + item.category + '</span>' +
+                '</a>' +
+              '</article>';
+          });
+          grid.innerHTML = html;
+          _featuredLoaded = true;
+        })
+        .catch(function() {
+          grid.innerHTML = '<p style="text-align:center;padding:40px;color:#666;">Could not load featured items. Please try again.</p>';
+        });
+    }
+
+    function loadPreviousOrders() {
+      var body = document.getElementById('prevBody');
+      if (!body) return;
+
+      body.innerHTML = '<p style="text-align:center;color:var(--color-gray-mid);padding:40px 0;">Loading...</p>';
+
+      fetch(_apiBase + '/users/me', { credentials: 'include' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Not signed in');
+          return r.json();
+        })
+        .then(function(authData) {
+          var user = authData.data ? authData.data.user : authData.user;
+          if (!user) {
+            _prevSignedOut(body);
+            return;
+          }
+          return fetch(_apiBase + '/orders', { credentials: 'include' })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              var orders = data.data ? data.data.orders : data.orders;
+              if (!orders || orders.length === 0) {
+                _prevNoOrders(body);
+              } else {
+                _prevShowOrders(body, orders);
+              }
+            });
+        })
+        .catch(function() {
+          _prevSignedOut(body);
+        });
+    }
+
+    // Load when Previous tab is clicked
+    allTabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        if (tab.textContent.trim() === 'Previous') {
+          loadPreviousOrders();
+        }
+      });
+    });
+
+    // ── FAVORITES TAB ───────────────────────
+    function loadFavorites() {
+      var body = document.getElementById('favBody');
+      if (!body) return;
+
+      body.innerHTML = '<p style="text-align:center;color:var(--color-gray-mid);padding:40px 0;">Loading...</p>';
+
+      fetch(_apiBase + '/users/me', { credentials: 'include' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('auth');
+          return r.json();
+        })
+        .then(function(auth) {
+          var user = auth.data ? auth.data.user : auth.user;
+          if (!user) throw new Error('not signed in');
+
+          return fetch(_apiBase + '/favorites', { credentials: 'include' })
+            .then(function(r) { return r.json(); })
+            .then(function(raw) {
+              var data = raw.data || raw;
+              if (!data.favorites || data.favorites.length === 0) {
+                body.innerHTML =
+                  '<div style="text-align:center;padding:60px 20px;">' +
+                    '<svg viewBox="0 0 200 200" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 24px;display:block;opacity:0.5;">' +
+                      '<circle cx="100" cy="90" r="55" fill="#f7f6f3" stroke="#d4d1ca" stroke-width="2"/>' +
+                      '<path d="M80 85 C80 75 88 68 95 75 C102 68 110 75 110 85 C110 97 95 107 95 107 C95 107 80 97 80 85Z" fill="none" stroke="#c4bfb5" stroke-width="2.5"/>' +
+                    '</svg>' +
+                    '<h2 style="font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-gray-dark);margin-bottom:12px;">No favorites yet</h2>' +
+                    '<p style="color:var(--color-gray-mid);max-width:400px;margin:0 auto 24px;">Tap the heart on any drink or food item to save it here for quick reordering.</p>' +
+                    '<a href="menu.html" style="display:inline-block;padding:10px 24px;background:var(--color-starbucks-green);border-radius:9999px;color:#F8F5FC;text-decoration:none;font-weight:600;">Browse Menu</a>' +
+                  '</div>';
+                return;
+              }
+
+              var h = '<p style="color:var(--color-gray-mid);margin-bottom:24px;">' + data.favorites.length + ' favorite' + (data.favorites.length > 1 ? 's' : '') + '</p>';
+              h += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">';
+
+              data.favorites.forEach(function(fav) {
+                var img = fav.image || _img(fav.drinkName);
+                var url = 'drink-detail.html?drink=' + encodeURIComponent(fav.drinkId);
+                h +=
+                  '<div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform=\'translateY(-3px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.1)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">' +
+                    '<a href="' + url + '" style="text-decoration:none;color:inherit;">' +
+                      '<div style="width:100%;aspect-ratio:1;overflow:hidden;background:var(--color-cream);">' +
+                        '<img src="' + img + '" alt="' + fav.drinkName + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />' +
+                      '</div>' +
+                      '<div style="padding:14px;">' +
+                        '<h3 style="font-weight:700;font-size:15px;color:var(--color-gray-dark);margin-bottom:8px;">' + fav.drinkName + '</h3>' +
+                      '</div>' +
+                    '</a>' +
+                    '<div style="padding:0 14px 14px;display:flex;gap:8px;">' +
+                      '<a href="' + url + '" style="flex:1;text-align:center;padding:8px;background:var(--color-starbucks-green);border:none;border-radius:9999px;font-size:13px;font-weight:600;color:#F8F5FC;text-decoration:none;">Order</a>' +
+                      '<button onclick="(function(b){fetch(\'' + _apiBase + '/favorites/' + encodeURIComponent(fav.drinkId) + '\',{method:\'DELETE\',credentials:\'include\'}).then(function(){if(window.BeanhiveToast)BeanhiveToast.info(\'Removed\',\'' + fav.drinkName.replace(/'/g, "\\'") + ' removed.\');loadFavorites();});})(this)" style="width:36px;height:36px;border:1px solid var(--card-border);border-radius:50%;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Remove">' +
+                        '<svg viewBox="0 0 24 24" width="16" height="16" fill="#e74c3c"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>' +
+                      '</button>' +
+                    '</div>' +
+                  '</div>';
+              });
+
+              h += '</div>';
+              body.innerHTML = h;
+            });
+        })
+        .catch(function() {
+          body.innerHTML =
+            '<div style="text-align:center;padding:60px 20px;">' +
+              '<svg viewBox="0 0 200 200" width="140" height="140" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 24px;display:block;opacity:0.5;">' +
+                '<circle cx="100" cy="90" r="55" fill="#f7f6f3" stroke="#d4d1ca" stroke-width="2"/>' +
+                '<path d="M80 85 C80 75 88 68 95 75 C102 68 110 75 110 85 C110 97 95 107 95 107 C95 107 80 97 80 85Z" fill="none" stroke="#c4bfb5" stroke-width="2.5"/>' +
+              '</svg>' +
+              '<h2 style="font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-gray-dark);margin-bottom:12px;">Save your favorites</h2>' +
+              '<p style="color:var(--color-gray-mid);max-width:400px;margin:0 auto 24px;">Sign in to save your favorite drinks and food. Your favorites will appear here to order again.</p>' +
+              '<a href="signin.html" style="display:inline-block;padding:10px 24px;border:1.5px solid var(--color-gray-dark);border-radius:9999px;color:var(--color-gray-dark);text-decoration:none;font-weight:600;margin-right:12px;">Sign in</a>' +
+              '<a href="join.html" style="display:inline-block;padding:10px 24px;background:var(--color-green-dark);border-radius:9999px;color:#F8F5FC;text-decoration:none;font-weight:600;">Join now</a>' +
+            '</div>';
+        });
+    }
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+</body>
+</html>

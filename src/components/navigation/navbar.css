@@ -1,0 +1,606 @@
+/* Component: Navbar
+   ─────────────────────────
+   Top navigation bar for the Starbucks site.
+   Desktop: logo | main links | right actions
+   Mobile: hamburger | logo | cart icon
+   Uses nav design tokens from tokens.css. */
+
+/* ── Navbar Container ─────────────────────── */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--nav-height);
+
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.navbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ── Logo ─────────────────────────────────── */
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navLogo img,
+.navLogo svg {
+  width: 72px;
+  height: 72px;
+  transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .navLogo img {
+  filter: brightness(2.2) saturate(1.5) drop-shadow(0 0 6px rgba(255,255,255,0.3));
+}
+
+/* ── Main Navigation Links ────────────────── */
+
+.navLinks {
+  display: none;
+  align-items: center;
+  gap: var(--space-6);
+  margin-left: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .navLinks {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  color: var(--nav-text);
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.navLink:hover {
+  color: var(--nav-text-hover);
+}
+
+/* Animated underline on hover */
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--color-starbucks-green);
+
+  transition: width var(--duration-normal) var(--ease-default);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* ── Right Side Actions ───────────────────── */
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-left: auto;
+}
+
+/* Hide desktop-only items on mobile */
+@media (max-width: 1023px) {
+  .navLocationLink,
+  .navDivider,
+  .navSignIn,
+  .navBtnSecondary,
+  .navBtnPrimary {
+    display: none !important;
+  }
+
+  .navActions {
+    gap: var(--space-2);
+  }
+}
+
+/* ── Location Link ────────────────────────── */
+
+.navLocationLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--nav-text);
+
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.navLocationLink:hover {
+  color: var(--nav-text-hover);
+}
+
+.navLocationLink svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Divider ──────────────────────────────── */
+
+.navDivider {
+  width: 1px;
+  height: 24px;
+
+  background-color: var(--nav-border);
+}
+
+/* ── Sign In Link ─────────────────────────── */
+
+.navSignIn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--nav-text);
+
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.navSignIn:hover {
+  color: var(--nav-text-hover);
+}
+
+/* ── Sign Out Link ─────────────────────────── */
+
+.navSignOut {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nav-text);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+  text-decoration: none;
+}
+
+.navSignOut:hover {
+  color: var(--color-starbucks-green);
+}
+
+/* ── Join Now Button (Secondary) ──────────── */
+
+.navBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 var(--space-4);
+
+  background-color: var(--btn-secondary-bg);
+  border: 1px solid var(--color-black);
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nav-text);
+
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default);
+}
+
+.navBtnSecondary:hover {
+  background-color: var(--color-gray-light);
+}
+
+/* ── Order Now Button (Primary) ───────────── */
+
+.navBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 var(--space-4);
+
+  background-color: var(--btn-primary-bg);
+  border: none;
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--btn-primary-text);
+
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              transform        var(--duration-fast) var(--ease-default);
+}
+
+.navBtnPrimary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+.navBtnPrimary:active {
+  transform: translateY(0);
+}
+
+/* ── Mobile Hamburger ─────────────────────── */
+
+.navHamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .navHamburger {
+    display: none;
+  }
+}
+
+.navHamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+
+  background-color: var(--color-gray-dark);
+  border-radius: 1px;
+
+  transition: transform var(--duration-normal) var(--ease-default),
+              opacity   var(--duration-normal) var(--ease-default);
+}
+
+/* Hamburger active state — X shape */
+.navHamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navHamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navHamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Drawer ────────────────────────── */
+
+.navDrawer {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  z-index: 99;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+  padding: var(--space-6);
+
+  background-color: var(--color-white);
+  border-top: 1px solid var(--nav-border);
+
+  transform: translateX(-100%);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.navDrawer.open {
+  transform: translateX(0);
+}
+
+/* Drawer backdrop overlay */
+.navDrawer::before {
+  content: '';
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+  z-index: -1;
+}
+
+.navDrawer.open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  .navDrawer {
+    display: none;
+  }
+}
+
+.navDrawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--nav-text);
+
+  border-bottom: 1px solid var(--nav-border);
+
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.navDrawerLink:hover {
+  color: var(--nav-text-hover);
+}
+
+/* Arrow icon for mobile links */
+.navDrawerLink::after {
+  content: '›';
+
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--color-gray-mid);
+}
+
+/* Mobile drawer bottom actions */
+.navDrawerActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.navDrawerActions .navBtnSecondary,
+.navDrawerActions .navBtnPrimary {
+  width: 100%;
+  height: var(--btn-height);
+
+  font-size: var(--text-base);
+}
+
+/* Mobile drawer location link */
+.navDrawerLocation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nav-text);
+}
+
+.navDrawerLocation svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Drawer divider line */
+.navDrawerDivider {
+  height: 1px;
+  background: var(--nav-border);
+  margin: var(--space-4) 0;
+}
+
+/* Drawer location link (with icon inline) */
+.navDrawerLocationLink {
+  gap: var(--space-2);
+}
+
+.navDrawerLocationLink svg {
+  flex-shrink: 0;
+}
+
+.navDrawerLocationLink::after {
+  content: '›';
+}
+
+/* ── Mobile: show search & theme toggle ──── */
+
+@media (max-width: 1023px) {
+  /* Show search and theme toggle on mobile navbar */
+  .navSearchBtn,
+  .themeToggle {
+    display: flex !important;
+  }
+
+  /* Position them in the navbar right area */
+  .navbarInner {
+    position: relative;
+  }
+
+  .navMobileActions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+}
+
+/* ── Dark Mode — Mobile Drawer ───────────── */
+
+[data-theme="dark"] .navDrawer {
+  background-color: #1a1a1a;
+  border-top-color: #2a2a2a;
+}
+
+[data-theme="dark"] .navDrawerLink {
+  color: #e8e8e8;
+  border-bottom-color: #2a2a2a;
+}
+
+[data-theme="dark"] .navDrawerLink:hover {
+  color: #00c76e;
+}
+
+[data-theme="dark"] .navDrawerLink::after {
+  color: #666;
+}
+
+[data-theme="dark"] .navDrawerDivider {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .navDrawerActions .navBtnSecondary {
+  border-color: #666;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .navDrawerActions .navBtnSecondary:hover {
+  background: #333;
+}
+
+[data-theme="dark"] .navDrawerActions .navBtnPrimary {
+  background-color: #00854a;
+  color: #fff;
+}
+
+[data-theme="dark"] .navHamburger span {
+  background-color: #e0e0e0;
+}
+
+/* ── Theme Toggle Switch ─────────────────── */
+
+.themeToggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border: 2px solid var(--nav-text);
+  background: transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.themeToggle:hover {
+  border-color: var(--color-starbucks-green);
+}
+
+/* The sliding knob */
+.themeToggleKnob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.68, -0.15, 0.27, 1.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Sun icon (light mode) */
+.themeToggleKnob .toggleSun {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f5c518;
+  border-radius: 50%;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Moon icon (dark mode) */
+.themeToggleKnob .toggleMoon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f5c518;
+  box-shadow: 6px -2px 0 0 #3d3631 inset;
+  opacity: 0;
+  transform: rotate(-45deg);
+  transition: opacity 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ── Dark mode state ─────────────────────── */
+[data-theme="dark"] .themeToggle {
+  border-color: rgba(255, 255, 255, 0.25);
+  border-width: 1.5px;
+}
+
+[data-theme="dark"] .themeToggle:hover {
+  border-color: #00c76e;
+}
+
+[data-theme="dark"] .themeToggleKnob {
+  transform: translateX(24px);
+}
+
+[data-theme="dark"] .themeToggleKnob .toggleSun {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="dark"] .themeToggleKnob .toggleMoon {
+  opacity: 1;
+  transform: rotate(0deg);
+  background: #f5c518;
+  box-shadow: 7px -2px 0 0 #3a3a3a inset;
+}
+
+/* System dark mode (no explicit theme set) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .themeToggle {
+    border-color: rgba(255, 255, 255, 0.25);
+    border-width: 1.5px;
+  }
+  :root:not([data-theme="light"]) .themeToggleKnob {
+    transform: translateX(24px);
+  }
+  :root:not([data-theme="light"]) .themeToggleKnob .toggleSun {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  :root:not([data-theme="light"]) .themeToggleKnob .toggleMoon {
+    opacity: 1;
+    transform: rotate(0deg);
+    background: #f5c518;
+    box-shadow: 7px -2px 0 0 #3a3a3a inset;
+  }
+}

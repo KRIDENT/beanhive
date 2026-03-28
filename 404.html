@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/components/404/404.css">
+</head>
+<body class="page404">
+
+  <main class="errorContainer">
+
+    <!-- 4 ☕ 4 Display -->
+    <div class="errorDisplay">
+
+      <span class="errorDigit">4</span>
+
+      <!-- Top-down coffee cup SVG -->
+      <svg class="errorCup" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Coffee cup viewed from above">
+
+        <!-- Saucer outer rim -->
+        <circle cx="100" cy="100" r="92" stroke="#f5f0e6" stroke-width="4" fill="none"/>
+
+        <!-- Saucer inner rim detail -->
+        <circle cx="100" cy="100" r="82" stroke="#e8e0d0" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+        <!-- Cup outer rim -->
+        <circle cx="100" cy="100" r="68" stroke="#ffffff" stroke-width="4" fill="none"/>
+
+        <!-- Cup inner rim -->
+        <circle cx="100" cy="100" r="62" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+
+        <!-- Coffee liquid fill -->
+        <circle cx="100" cy="100" r="58" fill="#3d2b1f"/>
+
+        <!-- Crema / swirl pattern -->
+        <g class="errorSwirl">
+          <path
+            d="M80 90 Q90 80 100 88 Q110 96 120 88 Q128 82 118 100 Q110 114 96 108 Q84 102 80 90Z"
+            fill="#5c3d2e" opacity="0.6"
+          />
+          <path
+            d="M92 96 Q100 88 108 96 Q114 102 106 106 Q98 110 92 104Z"
+            fill="#6b4a38" opacity="0.45"
+          />
+          <path
+            d="M96 98 Q102 94 106 100 Q104 104 98 102Z"
+            fill="#7a5843" opacity="0.3"
+          />
+        </g>
+
+        <!-- Subtle rim highlight -->
+        <circle cx="100" cy="100" r="68" stroke="rgba(255,255,255,0.12)" stroke-width="6" fill="none"/>
+
+      </svg>
+
+      <span class="errorDigit">4</span>
+
+    </div>
+
+    <!-- Error Message -->
+    <h1 class="errorTitle">Oops! Your page not found...</h1>
+    <p class="errorDesc">Looks like this page took a coffee break. Let's get you back on track.</p>
+    <a href="index.html" class="errorBtn">Back to Home</a>
+
+  </main>
+
+</body>
+</html>

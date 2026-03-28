@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Handcrafted coffee drinks, rewards, and more.">
+  <title>Drink Detail — Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/drink-detail/drink-detail.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="drinkDetailPage">
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Steam lines -->
+        <g class="steam steam--1">
+          <path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--2">
+          <path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--3">
+          <path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- Cup group -->
+        <g class="cupBody">
+
+          <!-- Saucer -->
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+
+          <!-- Cup outer -->
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z"
+                stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+
+          <!-- Handle -->
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84"
+                stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Liquid surface -->
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+
+          <!-- Cup rim highlight -->
+          <path d="M28 48 Q55 42 82 48" stroke="#3d3631" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+          <!-- Cup body detail lines -->
+          <path d="M38 60 Q55 64 72 60" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.25"/>
+          <path d="M36 72 Q55 76 74 72" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.2"/>
+
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <!-- Hamburger — mobile only -->
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Beanhive Logo -->
+      <a href="/" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <!-- Main Navigation Links — desktop -->
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <!-- Right Side Actions — desktop -->
+      <div class="navActions">
+
+        <!-- Search -->
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <!-- Find a Store -->
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Find a store
+        </a>
+
+        <span class="navDivider" aria-hidden="true"></span>
+
+        <!-- Sign In -->
+        <a href="signin.html" class="navSignIn">Sign in</a>
+
+        <!-- Join Now -->
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+
+        <!-- Order Now CTA -->
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- Spacer to offset fixed navbar -->
+  <main style="padding-top: var(--nav-height);">
+
+    <!-- ── Drink Detail ─────────────────────── -->
+    <section class="drinkDetail">
+      <div class="ddContainer">
+
+        <!-- Breadcrumb -->
+        <nav class="ddBreadcrumb" aria-label="Breadcrumb">
+          <a href="menu.html">Menu</a>
+          <span class="ddBreadcrumbSep" aria-hidden="true">/</span>
+          <a href="menu.html" class="ddBreadcrumbCategory">Drinks</a>
+          <span class="ddBreadcrumbSep" aria-hidden="true">/</span>
+          <span class="ddBreadcrumbCurrent">Drink Name</span>
+        </nav>
+
+        <!-- Two-column layout -->
+        <div class="ddLayout">
+
+          <!-- Left: Image -->
+          <div class="ddImage">
+            <img src="" alt="" class="ddImageEl" />
+          </div>
+
+          <!-- Right: Info -->
+          <div class="ddInfo productCard">
+
+            <h1 class="ddName productCardName">Drink Name</h1>
+            <p class="ddCalories">250 calories</p>
+
+            <!-- Size Selector -->
+            <div class="ddSizeSelector" role="radiogroup" aria-label="Select size">
+              <button class="ddSizeBtn" data-size="short" data-offset="-0.50" type="button">
+                <span class="ddSizeCup ddSizeCup--short">
+                  <svg viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 8h28l-3 38a4 4 0 0 1-4 3.5H13A4 4 0 0 1 9 46L6 8Z" stroke="currentColor" stroke-width="2" fill="none" class="cupOutline"/>
+                    <path d="M4 8h32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M14 2c0 3 2 4 2 6M20 2c0 3 2 4 2 6M26 2c0 3 2 4 2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="cupSteam"/>
+                  </svg>
+                </span>
+                <span class="ddSizeBtnLabel">Short</span>
+              </button>
+              <button class="ddSizeBtn" data-size="tall" data-offset="-0.20" type="button">
+                <span class="ddSizeCup ddSizeCup--tall">
+                  <svg viewBox="0 0 40 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 8h26l-2.5 44a4 4 0 0 1-4 3.5H13.5A4 4 0 0 1 9.5 52L7 8Z" stroke="currentColor" stroke-width="2" fill="none" class="cupOutline"/>
+                    <path d="M5 8h30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M14 2c0 3 2 4 2 6M20 2c0 3 2 4 2 6M26 2c0 3 2 4 2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="cupSteam"/>
+                  </svg>
+                </span>
+                <span class="ddSizeBtnLabel">Tall</span>
+              </button>
+              <button class="ddSizeBtn active" data-size="grande" data-offset="0" type="button">
+                <span class="ddSizeCup ddSizeCup--grande">
+                  <svg viewBox="0 0 44 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 8h30l-3 50a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4L7 8Z" stroke="currentColor" stroke-width="2" fill="none" class="cupOutline"/>
+                    <path d="M5 8h34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 2c0 3 2 4 2 6M22 2c0 3 2 4 2 6M29 2c0 3 2 4 2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="cupSteam"/>
+                  </svg>
+                </span>
+                <span class="ddSizeBtnLabel">Grande</span>
+              </button>
+              <button class="ddSizeBtn" data-size="venti" data-offset="0.50" type="button">
+                <span class="ddSizeCup ddSizeCup--venti">
+                  <svg viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8h32l-3 56a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4L8 8Z" stroke="currentColor" stroke-width="2" fill="none" class="cupOutline"/>
+                    <path d="M6 8h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 2c0 3 2 4 2 6M24 2c0 3 2 4 2 6M32 2c0 3 2 4 2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="cupSteam"/>
+                  </svg>
+                </span>
+                <span class="ddSizeBtnLabel">Venti</span>
+              </button>
+            </div>
+
+            <!-- Price -->
+            <p class="ddPrice productCardPrice">$5.95</p>
+
+            <!-- Description -->
+            <p class="ddDescription">A delicious handcrafted beverage.</p>
+
+            <!-- Customizations -->
+            <div class="ddCustomize">
+              <h2 class="ddCustomizeTitle">Customize</h2>
+
+              <!-- Milk Type -->
+              <div class="ddMilkSelector" role="radiogroup" aria-label="Select milk type">
+                <button class="ddMilkBtn active" data-milk="whole" type="button">Whole Milk</button>
+                <button class="ddMilkBtn" data-milk="2percent" type="button">2% Milk</button>
+                <button class="ddMilkBtn" data-milk="oat" type="button">Oat Milk</button>
+                <button class="ddMilkBtn" data-milk="almond" type="button">Almond Milk</button>
+                <button class="ddMilkBtn" data-milk="coconut" type="button">Coconut Milk</button>
+              </div>
+
+              <!-- Extra Shot Toggle -->
+              <label class="ddToggle">
+                <input type="checkbox" class="ddToggleCheckbox ddExtraShot" />
+                <span class="ddToggleSwitch"></span>
+                <span>Add an extra shot +$0.80</span>
+              </label>
+
+              <!-- Whipped Cream Toggle -->
+              <label class="ddToggle">
+                <input type="checkbox" class="ddToggleCheckbox ddWhipCream" checked />
+                <span class="ddToggleSwitch"></span>
+                <span>Add whipped cream</span>
+              </label>
+            </div>
+
+            <!-- Add to Order Button -->
+            <button class="ddAddBtn productCardCta" type="button">Add to Order</button>
+
+            <!-- Hidden image for cart.js -->
+            <img src="" alt="" class="productCardImage" style="display:none;" />
+
+            <!-- Nutrition Link -->
+            <a href="#" class="ddNutrition">Full nutrition &amp; ingredient information</a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── You Might Also Like ──────────────── -->
+    <section class="ddAlsoLike">
+      <h2 class="ddAlsoLikeTitle">You might also like</h2>
+      <div class="ddAlsoLikeGrid" id="alsoLikeGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer">
+    <div class="footerInner">
+
+      <!-- Footer columns -->
+      <div class="footerColumns">
+
+        <div class="footerColumn">
+          <button class="footerColumnToggle" aria-expanded="false">About Us</button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/heritage" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+            <a href="/about/investor" class="footerLink">Investor Relations</a>
+            <a href="/about/policies" class="footerLink">Policies and Standards</a>
+            <a href="/about/customer-service" class="footerLink">Customer Service</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnToggle" aria-expanded="false">Careers</button>
+          <div class="footerColumnLinks">
+            <a href="/careers/culture" class="footerLink">Culture and Values</a>
+            <a href="/careers/inclusion" class="footerLink">Inclusion, Equity, and Accessibility</a>
+            <a href="/careers/college" class="footerLink">College Achievement Plan</a>
+            <a href="/careers/alumni" class="footerLink">Alumni Community</a>
+            <a href="/careers/us-careers" class="footerLink">U.S. Careers</a>
+            <a href="/careers/international" class="footerLink">International Careers</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnToggle" aria-expanded="false">Social Impact</button>
+          <div class="footerColumnLinks">
+            <a href="/social/people" class="footerLink">People</a>
+            <a href="/social/planet" class="footerLink">Planet</a>
+            <a href="/social/sourcing" class="footerLink">Environmental and Social Impact Reporting</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnToggle" aria-expanded="false">For Business Partners</button>
+          <div class="footerColumnLinks">
+            <a href="/business/landlord" class="footerLink">Landlord Support Center</a>
+            <a href="/business/suppliers" class="footerLink">Suppliers</a>
+            <a href="/business/corporate-gift" class="footerLink">Corporate Gift Card Sales</a>
+            <a href="/business/office-coffee" class="footerLink">Office and Foodservice Coffee</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnToggle" aria-expanded="false">Order and Pick Up</button>
+          <div class="footerColumnLinks">
+            <a href="/menu" class="footerLink">Order on the App</a>
+            <a href="/menu" class="footerLink">Order on the Web</a>
+            <a href="/delivery" class="footerLink">Delivery</a>
+            <a href="/menu" class="footerLink">Order and Pick Up Options</a>
+            <a href="/menu/explore" class="footerLink">Explore and Find Coffee for Home</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social Links -->
+      <div class="footerSocial">
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.06 20.04 8.94c.6.36.72 1.02.36 1.56-.36.481-1.08.721-1.56.36l.241-.18z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/cookies" class="footerLegalLink">Cookie Preferences</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/ca-supply-chain" class="footerLegalLink">CA Supply Chain Act</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/accessibility" class="footerLegalLink">Accessibility</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/skeleton/skeleton.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/preloader/preloader.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    (function () {
+      var API_HOST = window.location.hostname || 'localhost';
+      var API_BASE = 'http://' + API_HOST + ':3001/v1';
+
+      var params = new URLSearchParams(window.location.search);
+      var drinkSlug = params.get('drink');
+      var container = document.querySelector('.ddContainer');
+
+      if (!drinkSlug) {
+        showNotFound();
+        return;
+      }
+
+      function showNotFound() {
+        container.innerHTML = '<div class="ddNotFound"><h1>Item not found</h1><p>Sorry, we couldn\'t find what you\'re looking for.</p><a href="menu.html" class="ddNotFoundLink">Back to Menu</a></div>';
+        document.title = 'Not Found — Beanhive';
+      }
+
+      // Fetch from API
+      fetch(API_BASE + '/menu/' + encodeURIComponent(drinkSlug))
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          var item = json.data ? json.data.item : null;
+          if (!item) { showNotFound(); return; }
+          var drink = { id: item.slug, name: item.name, category: item.category, calories: item.calories, description: item.description, price: item.price, img: item.image, isFood: item.isFood };
+          initPage(drink);
+        })
+        .catch(function () {
+          container.innerHTML = '<div class="ddNotFound"><h1>Connection error</h1><p>Could not load item. Is the server running?</p><a href="menu.html" class="ddNotFoundLink">Back to Menu</a></div>';
+        });
+
+      function initPage(drink) {
+        // This dummy object exists only so the code below compiles.
+        // The "You Might Also Like" section now fetches from API.
+        var drinks = {};
+        drinks[drink.id] = drink;
+
+        /* DOM References */
+        var nameEl = document.querySelector(".ddName");
+        var caloriesEl = document.querySelector(".ddCalories");
+        var priceEl = document.querySelector(".ddPrice");
+        var descEl = document.querySelector(".ddDescription");
+        var imgEl = document.querySelector(".ddImageEl");
+        var hiddenImg = document.querySelector(".productCardImage");
+        var breadcrumbCategory = document.querySelector(".ddBreadcrumbCategory");
+        var breadcrumbCurrent = document.querySelector(".ddBreadcrumbCurrent");
+
+      /* ── Populate Page ──────────────────────── */
+      document.title = drink.name + ' — Beanhive';
+      nameEl.textContent = drink.name;
+      caloriesEl.textContent = drink.calories + ' calories';
+      descEl.textContent = drink.description;
+      imgEl.src = drink.img;
+      imgEl.alt = drink.name;
+      hiddenImg.src = drink.img;
+      breadcrumbCategory.textContent = drink.category;
+      breadcrumbCurrent.textContent = drink.name;
+
+      /* ── Hide drink-specific UI for food items ── */
+      if (drink.isFood) {
+        var sizeSelector = document.querySelector('.ddSizeSelector');
+        var milkSection = document.querySelector('.ddCustomize');
+        if (sizeSelector) sizeSelector.style.display = 'none';
+        if (milkSection) milkSection.style.display = 'none';
+        // Update "Add to Order" text
+        var addBtn = document.querySelector('.ddAddBtn');
+        if (addBtn) addBtn.textContent = 'Add to Order';
+        // Update nutrition link text
+        var nutritionLink = document.querySelector('.ddNutrition');
+        if (nutritionLink) nutritionLink.textContent = 'Full nutrition & ingredient information';
+      }
+
+      var basePrice = drink.price;
+      var extraShotCost = 0;
+
+      function calcPrice() {
+        var activeSize = document.querySelector('.ddSizeBtn.active');
+        var sizeOffset = activeSize ? parseFloat(activeSize.dataset.offset) : 0;
+        return basePrice + sizeOffset + extraShotCost;
+      }
+
+      function updatePrice() {
+        var total = calcPrice();
+        var formatted = '$' + total.toFixed(2);
+        priceEl.textContent = formatted;
+      }
+
+      updatePrice();
+
+      /* ── Size Selector ──────────────────────── */
+      var sizeBtns = document.querySelectorAll('.ddSizeBtn');
+      sizeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          sizeBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          updatePrice();
+        });
+      });
+
+      /* ── Milk Selector ──────────────────────── */
+      var milkBtns = document.querySelectorAll('.ddMilkBtn');
+      milkBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          milkBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+        });
+      });
+
+      /* ── Extra Shot Toggle ──────────────────── */
+      var extraShotCheckbox = document.querySelector('.ddExtraShot');
+      if (extraShotCheckbox) {
+        extraShotCheckbox.addEventListener('change', function () {
+          extraShotCost = this.checked ? 0.80 : 0;
+          updatePrice();
+        });
+      }
+
+      /* ── "You Might Also Like" — fetch from API ── */
+      var grid = document.getElementById('alsoLikeGrid');
+      var alsoLikeTitle = document.querySelector('.ddAlsoLikeTitle');
+      if (alsoLikeTitle && drink.isFood) alsoLikeTitle.textContent = 'You might also like';
+
+      fetch(API_BASE + '/menu')
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          var allItems = (json.data && json.data.items) || [];
+          // Filter: same type (food/drink), exclude current
+          var similar = allItems.filter(function (item) {
+            if (item.slug === drink.id) return false;
+            return drink.isFood ? item.isFood : !item.isFood;
+          });
+          if (similar.length < 4) {
+            var others = allItems.filter(function (item) {
+              return item.slug !== drink.id && similar.indexOf(item) === -1;
+            });
+            others.sort(function () { return 0.5 - Math.random(); });
+            similar = similar.concat(others);
+          }
+          similar.sort(function () { return 0.5 - Math.random(); });
+          similar.slice(0, 4).forEach(function (d) {
+            var card = document.createElement('div');
+            card.className = 'productCard ddSuggestionCard';
+            card.innerHTML =
+              '<a href="drink-detail.html?drink=' + d.slug + '" class="ddSuggestionLink">' +
+                '<div class="ddSuggestionImgWrap">' +
+                  '<img src="' + (d.image || '') + '" alt="' + d.name + '" class="productCardImage" />' +
+                '</div>' +
+                '<h3 class="productCardName ddSuggestionName">' + d.name + '</h3>' +
+                '<p class="productCardPrice ddSuggestionPrice">$' + d.price.toFixed(2) + '</p>' +
+              '</a>' +
+              '<button class="productCardCta ddSuggestionBtn" type="button">Add to Order</button>';
+            grid.appendChild(card);
+          });
+        });
+
+      } // end initPage
+    })();
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+</body>
+</html>

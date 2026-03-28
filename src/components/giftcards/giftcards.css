@@ -1,0 +1,300 @@
+/* ─────────────────────────────────────────────
+   GIFT CARDS PAGE
+   ───────────────────────────────────────────── */
+
+/* ── Container ────────────────────────────── */
+.gc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ── Page Title ───────────────────────────── */
+.gc-pageTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  color: var(--color-green-dark);
+  line-height: var(--leading-tight);
+  margin: var(--space-12) 0 var(--space-8);
+}
+
+/* ── Section Header (FEATURED, SPRING, etc.) */
+.gc-sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.gc-categoryLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1A1820;
+  margin: 0;
+}
+
+.gc-seeAll {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+}
+
+.gc-seeAll:hover {
+  text-decoration: underline;
+}
+
+/* ── Featured Row (horizontal scroll) ─────── */
+.gc-featuredRow {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gc-featuredRow::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Gift Card Placeholder ────────────────── */
+.gc-card {
+  flex: 0 0 160px;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow var(--duration-normal) var(--ease-default),
+              transform var(--duration-normal) var(--ease-default);
+  text-decoration: none;
+}
+
+.gc-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.gc-cardText {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-green-dark);
+  text-align: center;
+  padding: var(--space-2);
+  line-height: var(--leading-tight);
+}
+
+/* ── Category Grid ────────────────────────── */
+.gc-section {
+  margin-bottom: var(--space-12);
+}
+
+.gc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.gc-grid .gc-card {
+  flex: none;
+  width: 100%;
+}
+
+/* ── Info Banner ──────────────────────────── */
+.gc-infoBanner {
+  background: var(--color-gray-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  margin: var(--space-8) 0;
+}
+
+.gc-infoBanner p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-dark);
+  margin: 0;
+}
+
+/* ── Received Section ─────────────────────── */
+.gc-received {
+  margin: var(--space-12) 0;
+}
+
+.gc-receivedHeading {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-green-dark);
+  margin-bottom: var(--space-6);
+}
+
+.gc-receivedActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.gc-btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+  border: 2px solid var(--color-green-dark);
+  border-radius: var(--btn-radius);
+  background: transparent;
+  color: var(--color-green-dark);
+  font-family: var(--btn-font);
+  font-weight: var(--btn-weight);
+  font-size: var(--text-sm);
+  letter-spacing: var(--btn-tracking);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.gc-btnOutline:hover {
+  background: rgba(30, 57, 50, 0.06);
+}
+
+.gc-btnFilled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+  border: none;
+  border-radius: var(--btn-radius);
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  font-family: var(--btn-font);
+  font-weight: var(--btn-weight);
+  font-size: var(--text-sm);
+  letter-spacing: var(--btn-tracking);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.gc-btnFilled:hover {
+  background: #152e28;
+}
+
+.gc-termsLink {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+}
+
+.gc-termsLink:hover {
+  text-decoration: underline;
+}
+
+/* ── Business Gifting Banner ──────────────── */
+.gc-businessBanner {
+  background: #EDE0FF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-8);
+  margin: var(--space-12) 0;
+}
+
+.gc-businessBanner h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-green-dark);
+  margin: 0 0 var(--space-4);
+}
+
+.gc-businessBanner p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-green-dark);
+  margin: 0 0 var(--space-6);
+  max-width: 520px;
+  line-height: var(--leading-normal);
+}
+
+/* ── Info Footer Columns ──────────────────── */
+.gc-infoFooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  margin: var(--space-12) 0;
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.gc-infoBlock h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-green-dark);
+  margin: 0 0 var(--space-4);
+}
+
+.gc-infoBlock p {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+  line-height: var(--leading-normal);
+  margin: 0 0 var(--space-6);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1024px) {
+  .gc-pageTitle {
+    font-size: var(--text-3xl);
+  }
+
+  .gc-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gc-infoFooter {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .gc-pageTitle {
+    font-size: var(--text-2xl);
+    margin: var(--space-8) 0 var(--space-6);
+  }
+
+  .gc-businessBanner {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .gc-container {
+    padding: 0 var(--space-4);
+  }
+
+  .gc-card {
+    flex: 0 0 140px;
+  }
+
+  .gc-receivedActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gc-pageTitle {
+    font-size: var(--text-xl);
+  }
+}

@@ -1,0 +1,6 @@
+.env
+node_modules/
+data/
+.claude/
+cookies.txt
+cookies2.txt

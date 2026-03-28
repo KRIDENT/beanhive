@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Handcrafted coffee drinks, rewards, and more.">
+  <title>Beanhive Rewards</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/rewards/rewards-page.css?v=2">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body>
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Steam lines -->
+        <g class="steam steam--1">
+          <path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--2">
+          <path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--3">
+          <path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- Cup group -->
+        <g class="cupBody">
+
+          <!-- Saucer -->
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+
+          <!-- Cup outer -->
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z"
+                stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+
+          <!-- Handle -->
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84"
+                stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Liquid surface -->
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+
+          <!-- Cup rim highlight -->
+          <path d="M28 48 Q55 42 82 48" stroke="#3d3631" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+          <!-- Cup body detail lines -->
+          <path d="M38 60 Q55 64 72 60" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.25"/>
+          <path d="M36 72 Q55 76 74 72" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.2"/>
+
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <!-- Hamburger — mobile only -->
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Beanhive Logo -->
+      <a href="/" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <!-- Main Navigation Links — desktop -->
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink" aria-current="page">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <!-- Right Side Actions — desktop -->
+      <div class="navActions">
+
+        <!-- Search -->
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <!-- Find a Store -->
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Find a store
+        </a>
+
+        <span class="navDivider" aria-hidden="true"></span>
+
+        <!-- Sign In -->
+        <a href="signin.html" class="navSignIn">Sign in</a>
+
+        <!-- Join Now -->
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+
+        <!-- Order Now CTA -->
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+
+    <!-- ── Announcement Banner ────────────────── -->
+    <section class="rewards-banner" aria-label="Announcement">
+      <p class="rewards-banner__title">Introducing the new Beanhive Rewards</p>
+      <p class="rewards-banner__subtitle">More ways to earn, more ways to enjoy. Now with even better perks.</p>
+    </section>
+
+    <!-- ── Hero ───────────────────────────────── -->
+    <section class="rewards-hero" aria-label="Rewards hero">
+      <div class="rewards-hero__inner">
+        <div class="rewards-hero__content">
+          <span class="rewards-hero__label">Beanhive Rewards</span>
+          <h1 class="rewards-hero__heading">Free coffee is just the beginning</h1>
+          <p class="rewards-hero__subtitle">Join Beanhive Rewards to earn Stars for free food and drinks, plus get access to mobile ordering, special offers, and more.</p>
+          <a href="join.html" class="rewards-hero__cta">Join now</a>
+        </div>
+        <div class="rewards-hero__image">
+          <img src="Images/close-up-coffee-cup-with-beans.png" alt="A beautifully crafted cup of coffee surrounded by fresh coffee beans" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Your Rewards (dynamic, shown when logged in) ── -->
+    <section class="rewards-status-section" id="rewardsStatusSection" style="display:none;" aria-label="Your rewards status">
+      <div class="rewards-status__inner">
+
+        <!-- Logged-in state -->
+        <div class="rewards-status__content" id="rewardsStatusContent" style="display:none;">
+          <div class="rewards-status__header">
+            <h2 class="rewards-status__title">Your Rewards</h2>
+            <span class="rewards-status__tier-badge" id="rewardsTierBadge">Green</span>
+          </div>
+
+          <div class="rewards-status__stars-row">
+            <div class="rewards-status__stars-block">
+              <span class="rewards-status__stars-number" id="rewardsStarsCount">0</span>
+              <span class="rewards-status__stars-label">Stars</span>
+            </div>
+            <div class="rewards-status__progress-block">
+              <div class="rewards-status__progress-info">
+                <span id="rewardsProgressText">0 Stars to Gold</span>
+              </div>
+              <div class="rewards-status__progress-bar">
+                <div class="rewards-status__progress-fill" id="rewardsProgressFill" style="width:0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rewards-status__history" id="rewardsHistory" style="display:none;">
+            <h3 class="rewards-status__history-title">Recent Activity</h3>
+            <table class="rewards-status__history-table">
+              <thead>
+                <tr><th>Date</th><th>Type</th><th>Stars</th></tr>
+              </thead>
+              <tbody id="rewardsHistoryBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Logged-out state -->
+        <div class="rewards-status__cta" id="rewardsSignInCta" style="display:none;">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="48" height="48" aria-hidden="true">
+            <polygon points="32,6 39.5,21.5 56,23.5 44,35.5 47,52 32,44 17,52 20,35.5 8,23.5 24.5,21.5"/>
+          </svg>
+          <h2 class="rewards-status__cta-title">Sign in to view your rewards</h2>
+          <p class="rewards-status__cta-desc">Track your Stars, see your tier, and view your rewards history.</p>
+          <div class="rewards-status__cta-btns">
+            <a href="signin.html" class="rewards-status__btn rewards-status__btn--outline">Sign in</a>
+            <a href="join.html" class="rewards-status__btn rewards-status__btn--filled">Join now</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── How It Works ───────────────────────── -->
+    <section class="rewards-section rewards-section--bg-white" aria-label="How it works">
+      <h2 class="rewards-section__heading">How it works</h2>
+      <p class="rewards-section__subtitle">Earning free drinks and food has never been easier. Here is how to get started in three simple steps.</p>
+
+      <div class="how-cards">
+
+        <!-- Collect Stars -->
+        <div class="how-card">
+          <div class="how-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="32,6 39.5,21.5 56,23.5 44,35.5 47,52 32,44 17,52 20,35.5 8,23.5 24.5,21.5"/>
+            </svg>
+          </div>
+          <h3 class="how-card__title">Collect Stars</h3>
+          <p class="how-card__desc">Earn 1 Star per dollar spent when you pay with cash, credit, or debit. Earn 2 Stars per dollar when you load funds onto your Beanhive card.</p>
+        </div>
+
+        <!-- Enjoy Free Treats -->
+        <div class="how-card">
+          <div class="how-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="28" width="36" height="28" rx="3"/>
+              <path d="M14 28 L32 16 L50 28"/>
+              <path d="M32 28 L32 56"/>
+              <circle cx="32" cy="10" r="4"/>
+              <path d="M24 18 Q28 22 32 16 Q36 22 40 18"/>
+            </svg>
+          </div>
+          <h3 class="how-card__title">Enjoy free treats</h3>
+          <p class="how-card__desc">Use your Stars to redeem free food, drinks, and more. The more Stars you collect, the bigger the rewards you can unlock.</p>
+        </div>
+
+        <!-- Unlock Benefits -->
+        <div class="how-card">
+          <div class="how-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="30" width="32" height="24" rx="4"/>
+              <path d="M24 30 L24 22 Q24 12 32 12 Q40 12 40 22 L40 26"/>
+              <circle cx="32" cy="42" r="3"/>
+              <path d="M32 45 L32 49"/>
+            </svg>
+          </div>
+          <h3 class="how-card__title">Unlock benefits</h3>
+          <p class="how-card__desc">Reach new tiers to unlock extras like free refills, birthday rewards, double-Star days, and exclusive member events.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Tier Cards ─────────────────────────── -->
+    <section class="rewards-section rewards-section--bg-cream" aria-label="Reward tiers">
+      <h2 class="rewards-section__heading">Get rewarded for your routine</h2>
+      <p class="rewards-section__subtitle">As you earn Stars, you will advance through tiers and unlock increasingly better benefits.</p>
+
+      <div class="tier-cards">
+
+        <!-- Green Status -->
+        <div class="tier-card" data-tier="green">
+          <div class="tier-card__header tier-card__header--green">
+            <h3 class="tier-card__tier-name">Green Status</h3>
+            <p class="tier-card__requirement">Earn 100+ Stars each year</p>
+          </div>
+          <div class="tier-card__body">
+            <ul class="tier-card__perks">
+              <li>Free birthday drink or food item</li>
+              <li>Free in-store refills on brewed coffee and tea</li>
+              <li>Early access to new products</li>
+              <li>Personalized offers and discounts</li>
+              <li>Order ahead and skip the line</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Gold Status -->
+        <div class="tier-card" data-tier="gold">
+          <div class="tier-card__header tier-card__header--gold">
+            <h3 class="tier-card__tier-name">Gold Status</h3>
+            <p class="tier-card__requirement">650+ Stars earned each year</p>
+          </div>
+          <div class="tier-card__body">
+            <ul class="tier-card__perks">
+              <li>Everything in Green Status</li>
+              <li>Monthly double-Star bonus days</li>
+              <li>Personalized Gold card</li>
+              <li>Free drink or food with every 125 Stars</li>
+              <li>Exclusive seasonal offers</li>
+              <li>Free drink size upgrades</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Reserve Status -->
+        <div class="tier-card" data-tier="reserve">
+          <div class="tier-card__header tier-card__header--dark">
+            <h3 class="tier-card__tier-name">Reserve Status</h3>
+            <p class="tier-card__requirement">1,200+ Stars earned each year</p>
+          </div>
+          <div class="tier-card__body">
+            <ul class="tier-card__perks">
+              <li>Everything in Gold Status</li>
+              <li>Access to Reserve coffee selections</li>
+              <li>Invitations to exclusive tasting events</li>
+              <li>Free drink or food with every 100 Stars</li>
+              <li>Complimentary extra shots and syrups</li>
+              <li>Priority customer support</li>
+              <li>Annual surprise gift from Beanhive</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Star Milestones ────────────────────── -->
+    <section class="rewards-section rewards-section--bg-white" aria-label="Star milestones">
+      <h2 class="rewards-section__heading">Get your favorites for free</h2>
+      <p class="rewards-section__subtitle">The more Stars you earn, the more rewards you can redeem. Here is what you can get at each milestone.</p>
+
+      <div class="milestone-bar">
+        <div class="milestone-track">
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              25
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Espresso shot or dairy substitute</span>
+          </div>
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              50
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Brewed hot coffee, bakery item, or hot tea</span>
+          </div>
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              100
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Handcrafted drink, hot breakfast, or parfait</span>
+          </div>
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              200
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Lunch sandwich, protein box, or salad</span>
+          </div>
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              300
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Select merchandise or at-home coffee</span>
+          </div>
+
+          <div class="milestone-stop">
+            <span class="milestone-stop__stars">
+              400
+              <svg viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11,10 12.5,15 8,12 3.5,15 5,10 1,6.5 6,6"/></svg>
+            </span>
+            <span class="milestone-stop__label">Select signature merchandise or coffee accessories</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Partnerships ───────────────────────── -->
+    <section class="rewards-section rewards-section--bg-cream" aria-label="Partnerships">
+      <h2 class="rewards-section__heading">Partnerships</h2>
+      <p class="rewards-section__subtitle">Earn and redeem Stars beyond the cafe with our trusted partners.</p>
+
+      <div class="partner-cards">
+
+        <!-- Partner 1: SkyWay Airlines -->
+        <div class="partner-card">
+          <div class="partner-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 32 L28 12 L48 32"/>
+              <path d="M28 12 L28 48"/>
+              <path d="M16 40 L28 28 L40 40"/>
+              <circle cx="28" cy="8" r="3"/>
+            </svg>
+          </div>
+          <h3 class="partner-card__name">SkyWay Airlines</h3>
+          <p class="partner-card__desc">Link your SkyWay Miles and Beanhive Rewards accounts to earn 1 Star for every mile flown, and redeem miles for your favorite drinks.</p>
+          <a href="#" class="partner-card__link">Learn more</a>
+        </div>
+
+        <!-- Partner 2: Haven Hotels -->
+        <div class="partner-card">
+          <div class="partner-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="12" y="20" width="32" height="28" rx="2"/>
+              <path d="M12 20 L28 8 L44 20"/>
+              <rect x="22" y="32" width="12" height="16"/>
+              <rect x="16" y="26" width="6" height="6" rx="1"/>
+              <rect x="34" y="26" width="6" height="6" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="partner-card__name">Haven Hotels</h3>
+          <p class="partner-card__desc">Connect your Haven Rewards membership and earn Stars during your hotel stays. Plus, enjoy complimentary Beanhive coffee at select Haven locations.</p>
+          <a href="#" class="partner-card__link">Learn more</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Get Started ────────────────────────── -->
+    <section class="get-started" aria-label="Get started">
+      <div class="get-started__inner">
+        <h2 class="get-started__heading">Free to join, easy to get started</h2>
+
+        <div class="get-started__steps">
+
+          <!-- Step 1 -->
+          <div class="get-started__step">
+            <div class="get-started__step-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="16" cy="10" r="6"/>
+                <path d="M6 28 Q6 20 16 20 Q26 20 26 28"/>
+              </svg>
+            </div>
+            <span class="get-started__step-number">Step 1</span>
+            <h3 class="get-started__step-title">Create an account</h3>
+            <p class="get-started__step-desc">Sign up for Beanhive Rewards in just a few taps. It is free and takes less than a minute.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="get-started__step">
+            <div class="get-started__step-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="4" width="20" height="24" rx="3"/>
+                <path d="M12 12 L20 12"/>
+                <path d="M12 16 L20 16"/>
+                <path d="M12 20 L16 20"/>
+                <circle cx="22" cy="24" r="5" fill="currentColor" stroke="none" opacity="0.3"/>
+                <path d="M20 24 L22 26 L26 22" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="get-started__step-number">Step 2</span>
+            <h3 class="get-started__step-title">Order and pay</h3>
+            <p class="get-started__step-desc">Use the Beanhive app or website to place your order. Pay with your Beanhive card for bonus Stars.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="get-started__step">
+            <div class="get-started__step-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="16,4 19.5,11 27,12 21.5,17.5 23,25 16,21 9,25 10.5,17.5 5,12 12.5,11"/>
+              </svg>
+            </div>
+            <span class="get-started__step-number">Step 3</span>
+            <h3 class="get-started__step-title">Earn Stars, get Rewards</h3>
+            <p class="get-started__step-desc">Collect Stars with every purchase and redeem them for free drinks, food, and exclusive perks.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Questions ──────────────────────────── -->
+    <section class="questions-section" aria-label="Questions">
+      <h2 class="questions-section__heading">Questions?</h2>
+      <a href="#" class="questions-section__link">Check out the FAQs</a>
+    </section>
+
+    <!-- ── App CTA ────────────────────────────── -->
+    <section class="app-cta" aria-label="Download the app">
+      <div class="app-cta__inner">
+        <h2 class="app-cta__heading">It is even better in the app</h2>
+        <p class="app-cta__desc">Order ahead, track your Stars, and get personalized offers delivered right to your phone.</p>
+        <div class="app-cta__buttons">
+          <a href="#" class="app-cta__btn" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.81 11.78 5.7 12.58 5.7C13.38 5.7 14.88 4.62 16.44 4.79C17.09 4.82 18.93 5.05 20.13 6.72C20.04 6.78 17.84 8.04 17.87 10.7C17.9 13.93 20.68 14.98 20.71 15C20.69 15.07 20.24 16.59 19.12 18.14L18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+            </svg>
+            App Store
+          </a>
+          <a href="#" class="app-cta__btn" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .61-.92zM14.5 12.707l2.55 2.55-8.27 4.698 5.72-7.248zM17.816 9.977L20.05 11.24a1 1 0 0 1 0 1.52l-2.234 1.263-2.8-2.8 2.8-2.246zM8.78 4.045l8.27 4.698-2.55 2.55-5.72-7.248z"/>
+            </svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Terms ──────────────────────────────── -->
+    <section class="rewards-terms" aria-label="Terms of use">
+      <p>Beanhive Rewards terms apply. Qualifying purchases exclude alcohol, Beanhive Cards, and Card reloads. Stars cannot be earned on purchases of Beanhive gift cards, and cannot be transferred between accounts. At participating stores only. Some restrictions apply.</p>
+      <p>Earn 1 Star per $1 spent when you scan your member barcode in the app, then pay with cash, credit/debit cards, or mobile wallets. Earn 2 Stars per $1 spent when you load funds and pay with your Beanhive Card. Stars accumulate per calendar year and expire 6 months after earning. Tier status resets annually.</p>
+      <p>The Beanhive Rewards program is subject to these <a href="#">Terms of Use</a>. Beanhive reserves the right to modify or discontinue the program at any time. For the complete list of benefits and program details, visit the <a href="#">Beanhive Rewards FAQ</a>.</p>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footerInner">
+
+      <!-- Link Columns -->
+      <div class="footerColumns">
+
+        <!-- About Us -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            About Us
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/coffee" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+            <a href="/about/shareholders" class="footerLink">Investor Relations</a>
+            <a href="/about/policies" class="footerLink">Policies and Standards</a>
+          </div>
+        </div>
+
+        <!-- Careers -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Careers
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/careers" class="footerLink">Culture and Values</a>
+            <a href="/careers/inclusion" class="footerLink">Inclusion and Diversity</a>
+            <a href="/careers/college" class="footerLink">College Achievement Plan</a>
+            <a href="/careers/alumni" class="footerLink">Alumni Community</a>
+            <a href="/careers/veterans" class="footerLink">U.S. Careers</a>
+            <a href="/careers/international" class="footerLink">International Careers</a>
+          </div>
+        </div>
+
+        <!-- Social Impact -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Social Impact
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/social-impact/people" class="footerLink">People</a>
+            <a href="/social-impact/planet" class="footerLink">Planet</a>
+            <a href="/social-impact/sourcing" class="footerLink">Ethical Sourcing</a>
+            <a href="/social-impact/environment" class="footerLink">Environmental Stewardship</a>
+            <a href="/social-impact/community" class="footerLink">Community Giving</a>
+          </div>
+        </div>
+
+        <!-- For Business Partners -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            For Business Partners
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/business/landlord" class="footerLink">Landlord Support Center</a>
+            <a href="/business/suppliers" class="footerLink">Suppliers</a>
+            <a href="/business/corporate-sales" class="footerLink">Corporate Gift Card Sales</a>
+            <a href="/business/office-coffee" class="footerLink">Office and Foodservice Coffee</a>
+          </div>
+        </div>
+
+        <!-- Order & Pick Up -->
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Order &amp; Pick Up
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/menu" class="footerLink">Order on the App</a>
+            <a href="/menu" class="footerLink">Order on the Web</a>
+            <a href="/delivery" class="footerLink">Delivery</a>
+            <a href="/menu" class="footerLink">Order and Pick Up Options</a>
+            <a href="/menu/explore" class="footerLink">Explore and Find Coffee for Home</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social Links -->
+      <div class="footerSocial">
+        <!-- Spotify -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.06 20.04 8.94c.6.36.72 1.02.36 1.56-.36.481-1.08.721-1.56.36l.241-.18z"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <!-- Pinterest -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <!-- Twitter / X -->
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/cookies" class="footerLegalLink">Cookie Preferences</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/ca-supply-chain" class="footerLegalLink">CA Supply Chain Act</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/accessibility" class="footerLegalLink">Accessibility</a>
+      </div>
+
+      <!-- Copyright -->
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/skeleton/skeleton.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    // Preloader — dismiss after page fully loads
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.querySelector('.preloader').classList.add('loaded');
+      }, 1800);
+    });
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+  <!-- ── Rewards Page Logic ──────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    var API_HOST = window.location.hostname || 'localhost';
+    var API_BASE = 'http://' + API_HOST + ':3001/v1';
+
+    var TIER_THRESHOLDS = { green: 0, gold: 650, reserve: 1200 };
+    var TIER_ORDER = ['green', 'gold', 'reserve'];
+
+    function getJSON(url) {
+      return fetch(url, { credentials: 'include' })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, data: j.data || j }; }); })
+        .catch(function () { return { ok: false, data: {} }; });
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '--';
+      var d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function getNextTier(currentTier) {
+      var idx = TIER_ORDER.indexOf(currentTier);
+      if (idx < 0 || idx >= TIER_ORDER.length - 1) return null;
+      return TIER_ORDER[idx + 1];
+    }
+
+    function populateRewardsStatus(stars, tier) {
+      var section = document.getElementById('rewardsStatusSection');
+      var content = document.getElementById('rewardsStatusContent');
+      var ctaEl = document.getElementById('rewardsSignInCta');
+
+      section.style.display = '';
+      content.style.display = '';
+      ctaEl.style.display = 'none';
+
+      // Stars count
+      document.getElementById('rewardsStarsCount').textContent = stars;
+
+      // Tier badge
+      var badge = document.getElementById('rewardsTierBadge');
+      badge.textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
+      badge.className = 'rewards-status__tier-badge rewards-status__tier-badge--' + tier;
+
+      // Progress bar
+      var nextTier = getNextTier(tier);
+      var progressFill = document.getElementById('rewardsProgressFill');
+      var progressText = document.getElementById('rewardsProgressText');
+
+      if (nextTier) {
+        var currentMin = TIER_THRESHOLDS[tier];
+        var nextMin = TIER_THRESHOLDS[nextTier];
+        var progress = Math.min(100, Math.round(((stars - currentMin) / (nextMin - currentMin)) * 100));
+        var remaining = Math.max(0, nextMin - stars);
+        progressFill.style.width = progress + '%';
+        progressText.textContent = remaining + ' Stars to ' + nextTier.charAt(0).toUpperCase() + nextTier.slice(1);
+      } else {
+        progressFill.style.width = '100%';
+        progressText.textContent = 'You have reached the highest tier!';
+      }
+
+      // Highlight active tier card
+      document.querySelectorAll('.tier-card[data-tier]').forEach(function (card) {
+        card.classList.toggle('tier-card--active', card.getAttribute('data-tier') === tier);
+      });
+    }
+
+    function populateHistory(transactions) {
+      var historySection = document.getElementById('rewardsHistory');
+      var tbody = document.getElementById('rewardsHistoryBody');
+
+      if (!transactions || transactions.length === 0) {
+        historySection.style.display = 'none';
+        return;
+      }
+
+      historySection.style.display = '';
+      var html = '';
+      transactions.forEach(function (t) {
+        var sign = t.stars_change >= 0 ? '+' : '';
+        var typeLabel = t.type === 'earn' ? 'Earned' : t.type === 'redeem' ? 'Redeemed' : t.type;
+        html +=
+          '<tr>' +
+            '<td>' + formatDate(t.created_at) + '</td>' +
+            '<td>' + typeLabel + '</td>' +
+            '<td class="rewards-status__stars-cell ' + (t.stars_change >= 0 ? 'positive' : 'negative') + '">' + sign + t.stars_change + '</td>' +
+          '</tr>';
+      });
+      tbody.innerHTML = html;
+    }
+
+    function showSignInCta() {
+      var section = document.getElementById('rewardsStatusSection');
+      var content = document.getElementById('rewardsStatusContent');
+      var ctaEl = document.getElementById('rewardsSignInCta');
+
+      section.style.display = '';
+      content.style.display = 'none';
+      ctaEl.style.display = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      getJSON(API_BASE + '/users/me').then(function (res) {
+        if (res.ok && res.data.user) {
+          // User is logged in — fetch rewards data
+          Promise.all([
+            getJSON(API_BASE + '/rewards'),
+            getJSON(API_BASE + '/rewards/history')
+          ]).then(function (results) {
+            var stars = 0;
+            var tier = 'green';
+            if (results[0].ok) {
+              stars = results[0].data.stars || 0;
+              tier = results[0].data.tier || 'green';
+            }
+            populateRewardsStatus(stars, tier);
+
+            if (results[1].ok) {
+              populateHistory(results[1].data.transactions || []);
+            }
+          });
+        } else {
+          showSignInCta();
+        }
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>

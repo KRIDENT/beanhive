@@ -1,0 +1,274 @@
+/* Component: Hero Banner
+   ─────────────────────────
+   Full-width seasonal hero section.
+   Features a split layout: content left, image right.
+   Uses brand greens with seasonal accent support. */
+
+/* ── Hero Container ───────────────────────── */
+
+.hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+
+  background-color: var(--color-green-dark);
+}
+
+/* ── Split Layout ─────────────────────────── */
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+}
+
+@media (min-width: 768px) {
+  .heroInner {
+    flex-direction: row;
+    min-height: 500px;
+  }
+}
+
+/* ── Content Panel ────────────────────────── */
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--space-6);
+  padding: var(--space-16) var(--space-6);
+
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .heroContent {
+    align-items: center;
+    padding: var(--space-16) var(--space-12);
+
+    text-align: center;
+  }
+}
+
+/* ── Hero Heading ─────────────────────────── */
+
+.heroHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: #FFFFFF;
+}
+
+@media (min-width: 768px) {
+  .heroHeading {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroHeading {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* ── Hero Subheading ──────────────────────── */
+
+.heroSubheading {
+  max-width: 480px;
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #FFFFFF;
+}
+
+@media (min-width: 768px) {
+  .heroSubheading {
+    font-size: var(--text-md);
+  }
+}
+
+/* ── Hero CTA Button ──────────────────────── */
+
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: #FFFFFF;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              color            var(--duration-fast) var(--ease-default),
+              transform        var(--duration-fast) var(--ease-default);
+}
+
+.heroCta:hover {
+  background-color: #FFFFFF;
+
+  color: var(--color-green-dark);
+
+  transform: translateY(-1px);
+}
+
+.heroCta:active {
+  transform: translateY(0);
+}
+
+/* ── Image Panel ──────────────────────────── */
+
+.heroImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  min-height: 300px;
+  overflow: hidden;
+
+  background-color: var(--color-green-dark);
+}
+
+@media (min-width: 768px) {
+  .heroImage {
+    min-height: 500px;
+  }
+}
+
+/* Real product image — fills the panel */
+.heroRealImage {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .heroRealImage {
+    min-height: 500px;
+  }
+}
+
+/* Placeholder illustration within the image panel */
+.heroIllustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.heroIllustration svg {
+  width: 80px;
+  height: 80px;
+
+  opacity: 0.3;
+}
+
+/* ── Seasonal Variant: Spring ─────────────── */
+
+.hero--spring {
+  background-color: #FDF5F2;
+}
+
+.hero--spring .heroHeading,
+.hero--spring .heroSubheading {
+  color: var(--color-green-dark);
+}
+
+.hero--spring .heroCta {
+  border-color: var(--color-starbucks-green);
+
+  color: var(--color-starbucks-green);
+}
+
+.hero--spring .heroCta:hover {
+  background-color: var(--color-starbucks-green);
+
+  color: var(--color-white);
+}
+
+/* ── Seasonal Variant: Summer ─────────────── */
+
+.hero--summer {
+  background-color: #E8F4F0;
+}
+
+.hero--summer .heroHeading,
+.hero--summer .heroSubheading {
+  color: var(--color-green-dark);
+}
+
+.hero--summer .heroCta {
+  border-color: var(--color-starbucks-green);
+
+  color: var(--color-starbucks-green);
+}
+
+.hero--summer .heroCta:hover {
+  background-color: var(--color-starbucks-green);
+
+  color: var(--color-white);
+}
+
+/* ── Seasonal Variant: Fall ───────────────── */
+
+.hero--fall {
+  background-color: #3C2415;
+}
+
+/* ── Seasonal Variant: Winter ─────────────── */
+
+.hero--winter {
+  background-color: #1E3932;
+}
+
+/* ── Dark Mode ───────────────────────────── */
+
+[data-theme="dark"] .heroHeading,
+[data-theme="dark"] .heroSubheading {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .heroCta {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+[data-theme="dark"] .heroCta:hover {
+  background-color: #FFFFFF;
+  color: var(--color-green-dark);
+}

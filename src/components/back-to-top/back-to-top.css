@@ -1,0 +1,128 @@
+/* ── Back to Top Button ─────────────────────── */
+
+.backToTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-starbucks-green, #00754a);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease;
+}
+
+.backToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.backToTop:hover {
+  background: var(--color-green-dark, #1e3932);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.backToTop:active {
+  transform: translateY(0);
+}
+
+.backToTop svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Coffee steam animation on hover ────────── */
+.backToTop .bttSteam {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.backToTop:hover .bttSteam {
+  opacity: 1;
+}
+
+.bttSteamLine {
+  animation: bttSteamRise 1.5s ease-out infinite;
+  opacity: 0;
+}
+
+.bttSteamLine:nth-child(1) { animation-delay: 0s; }
+.bttSteamLine:nth-child(2) { animation-delay: 0.3s; }
+.bttSteamLine:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bttSteamRise {
+  0% { opacity: 0; transform: translateY(0); }
+  20% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+
+/* ── Progress ring ──────────────────────────── */
+.backToTop .bttProgress {
+  position: absolute;
+  inset: 0;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+}
+
+.backToTop .bttProgressTrack {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 3;
+}
+
+.backToTop .bttProgressBar {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 138;
+  stroke-dashoffset: 138;
+  transition: stroke-dashoffset 0.15s ease;
+}
+
+/* ── Dark mode ──────────────────────────────── */
+[data-theme="dark"] .backToTop {
+  background: #00754a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .backToTop:hover {
+  background: #009e64;
+}
+
+/* ── Mobile adjustments ─────────────────────── */
+@media (max-width: 768px) {
+  .backToTop {
+    bottom: 80px; /* above store availability bar */
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .backToTop .bttProgress {
+    width: 44px;
+    height: 44px;
+  }
+
+  .backToTop svg {
+    width: 20px;
+    height: 20px;
+  }
+}

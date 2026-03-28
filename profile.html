@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Your account dashboard.">
+  <title>My Account | Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/profile/profile.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="profilePage">
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="steam steam--1">
+          <path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--2">
+          <path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--3">
+          <path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="cupBody">
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z"
+                stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84"
+                stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+          <path d="M28 48 Q55 42 82 48" stroke="#3d3631" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <path d="M38 60 Q55 64 72 60" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.25"/>
+          <path d="M36 72 Q55 76 74 72" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.2"/>
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="/" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <div class="navActions">
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Find a store
+        </a>
+
+        <span class="navDivider" aria-hidden="true"></span>
+
+        <a href="signin.html" class="navSignIn">Sign in</a>
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- Spacer to offset fixed navbar -->
+  <main style="padding-top: var(--nav-height);">
+
+    <!-- ── Not Signed In State ──────────────── -->
+    <div class="profileNotSignedIn" id="profileNotSignedIn" style="display: none;">
+      <div class="profileNotSignedInCard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <h2>Sign in to view your account</h2>
+        <p>Access your rewards, order history, gift cards, and account settings.</p>
+        <a href="signin.html" class="profileSignInBtn">Sign in</a>
+        <p class="profileJoinLink">Don't have an account? <a href="join.html">Join now</a></p>
+      </div>
+    </div>
+
+    <!-- ── Signed In Content ────────────────── -->
+    <div class="profileContainer" id="profileContent" style="display: none;">
+
+      <!-- Profile Header -->
+      <div class="profileHeader">
+        <div class="profileAvatar" id="profileAvatar"></div>
+        <div class="profileHeaderInfo">
+          <h1 class="profileName" id="profileName"></h1>
+          <p class="profileEmail" id="profileEmail"></p>
+          <p class="profileMemberSince" id="profileMemberSince"></p>
+        </div>
+        <div class="profileHeaderActions">
+          <button class="profileEditBtn" id="profileEditBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit Profile
+          </button>
+          <button class="profileEditBtn" onclick="BeanhiveAuth.logout()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign out
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="profileStats">
+        <div class="profileStatCard">
+          <div class="profileStatIcon">&#9733;</div>
+          <span class="profileStatNumber" id="statStars">0</span>
+          <span class="profileStatLabel">Stars Balance</span>
+        </div>
+        <div class="profileStatCard">
+          <div class="profileStatIcon">&#127942;</div>
+          <span class="profileStatNumber" id="statTier"><span class="tierBadge tierBadge--green">Green</span></span>
+          <span class="profileStatLabel">Rewards Tier</span>
+        </div>
+        <div class="profileStatCard">
+          <div class="profileStatIcon">&#128230;</div>
+          <span class="profileStatNumber" id="statOrders">0</span>
+          <span class="profileStatLabel">Total Orders</span>
+        </div>
+        <div class="profileStatCard">
+          <div class="profileStatIcon">&#10084;</div>
+          <span class="profileStatNumber" id="statFavorites">0</span>
+          <span class="profileStatLabel">Favorites</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="profileTabs" role="tablist">
+        <button class="profileTabBtn active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+        <button class="profileTabBtn" data-tab="rewards" role="tab" aria-selected="false">Rewards</button>
+        <button class="profileTabBtn" data-tab="orders" role="tab" aria-selected="false">Order History</button>
+        <button class="profileTabBtn" data-tab="giftcards" role="tab" aria-selected="false">Gift Cards</button>
+        <button class="profileTabBtn" data-tab="settings" role="tab" aria-selected="false">Settings</button>
+      </div>
+
+      <!-- Tab 1: Overview -->
+      <div class="profileTabPanel active" id="tab-overview" role="tabpanel">
+
+        <div class="overviewSection">
+          <h3>Rewards Progress</h3>
+          <div class="progressBarWrapper" id="overviewProgress">
+            <div class="progressBarLabel">
+              <span><strong id="overviewStars">0</strong> Stars</span>
+              <span>Next tier: <strong id="overviewNextTier">150</strong> Stars</span>
+            </div>
+            <div class="progressBarTrack">
+              <div class="progressBarFill" id="overviewProgressFill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="overviewSection">
+          <h3>Recent Orders</h3>
+          <div id="overviewRecentOrders">
+            <p style="color: var(--color-gray-mid); font-size: var(--text-sm);">No orders yet.</p>
+          </div>
+          <a href="#" class="viewAllLink" id="viewAllOrdersLink" style="display: none;">View all orders &rarr;</a>
+        </div>
+
+        <div class="overviewSection">
+          <h3>Quick Actions</h3>
+          <div class="quickActions">
+            <a href="menu.html" class="quickActionBtn">Order Now</a>
+            <a href="store-locator.html" class="quickActionBtn quickActionBtn--outline">Find a Store</a>
+            <a href="gift-cards.html" class="quickActionBtn quickActionBtn--outline">Send a Gift Card</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tab 2: Rewards -->
+      <div class="profileTabPanel" id="tab-rewards" role="tabpanel">
+
+        <div class="rewardsCurrentTier">
+          <h3>Current Tier:</h3>
+          <span class="tierBadge tierBadge--green" id="rewardsTierBadge">Green</span>
+        </div>
+
+        <div class="progressBarWrapper">
+          <div class="progressBarLabel">
+            <span><strong id="rewardsStars">0</strong> Stars earned</span>
+            <span>Next milestone: <strong id="rewardsNextMilestone">150</strong> Stars</span>
+          </div>
+          <div class="progressBarTrack">
+            <div class="progressBarFill" id="rewardsProgressFill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="rewardsBenefits">
+          <h4>Your Tier Benefits</h4>
+          <ul class="rewardsBenefitsList" id="rewardsBenefitsList">
+            <li>Birthday reward</li>
+            <li>Free in-store refills on brewed coffee and tea</li>
+            <li>Earn 2 Stars per $1 spent</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-body); font-weight: 700; color: var(--color-gray-dark); margin-bottom: var(--space-3);">Stars History</h4>
+          <table class="starsHistoryTable" id="starsHistoryTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Stars</th>
+              </tr>
+            </thead>
+            <tbody id="starsHistoryBody">
+              <tr>
+                <td colspan="3" style="text-align: center; padding: var(--space-6);">No stars history yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Tab 3: Order History -->
+      <div class="profileTabPanel" id="tab-orders" role="tabpanel">
+        <div id="orderHistoryList">
+          <div class="ordersEmpty">
+            <p>You haven't placed any orders yet.</p>
+            <a href="menu.html" class="quickActionBtn">Start Ordering</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Gift Cards -->
+      <div class="profileTabPanel" id="tab-giftcards" role="tabpanel">
+
+        <div class="giftCardDisplay">
+          <div class="giftCardLabel">Gift Card Balance</div>
+          <div class="giftCardBalance">$25.00</div>
+          <div class="giftCardNumber">**** **** **** 4821</div>
+        </div>
+
+        <div class="giftCardActions">
+          <button class="giftCardAddBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add a Gift Card
+          </button>
+        </div>
+
+        <div class="autoReloadToggle">
+          <div>
+            <span>Auto-Reload</span>
+            <small>Automatically add $25 when balance falls below $5</small>
+          </div>
+          <label class="toggleSwitch">
+            <input type="checkbox" id="autoReloadToggle">
+            <span class="toggleSlider"></span>
+          </label>
+        </div>
+
+        <div class="giftCardTransactions">
+          <h4>Transaction History</h4>
+          <ul class="giftCardTransactionList">
+            <li>
+              <div>
+                <div class="txDesc">Gift card loaded</div>
+                <div class="txDate">Mar 15, 2026</div>
+              </div>
+              <div class="txAmount">+$25.00</div>
+            </li>
+            <li>
+              <div>
+                <div class="txDesc">Purchase — Caramel Macchiato</div>
+                <div class="txDate">Mar 10, 2026</div>
+              </div>
+              <div class="txAmount negative">-$5.95</div>
+            </li>
+            <li>
+              <div>
+                <div class="txDesc">Gift card loaded</div>
+                <div class="txDate">Feb 28, 2026</div>
+              </div>
+              <div class="txAmount">+$25.00</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Tab 5: Settings -->
+      <div class="profileTabPanel" id="tab-settings" role="tabpanel">
+
+        <div class="settingsSection">
+          <h3>Personal Information</h3>
+          <form class="settingsForm" id="settingsPersonalForm">
+            <div class="formGroup">
+              <label for="settingsFirstName">First Name</label>
+              <input type="text" id="settingsFirstName" required>
+            </div>
+            <div class="formGroup">
+              <label for="settingsLastName">Last Name</label>
+              <input type="text" id="settingsLastName" required>
+            </div>
+            <div class="formGroup">
+              <label for="settingsEmail">Email</label>
+              <input type="email" id="settingsEmail" disabled>
+            </div>
+            <div class="formGroup">
+              <label for="settingsPhone">Phone</label>
+              <input type="tel" id="settingsPhone">
+            </div>
+            <button type="submit" class="settingsSubmitBtn" id="settingsPersonalBtn">Save Changes</button>
+          </form>
+        </div>
+
+        <div class="settingsSection">
+          <h3>Change Password</h3>
+          <form class="settingsForm" id="settingsPasswordForm">
+            <div class="formGroup">
+              <label for="settingsCurrentPassword">Current Password</label>
+              <input type="password" id="settingsCurrentPassword" required minlength="8">
+            </div>
+            <div class="formGroup">
+              <label for="settingsNewPassword">New Password</label>
+              <input type="password" id="settingsNewPassword" required minlength="8">
+            </div>
+            <div class="formGroup">
+              <label for="settingsConfirmPassword">Confirm New Password</label>
+              <input type="password" id="settingsConfirmPassword" required minlength="8">
+            </div>
+            <button type="submit" class="settingsSubmitBtn" id="settingsPasswordBtn">Change Password</button>
+          </form>
+        </div>
+
+        <div class="settingsSection">
+          <h3>Communication Preferences</h3>
+          <div class="prefToggleRow">
+            <div class="prefToggleInfo">
+              <strong>Email Notifications</strong>
+              <span>Receive order updates and account alerts</span>
+            </div>
+            <label class="toggleSwitch">
+              <input type="checkbox" id="prefEmailNotifications" checked>
+              <span class="toggleSlider"></span>
+            </label>
+          </div>
+          <div class="prefToggleRow">
+            <div class="prefToggleInfo">
+              <strong>Marketing Emails</strong>
+              <span>Promotions, new products, and special offers</span>
+            </div>
+            <label class="toggleSwitch">
+              <input type="checkbox" id="prefMarketing">
+              <span class="toggleSlider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="settingsSection">
+          <h2>Sign Out</h2>
+          <p style="font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-gray-mid); margin-bottom: var(--space-4);">Sign out of your Beanhive account on this device.</p>
+          <button class="signOutBtn" id="profileSignOutBtn" onclick="BeanhiveAuth.logout()">Sign out</button>
+        </div>
+
+        <div class="deleteAccountSection">
+          <h3>Delete Account</h3>
+          <p>Permanently delete your account and all associated data. This action cannot be undone.</p>
+          <button class="deleteAccountBtn" id="deleteAccountBtn">Delete My Account</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footerInner">
+
+      <div class="footerColumns">
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            About Us
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/coffee" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+            <a href="/about/shareholders" class="footerLink">Investor Relations</a>
+            <a href="/about/policies" class="footerLink">Policies and Standards</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Careers
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/careers" class="footerLink">Culture and Values</a>
+            <a href="/careers/inclusion" class="footerLink">Inclusion and Diversity</a>
+            <a href="/careers/college" class="footerLink">College Achievement Plan</a>
+            <a href="/careers/alumni" class="footerLink">Alumni Community</a>
+            <a href="/careers/veterans" class="footerLink">U.S. Careers</a>
+            <a href="/careers/international" class="footerLink">International Careers</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Social Impact
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/social-impact/people" class="footerLink">People</a>
+            <a href="/social-impact/planet" class="footerLink">Planet</a>
+            <a href="/social-impact/sourcing" class="footerLink">Ethical Sourcing</a>
+            <a href="/social-impact/environment" class="footerLink">Environmental Stewardship</a>
+            <a href="/social-impact/community" class="footerLink">Community Giving</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            For Business Partners
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/business/landlord" class="footerLink">Landlord Support Center</a>
+            <a href="/business/suppliers" class="footerLink">Suppliers</a>
+            <a href="/business/corporate-sales" class="footerLink">Corporate Gift Card Sales</a>
+            <a href="/business/office-coffee" class="footerLink">Office and Foodservice Coffee</a>
+          </div>
+        </div>
+
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">
+            Order &amp; Pick Up
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/menu" class="footerLink">Order on the App</a>
+            <a href="/menu" class="footerLink">Order on the Web</a>
+            <a href="/delivery" class="footerLink">Delivery</a>
+            <a href="/menu" class="footerLink">Order and Pick Up Options</a>
+            <a href="/menu/explore" class="footerLink">Explore and Find Coffee for Home</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footerSocial">
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.06 20.04 8.94c.6.36.72 1.02.36 1.56-.36.481-1.08.721-1.56.36l.241-.18z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a href="#" class="footerSocialLink" aria-label="Starbucks on X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/cookies" class="footerLegalLink">Cookie Preferences</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/ca-supply-chain" class="footerLegalLink">CA Supply Chain Act</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/accessibility" class="footerLegalLink">Accessibility</a>
+      </div>
+
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.querySelector('.preloader').classList.add('loaded');
+      }, 1800);
+    });
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+  <!-- ── Profile Page Logic ──────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    var API_HOST = window.location.hostname || 'localhost';
+    var API_BASE = 'http://' + API_HOST + ':3001/v1';
+
+    // Unwrap standardized API response envelope
+    function unwrap(res, json) {
+      var payload = json.data || json;
+      if (!res.ok && json.error) {
+        payload = { error: json.error.message || json.error };
+      }
+      return { ok: res.ok, status: res.status, data: payload };
+    }
+
+    function getJSON(url) {
+      return fetch(url, { credentials: 'include' }).then(function (res) {
+        return res.json().then(function (json) {
+          return unwrap(res, json);
+        });
+      });
+    }
+
+    function putJSON(url, data) {
+      return fetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().then(function (json) {
+          return unwrap(res, json);
+        });
+      });
+    }
+
+    function patchJSON(url, data) {
+      return fetch(url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().then(function (json) {
+          return unwrap(res, json);
+        });
+      });
+    }
+
+    function deleteJSON(url) {
+      return fetch(url, {
+        method: 'DELETE',
+        credentials: 'include'
+      }).then(function (res) {
+        return res.json().then(function (json) {
+          return unwrap(res, json);
+        });
+      });
+    }
+
+    // ── Tier helpers ─────────────────────────
+    var tierThresholds = { green: 0, gold: 650, reserve: 1200 };
+    var tierOrder = ['green', 'gold', 'reserve'];
+
+    function getNextTier(tier) {
+      var idx = tierOrder.indexOf(tier);
+      if (idx < tierOrder.length - 1) return tierOrder[idx + 1];
+      return null;
+    }
+
+    function getNextTierStars(tier) {
+      var next = getNextTier(tier);
+      return next ? tierThresholds[next] : tierThresholds.reserve;
+    }
+
+    function getTierBenefits(tier) {
+      var benefits = {
+        green: [
+          'Birthday reward',
+          'Free in-store refills on brewed coffee and tea',
+          'Earn 2 Stars per $1 spent'
+        ],
+        gold: [
+          'Everything in Green tier',
+          'Monthly double-star days',
+          'Free drink or food item at 150 Stars',
+          'Personalized offers'
+        ],
+        reserve: [
+          'Everything in Gold tier',
+          'Select Reserve coffees and merchandise',
+          'Free drink with any purchase on Fridays',
+          'Priority mobile ordering',
+          'Exclusive Reserve events and tastings'
+        ]
+      };
+      return benefits[tier] || benefits.green;
+    }
+
+    function setTierBadge(el, tier) {
+      el.className = 'tierBadge tierBadge--' + tier;
+      el.textContent = tier.charAt(0).toUpperCase() + tier.slice(1);
+    }
+
+    // ── Format date ──────────────────────────
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      var d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    // ── Tab switching ────────────────────────
+    function initTabs() {
+      var btns = document.querySelectorAll('.profileTabBtn');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          document.querySelectorAll('.profileTabPanel').forEach(function (p) {
+            p.classList.remove('active');
+          });
+          var panel = document.getElementById('tab-' + btn.getAttribute('data-tab'));
+          if (panel) panel.classList.add('active');
+        });
+      });
+    }
+
+    // ── Edit Profile button goes to Settings tab ─
+    function initEditBtn() {
+      var btn = document.getElementById('profileEditBtn');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var settingsTab = document.querySelector('[data-tab="settings"]');
+          if (settingsTab) settingsTab.click();
+        });
+      }
+    }
+
+    // ── Build order card HTML ────────────────
+    function buildOrderCard(order) {
+      var items = [];
+      try { items = JSON.parse(order.items); } catch (e) { items = []; }
+      var itemSummary = items.length > 0
+        ? items.map(function (i) { return i.name || i.drink_name || 'Item'; }).join(', ')
+        : 'Order';
+      if (itemSummary.length > 50) itemSummary = itemSummary.substring(0, 47) + '...';
+
+      var statusClass = 'orderCardStatus--' + (order.status || 'pending');
+
+      var itemListHTML = items.map(function (i) {
+        var price = i.price ? '$' + parseFloat(i.price).toFixed(2) : '';
+        var qty = i.quantity ? ' x' + i.quantity : '';
+        return '<li><span>' + (i.name || i.drink_name || 'Item') + qty + '</span><span>' + price + '</span></li>';
+      }).join('');
+
+      return '<div class="orderCard">' +
+        '<div class="orderCardHeader" onclick="this.parentElement.classList.toggle(\'expanded\')">' +
+          '<div class="orderCardInfo">' +
+            '<div class="orderCardDate">' + formatDate(order.created_at) + '</div>' +
+            '<div class="orderCardSummary">' + itemSummary + '</div>' +
+          '</div>' +
+          '<span class="orderCardTotal">$' + parseFloat(order.total).toFixed(2) + '</span>' +
+          '<span class="orderCardStatus ' + statusClass + '">' + (order.status || 'pending') + '</span>' +
+          '<svg class="orderCardChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' +
+        '</div>' +
+        '<div class="orderCardBody">' +
+          '<ul class="orderItemsList">' + itemListHTML + '</ul>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:var(--space-2);">' +
+            '<span style="font-size:var(--text-sm);color:var(--color-gray-mid);">Subtotal: $' + parseFloat(order.subtotal).toFixed(2) + ' + Tax: $' + parseFloat(order.tax).toFixed(2) + '</span>' +
+            '<button class="orderReorderBtn" onclick="window.location.href=\'menu.html\'">Reorder</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    // ── View all orders link ─────────────────
+    function initViewAllOrders() {
+      var link = document.getElementById('viewAllOrdersLink');
+      if (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var ordersTab = document.querySelector('[data-tab="orders"]');
+          if (ordersTab) ordersTab.click();
+        });
+      }
+    }
+
+    // ── Populate page ────────────────────────
+    function populatePage(user, stats, orders) {
+      // Avatar initials
+      var initials = (user.firstName ? user.firstName.charAt(0) : '') + (user.lastName ? user.lastName.charAt(0) : '');
+      document.getElementById('profileAvatar').textContent = initials;
+
+      // Header info
+      document.getElementById('profileName').textContent = user.firstName + ' ' + user.lastName;
+      document.getElementById('profileEmail').textContent = user.email;
+      document.getElementById('profileMemberSince').textContent = 'Member since ' + formatDate(user.createdAt);
+
+      // Stats
+      var stars = stats.stars || 0;
+      var tier = stats.tier || 'green';
+      document.getElementById('statStars').textContent = stars;
+      setTierBadge(document.querySelector('#statTier'), tier);
+      document.getElementById('statOrders').textContent = stats.orderCount || 0;
+      document.getElementById('statFavorites').textContent = stats.favoritesCount || 0;
+
+      // Overview progress
+      var nextTierStars = getNextTierStars(tier);
+      var currentTierStars = tierThresholds[tier] || 0;
+      var progress = nextTierStars > currentTierStars
+        ? Math.min(100, Math.round(((stars - currentTierStars) / (nextTierStars - currentTierStars)) * 100))
+        : 100;
+      document.getElementById('overviewStars').textContent = stars;
+      document.getElementById('overviewNextTier').textContent = nextTierStars;
+      document.getElementById('overviewProgressFill').style.width = progress + '%';
+
+      // Rewards tab
+      setTierBadge(document.getElementById('rewardsTierBadge'), tier);
+      document.getElementById('rewardsStars').textContent = stars;
+      document.getElementById('rewardsNextMilestone').textContent = nextTierStars;
+      document.getElementById('rewardsProgressFill').style.width = progress + '%';
+
+      // Benefits list
+      var benefitsList = document.getElementById('rewardsBenefitsList');
+      benefitsList.innerHTML = getTierBenefits(tier).map(function (b) {
+        return '<li>' + b + '</li>';
+      }).join('');
+
+      // Stars history (generate from orders)
+      var historyBody = document.getElementById('starsHistoryBody');
+      if (orders && orders.length > 0) {
+        historyBody.innerHTML = orders.slice(0, 10).map(function (o) {
+          var earnedStars = Math.round(parseFloat(o.total) * 2);
+          return '<tr>' +
+            '<td>' + formatDate(o.created_at) + '</td>' +
+            '<td>Order #' + o.id + '</td>' +
+            '<td class="starsPositive">+' + earnedStars + '</td>' +
+          '</tr>';
+        }).join('');
+      }
+
+      // Recent orders (overview)
+      var recentOrdersEl = document.getElementById('overviewRecentOrders');
+      if (orders && orders.length > 0) {
+        recentOrdersEl.innerHTML = orders.slice(0, 3).map(buildOrderCard).join('');
+        document.getElementById('viewAllOrdersLink').style.display = 'inline-block';
+      }
+
+      // Full order history
+      var orderHistoryEl = document.getElementById('orderHistoryList');
+      if (orders && orders.length > 0) {
+        orderHistoryEl.innerHTML = orders.map(buildOrderCard).join('');
+      }
+
+      // Settings form pre-fill
+      document.getElementById('settingsFirstName').value = user.firstName || '';
+      document.getElementById('settingsLastName').value = user.lastName || '';
+      document.getElementById('settingsEmail').value = user.email || '';
+      document.getElementById('settingsPhone').value = user.phone || '';
+    }
+
+    // ── Settings: personal info form ─────────
+    function initPersonalForm() {
+      var form = document.getElementById('settingsPersonalForm');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('settingsPersonalBtn');
+        var original = btn.textContent;
+        btn.textContent = 'Saving...';
+        btn.disabled = true;
+
+        patchJSON(API_BASE + '/users/profile', {
+          firstName: document.getElementById('settingsFirstName').value.trim(),
+          lastName: document.getElementById('settingsLastName').value.trim(),
+          phone: document.getElementById('settingsPhone').value.trim()
+        }).then(function (res) {
+          btn.textContent = original;
+          btn.disabled = false;
+          if (res.ok) {
+            if (window.BeanhiveToast) window.BeanhiveToast.success('Profile updated', 'Your information has been saved.');
+            // Update header
+            var fn = document.getElementById('settingsFirstName').value.trim();
+            var ln = document.getElementById('settingsLastName').value.trim();
+            document.getElementById('profileName').textContent = fn + ' ' + ln;
+            document.getElementById('profileAvatar').textContent = (fn.charAt(0) + ln.charAt(0)).toUpperCase();
+          } else {
+            if (window.BeanhiveToast) window.BeanhiveToast.error('Update failed', res.data.error);
+          }
+        }).catch(function () {
+          btn.textContent = original;
+          btn.disabled = false;
+          if (window.BeanhiveToast) window.BeanhiveToast.error('Connection error', 'Could not reach the server.');
+        });
+      });
+    }
+
+    // ── Settings: password form ──────────────
+    function initPasswordForm() {
+      var form = document.getElementById('settingsPasswordForm');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var newPw = document.getElementById('settingsNewPassword').value;
+        var confirmPw = document.getElementById('settingsConfirmPassword').value;
+        if (newPw !== confirmPw) {
+          if (window.BeanhiveToast) window.BeanhiveToast.error('Passwords do not match', 'New password and confirmation must match.');
+          return;
+        }
+
+        var btn = document.getElementById('settingsPasswordBtn');
+        var original = btn.textContent;
+        btn.textContent = 'Changing...';
+        btn.disabled = true;
+
+        putJSON(API_BASE + '/users/profile/password', {
+          currentPassword: document.getElementById('settingsCurrentPassword').value,
+          newPassword: newPw
+        }).then(function (res) {
+          btn.textContent = original;
+          btn.disabled = false;
+          if (res.ok) {
+            if (window.BeanhiveToast) window.BeanhiveToast.success('Password changed', 'Your password has been updated.');
+            form.reset();
+          } else {
+            if (window.BeanhiveToast) window.BeanhiveToast.error('Password change failed', res.data.error);
+          }
+        }).catch(function () {
+          btn.textContent = original;
+          btn.disabled = false;
+          if (window.BeanhiveToast) window.BeanhiveToast.error('Connection error', 'Could not reach the server.');
+        });
+      });
+    }
+
+    // ── Delete account ───────────────────────
+    function initDeleteAccount() {
+      var btn = document.getElementById('deleteAccountBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var confirmed = window.confirm('Are you sure you want to delete your account? This action cannot be undone. All your data including orders, favorites, and rewards will be permanently removed.');
+        if (!confirmed) return;
+
+        btn.textContent = 'Deleting...';
+        btn.disabled = true;
+
+        deleteJSON(API_BASE + '/users/profile').then(function (res) {
+          if (res.ok) {
+            if (window.BeanhiveToast) window.BeanhiveToast.success('Account deleted', 'Your account has been permanently deleted.');
+            setTimeout(function () {
+              window.location.href = 'index.html';
+            }, 1500);
+          } else {
+            btn.textContent = 'Delete My Account';
+            btn.disabled = false;
+            if (window.BeanhiveToast) window.BeanhiveToast.error('Deletion failed', res.data.error);
+          }
+        }).catch(function () {
+          btn.textContent = 'Delete My Account';
+          btn.disabled = false;
+          if (window.BeanhiveToast) window.BeanhiveToast.error('Connection error', 'Could not reach the server.');
+        });
+      });
+    }
+
+    // ── Init ─────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+      initTabs();
+      initEditBtn();
+      initViewAllOrders();
+      initPersonalForm();
+      initPasswordForm();
+      initDeleteAccount();
+
+      // Fetch user data
+      getJSON(API_BASE + '/users/me').then(function (res) {
+        if (res.ok && res.data.user) {
+          var user = res.data.user;
+          document.getElementById('profileContent').style.display = 'block';
+          document.getElementById('profileNotSignedIn').style.display = 'none';
+
+          // Fetch stats and orders in parallel
+          Promise.all([
+            getJSON(API_BASE + '/users/profile/stats'),
+            getJSON(API_BASE + '/orders')
+          ]).then(function (results) {
+            var stats = results[0].ok ? results[0].data : { stars: 0, tier: 'green', orderCount: 0, favoritesCount: 0 };
+            var orders = results[1].ok ? (results[1].data.orders || results[1].data || []) : [];
+            populatePage(user, stats, orders);
+          }).catch(function () {
+            populatePage(user, { stars: user.stars || 0, tier: user.tier || 'green', orderCount: 0, favoritesCount: 0 }, []);
+          });
+        } else {
+          // Not signed in
+          document.getElementById('profileContent').style.display = 'none';
+          document.getElementById('profileNotSignedIn').style.display = 'flex';
+        }
+      }).catch(function () {
+        document.getElementById('profileContent').style.display = 'none';
+        document.getElementById('profileNotSignedIn').style.display = 'flex';
+      });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

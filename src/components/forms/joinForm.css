@@ -1,0 +1,270 @@
+/* ─────────────────────────────────────────────
+   JOIN NOW FORM
+   Responsive centered registration form.
+   ───────────────────────────────────────────── */
+
+.joinPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.joinMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  background-color: var(--color-white);
+}
+
+.joinFormWrapper {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-8);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.joinFormHeader {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.joinFormTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-green-dark);
+  margin-bottom: var(--space-2);
+}
+
+.joinFormSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-mid);
+  line-height: var(--leading-normal);
+}
+
+/* ── Form Fields ─────────────────────────── */
+
+.joinForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.formRow {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  margin-bottom: var(--space-1);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.formInput {
+  width: 100%;
+  box-sizing: border-box;
+  height: var(--btn-height);
+  padding: 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-gray-dark);
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-light);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formInput::placeholder {
+  color: var(--color-gray-mid);
+  opacity: 0.6;
+}
+
+.formInput:focus {
+  border-color: var(--color-starbucks-green);
+  box-shadow: 0 0 0 3px var(--color-green-pale);
+}
+
+.formInput:invalid:not(:placeholder-shown) {
+  border-color: #d32f2f;
+}
+
+/* ── Password Toggle ─────────────────────── */
+
+.formInputWrapper {
+  position: relative;
+}
+
+.formInputWrapper .formInput {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gray-mid);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.passwordToggle:hover {
+  color: var(--color-gray-dark);
+}
+
+/* ── Checkbox ────────────────────────────── */
+
+.formCheckGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.formCheckbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--color-starbucks-green);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.formCheckLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-dark);
+  line-height: var(--leading-normal);
+}
+
+.formCheckLabel a {
+  color: var(--color-starbucks-green);
+  text-decoration: underline;
+}
+
+.formCheckLabel a:hover {
+  color: var(--color-green-accent);
+}
+
+/* ── Submit Button ───────────────────────── */
+
+.joinSubmitBtn {
+  height: var(--btn-height);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: var(--btn-radius);
+  font-family: var(--btn-font);
+  font-size: var(--text-base);
+  font-weight: var(--btn-weight);
+  letter-spacing: var(--btn-tracking);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.joinSubmitBtn:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.joinSubmitBtn:active {
+  transform: scale(0.98);
+}
+
+/* ── Sign-in Link ────────────────────────── */
+
+.joinSigninPrompt {
+  text-align: center;
+  margin-top: var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+}
+
+.joinSigninPrompt a {
+  color: var(--color-starbucks-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.joinSigninPrompt a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ──────────────────────────── */
+
+@media (max-width: 600px) {
+  .joinFormWrapper {
+    padding: var(--space-8) var(--space-4);
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .formRow {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .joinMain {
+    padding: 0;
+    align-items: flex-start;
+  }
+}
+
+/* ── Google OAuth Button ─────────────────────── */
+.googleOAuthBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  border: 1.5px solid #dadce0;
+  border-radius: 24px;
+  background: #fff;
+  color: #3c4043;
+  font-size: var(--text-base, 15px);
+  font-weight: 500;
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.googleOAuthBtn:hover {
+  background: #f8f9fa;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  border-color: #c1c8d4;
+}
+
+[data-theme="dark"] .googleOAuthBtn {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e8eaed;
+}
+
+[data-theme="dark"] .googleOAuthBtn:hover {
+  background: #333;
+  border-color: #666;
+}

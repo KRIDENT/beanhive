@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Handcrafted coffee drinks, rewards, and more.">
+  <title>Find a Store | Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/store-locator/store-locator.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/scroll-cup/scroll-cup.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/skeleton/skeleton.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="storeLocatorPage">
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Steam lines -->
+        <g class="steam steam--1">
+          <path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--2">
+          <path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <g class="steam steam--3">
+          <path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- Cup group -->
+        <g class="cupBody">
+
+          <!-- Saucer -->
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+
+          <!-- Cup outer -->
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z"
+                stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+
+          <!-- Handle -->
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84"
+                stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Liquid surface -->
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+
+          <!-- Cup rim highlight -->
+          <path d="M28 48 Q55 42 82 48" stroke="#3d3631" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+
+          <!-- Cup body detail lines -->
+          <path d="M38 60 Q55 64 72 60" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.25"/>
+          <path d="M36 72 Q55 76 74 72" stroke="#3d3631" stroke-width="1" fill="none" opacity="0.2"/>
+
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+
+      <!-- Hamburger — mobile only -->
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Beanhive Logo -->
+      <a href="index.html" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+
+      <!-- Main Navigation Links — desktop -->
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+
+      <!-- Right Side Actions — desktop -->
+      <div class="navActions">
+
+        <!-- Search -->
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob">
+            <span class="toggleSun"></span>
+            <span class="toggleMoon"></span>
+          </span>
+        </button>
+
+        <span class="navDivider" aria-hidden="true"></span>
+
+        <!-- Sign In -->
+        <a href="signin.html" class="navSignIn">Sign in</a>
+
+        <!-- Join Now -->
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+
+        <!-- Order Now CTA -->
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+
+    <div class="navDrawerDivider"></div>
+
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      Find a store
+    </a>
+
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- ── Store Locator Main Content ─────────── -->
+  <div class="slContainer">
+
+    <!-- Left Panel — Search & Results -->
+    <aside class="slPanel">
+
+      <div class="slPanelHeader">
+        <h1 class="slSearchTitle">Find a store</h1>
+
+        <!-- Search Bar -->
+        <div class="slSearchBar">
+          <svg class="slSearchIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="slSearchInput" placeholder="Search by city, zip, or address" aria-label="Search by city, zip, or address" />
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="slFilters">
+          <button class="slFilterBtn active">Nearby</button>
+          <button class="slFilterBtn">Drive-Thru</button>
+          <button class="slFilterBtn">WiFi</button>
+          <button class="slFilterBtn">Mobile Order</button>
+        </div>
+
+        <!-- Use My Location -->
+        <button class="slLocationBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Use my location
+        </button>
+
+        <hr class="slDivider" />
+      </div>
+
+      <!-- Results List -->
+      <ul class="slResults">
+
+        <!-- Store 1 -->
+        <li class="slStoreCard">
+          <span class="slStoreName">Beanhive - Downtown Plaza</span>
+          <span class="slStoreAddress">123 Main Street, Suite 100, Portland, OR 97201</span>
+          <div class="slStoreMeta">
+            <span class="slStoreDistance">0.3 mi</span>
+            <span class="slStoreStatus open">Open until 9:00 PM</span>
+          </div>
+          <div class="slStoreFeatures">
+            <span class="slFeatureBadge">Drive-Thru</span>
+            <span class="slFeatureBadge">WiFi</span>
+            <span class="slFeatureBadge">Mobile Order</span>
+          </div>
+          <div class="slStoreActions">
+            <a href="menu.html" class="slBtnOrder">Order</a>
+            <button class="slBtnDirections">Directions</button>
+          </div>
+        </li>
+
+        <!-- Store 2 -->
+        <li class="slStoreCard">
+          <span class="slStoreName">Beanhive - Market Street</span>
+          <span class="slStoreAddress">456 Market Street, Portland, OR 97204</span>
+          <div class="slStoreMeta">
+            <span class="slStoreDistance">0.8 mi</span>
+            <span class="slStoreStatus open">Open until 9:00 PM</span>
+          </div>
+          <div class="slStoreFeatures">
+            <span class="slFeatureBadge">WiFi</span>
+            <span class="slFeatureBadge">Mobile Order</span>
+          </div>
+          <div class="slStoreActions">
+            <a href="menu.html" class="slBtnOrder">Order</a>
+            <button class="slBtnDirections">Directions</button>
+          </div>
+        </li>
+
+        <!-- Store 3 -->
+        <li class="slStoreCard">
+          <span class="slStoreName">Beanhive - University Ave</span>
+          <span class="slStoreAddress">789 University Avenue, Portland, OR 97209</span>
+          <div class="slStoreMeta">
+            <span class="slStoreDistance">1.2 mi</span>
+            <span class="slStoreStatus open">Open until 9:00 PM</span>
+          </div>
+          <div class="slStoreFeatures">
+            <span class="slFeatureBadge">Drive-Thru</span>
+            <span class="slFeatureBadge">WiFi</span>
+          </div>
+          <div class="slStoreActions">
+            <a href="menu.html" class="slBtnOrder">Order</a>
+            <button class="slBtnDirections">Directions</button>
+          </div>
+        </li>
+
+        <!-- Store 4 -->
+        <li class="slStoreCard">
+          <span class="slStoreName">Beanhive - Riverside Mall</span>
+          <span class="slStoreAddress">1010 Riverside Drive, Portland, OR 97211</span>
+          <div class="slStoreMeta">
+            <span class="slStoreDistance">2.1 mi</span>
+            <span class="slStoreStatus closed">Closed</span>
+          </div>
+          <div class="slStoreFeatures">
+            <span class="slFeatureBadge">WiFi</span>
+            <span class="slFeatureBadge">Mobile Order</span>
+          </div>
+          <div class="slStoreActions">
+            <a href="menu.html" class="slBtnOrder">Order</a>
+            <button class="slBtnDirections">Directions</button>
+          </div>
+        </li>
+
+        <!-- Store 5 -->
+        <li class="slStoreCard">
+          <span class="slStoreName">Beanhive - Tech Park</span>
+          <span class="slStoreAddress">2200 Innovation Blvd, Beaverton, OR 97005</span>
+          <div class="slStoreMeta">
+            <span class="slStoreDistance">3.5 mi</span>
+            <span class="slStoreStatus closed">Closed</span>
+          </div>
+          <div class="slStoreFeatures">
+            <span class="slFeatureBadge">Drive-Thru</span>
+            <span class="slFeatureBadge">WiFi</span>
+            <span class="slFeatureBadge">Mobile Order</span>
+          </div>
+          <div class="slStoreActions">
+            <a href="menu.html" class="slBtnOrder">Order</a>
+            <button class="slBtnDirections">Directions</button>
+          </div>
+        </li>
+
+      </ul>
+    </aside>
+
+    <!-- Right Panel — Map -->
+    <div class="slMap">
+
+      <!-- Decorative grid lines -->
+      <svg class="slMapGrid" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Horizontal lines -->
+        <line x1="0" y1="100" x2="800" y2="100" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="0" y1="200" x2="800" y2="200" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="0" y1="300" x2="800" y2="300" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="0" y1="400" x2="800" y2="400" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="0" y1="500" x2="800" y2="500" stroke="#d5d3cd" stroke-width="0.5"/>
+        <!-- Vertical lines -->
+        <line x1="160" y1="0" x2="160" y2="600" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="320" y1="0" x2="320" y2="600" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="480" y1="0" x2="480" y2="600" stroke="#d5d3cd" stroke-width="0.5"/>
+        <line x1="640" y1="0" x2="640" y2="600" stroke="#d5d3cd" stroke-width="0.5"/>
+        <!-- Diagonal roads -->
+        <line x1="100" y1="0" x2="500" y2="600" stroke="#ccc9c1" stroke-width="2"/>
+        <line x1="300" y1="0" x2="700" y2="600" stroke="#ccc9c1" stroke-width="2"/>
+        <line x1="0" y1="150" x2="800" y2="450" stroke="#ccc9c1" stroke-width="2"/>
+        <!-- Horizontal roads -->
+        <rect x="0" y="245" width="800" height="8" rx="2" fill="#d8d5ce"/>
+        <rect x="0" y="395" width="800" height="6" rx="2" fill="#d8d5ce"/>
+        <!-- Vertical roads -->
+        <rect x="350" y="0" width="8" height="600" rx="2" fill="#d8d5ce"/>
+        <rect x="550" y="0" width="6" height="600" rx="2" fill="#d8d5ce"/>
+      </svg>
+
+      <!-- Scattered map pins -->
+      <svg class="slMapPin slMapPin--1" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>
+      <svg class="slMapPin slMapPin--2" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>
+      <svg class="slMapPin slMapPin--3" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>
+      <svg class="slMapPin slMapPin--4" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>
+      <svg class="slMapPin slMapPin--5" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A"/>
+        <circle cx="12" cy="12" r="5" fill="white"/>
+      </svg>
+
+      <!-- Center placeholder text -->
+      <div class="slMapPlaceholder">
+        <svg viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#00704A" opacity="0.3"/>
+          <circle cx="12" cy="12" r="5" fill="#00704A" opacity="0.3"/>
+        </svg>
+        <p class="slMapLabel">Map view</p>
+        <p class="slMapSublabel">Search for a location to see stores nearby</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+          <a href="join.html" class="searchQuickLink">Join Now</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/skeleton/skeleton.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/scroll-cup/scroll-cup.js" defer></script>
+  <script>
+    // Preloader — dismiss after page fully loads
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.querySelector('.preloader').classList.add('loaded');
+      }, 1800);
+    });
+
+    // Filter button toggle
+    document.querySelectorAll('.slFilterBtn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+      });
+    });
+  </script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+
+</body>
+</html>

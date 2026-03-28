@@ -1,0 +1,118 @@
+/* ─────────────────────────────────────────────
+   404 ERROR PAGE
+   Standalone coffee-themed 404 page.
+   ───────────────────────────────────────────── */
+
+/* ── Page Layout ────────────────────────────── */
+
+.page404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b8d4cc;
+  text-align: center;
+  margin: 0;
+  padding: 24px;
+}
+
+/* ── Container ──────────────────────────────── */
+
+.errorContainer {
+  max-width: 600px;
+  padding: 32px 16px;
+}
+
+/* ── 4 ☕ 4 Row ─────────────────────────────── */
+
+.errorDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* ── Digit "4" ──────────────────────────────── */
+
+.errorDigit {
+  font-family: var(--font-display, 'Arial Black', sans-serif);
+  font-size: clamp(100px, 20vw, 180px);
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Coffee Cup SVG ─────────────────────────── */
+
+.errorCup {
+  width: clamp(100px, 18vw, 160px);
+  height: clamp(100px, 18vw, 160px);
+  flex-shrink: 0;
+}
+
+/* ── Title ──────────────────────────────────── */
+
+.errorTitle {
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-size: clamp(16px, 3vw, 24px);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 24px;
+}
+
+/* ── Description ────────────────────────────── */
+
+.errorDesc {
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* ── Back to Home Button ────────────────────── */
+
+.errorBtn {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 12px 32px;
+  border: 2px solid #ffffff;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-family: var(--font-body, 'Helvetica Neue', sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.errorBtn:hover,
+.errorBtn:focus-visible {
+  background-color: #ffffff;
+  color: #1A1820;
+}
+
+/* ── Dark Mode ──────────────────────────────── */
+
+[data-theme="dark"] .page404 {
+  background-color: #1a3028;
+}
+
+/* ── Coffee Swirl Animation ─────────────────── */
+
+@keyframes swirlRotate {
+  0%   { transform: rotate(0deg);   }
+  50%  { transform: rotate(12deg);  }
+  100% { transform: rotate(0deg);   }
+}
+
+.errorSwirl {
+  transform-origin: 100px 100px;
+  animation: swirlRotate 6s ease-in-out infinite;
+}

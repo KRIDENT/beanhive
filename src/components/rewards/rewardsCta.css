@@ -1,0 +1,292 @@
+/* Component: Rewards CTA
+   ─────────────────────────
+   Promotional banner encouraging users to join
+   Starbucks Rewards. Split layout: content + stars
+   illustration. Brand green background. */
+
+/* ── Rewards Section ──────────────────────── */
+
+.rewardsSection {
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  background-color: var(--color-starbucks-green);
+}
+
+.rewardsInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .rewardsInner {
+    flex-direction: row;
+  }
+}
+
+/* ── Content Panel ────────────────────────── */
+
+.rewardsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: var(--space-6);
+  padding: var(--space-16) var(--space-6);
+
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .rewardsContent {
+    align-items: flex-start;
+    padding: var(--space-16) var(--space-12);
+
+    text-align: left;
+  }
+}
+
+/* ── Eyebrow Label ────────────────────────── */
+
+.rewardsEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-green-pale);
+  text-transform: uppercase;
+}
+
+.rewardsEyebrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Heading ──────────────────────────────── */
+
+.rewardsHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .rewardsHeading {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ── Description ──────────────────────────── */
+
+.rewardsDescription {
+  max-width: 520px;
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 768px) {
+  .rewardsDescription {
+    font-size: var(--text-md);
+  }
+}
+
+/* ── Benefits List ────────────────────────── */
+
+.rewardsBenefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rewardsBenefitItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rewardsBenefitItem svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-green-pale);
+}
+
+/* ── CTA Button — White on Green ──────────── */
+
+.rewardsCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+
+  background-color: var(--color-white);
+  border: none;
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              transform        var(--duration-fast) var(--ease-default);
+}
+
+.rewardsCta:hover {
+  background-color: var(--color-green-pale);
+
+  transform: translateY(-1px);
+}
+
+.rewardsCta:active {
+  transform: translateY(0);
+}
+
+/* ── Illustration Panel ───────────────────── */
+
+.rewardsGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  min-height: 300px;
+  padding: var(--space-8);
+
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 768px) {
+  .rewardsGraphic {
+    min-height: 460px;
+    padding: var(--space-12);
+  }
+}
+
+/* ── Stars Illustration ───────────────────── */
+
+.rewardsStarsGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.rewardsStarsBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+}
+
+@media (min-width: 768px) {
+  .rewardsStarsBadge {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.rewardsStarsCount {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.rewardsStarsLabel {
+  margin-top: var(--space-1);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+
+.rewardsStarsCaption {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Decorative Star Accents ──────────────── */
+
+.rewardsDecoStars {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.rewardsDecoStar {
+  position: absolute;
+
+  color: rgba(255, 255, 255, 0.06);
+}
+
+.rewardsDecoStar:nth-child(1) {
+  top: 10%;
+  left: 5%;
+
+  font-size: 48px;
+}
+
+.rewardsDecoStar:nth-child(2) {
+  top: 60%;
+  right: 8%;
+
+  font-size: 32px;
+}
+
+.rewardsDecoStar:nth-child(3) {
+  bottom: 15%;
+  left: 12%;
+
+  font-size: 24px;
+}
+
+.rewardsDecoStar:nth-child(4) {
+  top: 25%;
+  right: 15%;
+
+  font-size: 40px;
+}

@@ -1,0 +1,502 @@
+/* Component: Product Card
+   ─────────────────────────
+   Displays a single menu item with image, name,
+   price, optional calories, and an "Add to Order" CTA.
+   Uses card design tokens from tokens.css. */
+
+/* ── Featured Section Container (legacy) ──── */
+
+.featuredSection {
+  padding: var(--space-16) 0;
+  background-color: var(--color-warm-white);
+}
+
+.featuredHeader {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.featuredTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-gray-dark);
+}
+
+.featuredSubtitle {
+  margin-top: var(--space-3);
+  font-size: var(--text-md);
+  color: var(--color-gray-mid);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 480px) {
+  .productGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .productGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ═══════════════════════════════════════════════
+   3D CAROUSEL — Drinks Made for the Moment
+   ═══════════════════════════════════════════════ */
+
+.carouselSection {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Background image ───────────────────────── */
+.carouselBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carouselBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 25, 20, 0.65) 0%,
+    rgba(30, 25, 20, 0.50) 50%,
+    rgba(30, 25, 20, 0.70) 100%
+  );
+  backdrop-filter: blur(3px);
+}
+
+/* ── Content layer ──────────────────────────── */
+.carouselContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: var(--space-16) 0 var(--space-12);
+  text-align: center;
+}
+
+.carouselTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Carousel container ─────────────────────── */
+.carousel3d {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
+/* ── Track (positioning parent for cards + arrows) */
+.carouselTrack {
+  position: relative;
+  width: 280px;
+  height: 380px;
+}
+
+/* ── Individual card ────────────────────────── */
+.carouselCard {
+  position: absolute;
+  width: 240px;
+  left: 50%;
+  top: 50%;
+  margin-left: -120px;
+  margin-top: -175px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 0.6s ease,
+              filter 0.6s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.carouselCard.active {
+  z-index: 10;
+  transform: translateX(0) scale(1.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 112, 74, 0.15);
+  filter: brightness(1);
+  opacity: 1;
+}
+
+.carouselCard.prev {
+  z-index: 8;
+  transform: translateX(-180px) scale(0.92);
+  opacity: 0.85;
+  filter: brightness(0.85);
+}
+
+.carouselCard.next {
+  z-index: 8;
+  transform: translateX(180px) scale(0.92);
+  opacity: 0.85;
+  filter: brightness(0.85);
+}
+
+.carouselCard.farPrev {
+  z-index: 6;
+  transform: translateX(-330px) scale(0.82);
+  opacity: 0.6;
+  filter: brightness(0.7);
+}
+
+.carouselCard.farNext {
+  z-index: 6;
+  transform: translateX(330px) scale(0.82);
+  opacity: 0.6;
+  filter: brightness(0.7);
+}
+
+.carouselCard.hidden {
+  z-index: 0;
+  transform: translateX(0) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Card inner elements ────────────────────── */
+.carouselCardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f0e6, #e8dfd2);
+}
+
+.carouselCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.carouselCard.active .carouselCardImg img {
+  transform: scale(1.05);
+}
+
+.carouselCardName {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: #1e1e1e;
+  text-align: center;
+  text-shadow: none;
+}
+
+[data-theme="dark"] .carouselCardName {
+  color: #f2f0eb;
+}
+
+/* ── Navigation arrows ──────────────────────── */
+.carouselArrow {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(180, 150, 110, 0.5);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carouselArrow:hover {
+  background: rgba(180, 150, 110, 0.7);
+  transform: scale(1.1);
+}
+
+.carouselArrow svg {
+  width: 22px;
+  height: 22px;
+}
+
+.carouselArrow--prev {
+  left: -440px;
+}
+
+.carouselArrow--next {
+  right: -440px;
+}
+
+/* ── Dots ────────────────────────────────────── */
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-6);
+}
+
+.carouselDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.carouselDot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+.carouselDot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 768px) {
+  .carouselSection {
+    min-height: 520px;
+  }
+
+  .carouselTitle {
+    font-size: var(--text-2xl);
+  }
+
+  .carouselCard {
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -150px;
+  }
+
+  .carouselTrack {
+    width: 220px;
+    height: 320px;
+  }
+
+  .carouselCard.prev {
+    transform: translateX(-130px) scale(0.85);
+  }
+
+  .carouselCard.next {
+    transform: translateX(130px) scale(0.85);
+  }
+
+  .carouselCard.farPrev,
+  .carouselCard.farNext {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .carouselArrow {
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+  }
+
+  .carouselArrow--prev {
+    left: -210px;
+  }
+
+  .carouselArrow--next {
+    right: -210px;
+  }
+
+  .carouselArrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ── Dark mode ──────────────────────────────── */
+[data-theme="dark"] .carouselCard {
+  background: rgba(40, 36, 32, 0.95);
+}
+
+[data-theme="dark"] .carouselCardImg {
+  background: linear-gradient(135deg, #2a2520, #1e1a16);
+}
+
+/* ── Product Card ─────────────────────────── */
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: var(--space-6);
+
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+
+  text-align: center;
+
+  cursor: pointer;
+  transition: box-shadow var(--duration-normal) var(--ease-default),
+              transform  var(--duration-normal) var(--ease-default);
+}
+
+.productCard:hover {
+  box-shadow: var(--card-shadow-hover);
+
+  transform: translateY(-4px);
+}
+
+/* ── Clickable card link wrapper ──────────── */
+
+.productCardLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Card Image ───────────────────────────── */
+
+.productCardImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+
+  background-color: var(--color-cream);
+}
+
+.productCardImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform var(--duration-slow) var(--ease-default);
+}
+
+.productCard:hover .productCardImage {
+  transform: scale(1.05);
+}
+
+/* Placeholder for cards without real images */
+.productCardPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 100%;
+
+  color: var(--color-gray-mid);
+}
+
+.productCardPlaceholder svg {
+  width: 64px;
+  height: 64px;
+
+  opacity: 0.4;
+}
+
+.productCardPlaceholder span {
+  font-size: var(--text-xs);
+
+  opacity: 0.5;
+}
+
+/* ── Card Body ────────────────────────────── */
+
+.productCardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.productCardName {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  color: var(--color-gray-dark);
+}
+
+.productCardCalories {
+  font-size: var(--text-sm);
+  color: var(--color-gray-mid);
+}
+
+.productCardPrice {
+  margin-top: var(--space-1);
+
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-gray-dark);
+}
+
+/* ── Card CTA Button (Secondary) ──────────── */
+
+.productCardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin-top: var(--space-4);
+  padding: 0 var(--space-4);
+
+  background-color: var(--btn-secondary-bg);
+  border: 1px solid var(--color-starbucks-green);
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              color            var(--duration-fast) var(--ease-default);
+}
+
+.productCardCta:hover {
+  background-color: var(--color-starbucks-green);
+
+  color: var(--color-white);
+}

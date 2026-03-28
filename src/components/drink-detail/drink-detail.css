@@ -1,0 +1,683 @@
+/* ─────────────────────────────────────────────
+   DRINK DETAIL PAGE
+   Starbucks-style product detail layout
+   ───────────────────────────────────────────── */
+
+/* ── Container ───────────────────────────────── */
+
+.ddContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+/* ── Breadcrumb ──────────────────────────────── */
+
+.ddBreadcrumb {
+  font-size: 14px;
+  color: var(--color-gray-mid);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ddBreadcrumb a {
+  color: var(--color-starbucks-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ddBreadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.ddBreadcrumbSep {
+  color: var(--color-gray-light);
+  user-select: none;
+}
+
+.ddBreadcrumbCurrent {
+  color: var(--color-gray-dark);
+  font-weight: 600;
+}
+
+/* ── Two-Column Layout ───────────────────────── */
+
+.ddLayout {
+  display: flex;
+  gap: 48px;
+  padding-top: 32px;
+  align-items: flex-start;
+}
+
+/* ── Left: Image ─────────────────────────────── */
+
+.ddImage {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-cream);
+  max-width: 520px;
+}
+
+.ddImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Right: Info ─────────────────────────────── */
+
+.ddInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ddName {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-gray-dark);
+  line-height: 1.2;
+}
+
+.ddCalories {
+  font-size: 14px;
+  color: var(--color-gray-mid);
+  margin-top: 4px;
+}
+
+/* ── Size Selector ───────────────────────────── */
+
+.ddSizeSelector {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ddSizeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 72px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── Cup Icons ──────────────────────────────── */
+.ddSizeCup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ddSizeCup svg {
+  display: block;
+}
+
+.ddSizeCup .cupOutline {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.ddSizeCup .cupSteam {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+/* Different heights per size */
+.ddSizeCup--short { height: 48px; }
+.ddSizeCup--short svg { width: 28px; height: 38px; }
+
+.ddSizeCup--tall { height: 48px; }
+.ddSizeCup--tall svg { width: 32px; height: 44px; }
+
+.ddSizeCup--grande { height: 48px; }
+.ddSizeCup--grande svg { width: 36px; height: 48px; }
+
+.ddSizeCup--venti { height: 48px; }
+.ddSizeCup--venti svg { width: 40px; height: 54px; }
+
+/* Active state */
+.ddSizeBtn.active .ddSizeCup {
+  color: var(--color-starbucks-green);
+}
+
+.ddSizeBtn.active .ddSizeCup .cupOutline {
+  fill: var(--color-green-pale);
+  stroke: var(--color-starbucks-green);
+}
+
+.ddSizeBtn.active .ddSizeCup .cupSteam {
+  opacity: 0.8;
+}
+
+/* Hover */
+.ddSizeBtn:hover .ddSizeCup {
+  color: var(--color-starbucks-green);
+  transform: translateY(-2px);
+}
+
+.ddSizeBtnLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  font-family: var(--font-body);
+  text-transform: capitalize;
+}
+
+/* ── Price ────────────────────────────────────── */
+
+.ddPrice {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-green-dark);
+  margin-top: 20px;
+}
+
+/* ── Description ─────────────────────────────── */
+
+.ddDescription {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-gray-mid);
+  margin-top: 16px;
+}
+
+/* ── Customizations ──────────────────────────── */
+
+.ddCustomize {
+  margin-top: 24px;
+}
+
+.ddCustomizeTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-gray-dark);
+  margin-bottom: 12px;
+}
+
+/* Milk Selector */
+
+.ddMilkSelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ddMilkBtn {
+  font-size: 13px;
+  font-family: var(--font-body);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  background: transparent;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ddMilkBtn:hover {
+  border-color: var(--color-starbucks-green);
+}
+
+.ddMilkBtn.active {
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  border-color: var(--color-green-dark);
+}
+
+/* Toggle Switches */
+
+.ddToggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-gray-dark);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ddToggleCheckbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ddToggleSwitch {
+  width: 40px;
+  height: 22px;
+  background: var(--color-gray-light);
+  border-radius: 11px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.ddToggleSwitch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-white);
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.ddToggleCheckbox:checked + .ddToggleSwitch {
+  background: var(--color-starbucks-green);
+}
+
+.ddToggleCheckbox:checked + .ddToggleSwitch::after {
+  transform: translateX(18px);
+}
+
+/* ── Add to Order Button ─────────────────────── */
+
+.ddAddBtn {
+  width: 100%;
+  height: 48px;
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.2s ease;
+}
+
+.ddAddBtn:hover {
+  background: var(--color-starbucks-green);
+}
+
+.ddAddBtn:active {
+  transform: scale(0.98);
+}
+
+/* ── Nutrition Link ──────────────────────────── */
+
+.ddNutrition {
+  font-size: 13px;
+  color: var(--color-starbucks-green);
+  margin-top: 12px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.ddNutrition:hover {
+  color: var(--color-green-dark);
+}
+
+/* ── Not Found State ─────────────────────────── */
+
+.ddNotFound {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.ddNotFound h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-gray-dark);
+  margin-bottom: 12px;
+}
+
+.ddNotFound p {
+  font-size: 16px;
+  color: var(--color-gray-mid);
+  margin-bottom: 24px;
+}
+
+.ddNotFoundLink {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.ddNotFoundLink:hover {
+  background: var(--color-starbucks-green);
+}
+
+/* ── You Might Also Like ─────────────────────── */
+
+.ddAlsoLike {
+  padding: 48px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ddAlsoLikeTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-gray-dark);
+  margin-bottom: 24px;
+}
+
+.ddAlsoLikeGrid {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar but keep scrollable */
+.ddAlsoLikeGrid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.ddAlsoLikeGrid::-webkit-scrollbar-track {
+  background: var(--color-gray-light);
+  border-radius: 2px;
+}
+
+.ddAlsoLikeGrid::-webkit-scrollbar-thumb {
+  background: var(--color-gray-mid);
+  border-radius: 2px;
+}
+
+/* ── Suggestion Cards ────────────────────────── */
+
+.ddSuggestionCard {
+  min-width: 200px;
+  max-width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ddSuggestionLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ddSuggestionImgWrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-cream);
+  margin-bottom: 12px;
+}
+
+.ddSuggestionImgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ddSuggestionName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-gray-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.ddSuggestionPrice {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-gray-mid);
+  margin-bottom: 12px;
+}
+
+.ddSuggestionBtn {
+  padding: 8px 20px;
+  border: 1px solid var(--color-green-dark);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-green-dark);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ddSuggestionBtn:hover {
+  background: var(--color-green-dark);
+  color: var(--color-white);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .ddLayout {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ddImage {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .ddInfo {
+    width: 100%;
+  }
+
+  .ddName {
+    font-size: 24px;
+  }
+
+  .ddAlsoLikeGrid {
+    gap: 16px;
+  }
+
+  .ddSuggestionCard {
+    min-width: 160px;
+  }
+
+  .ddSuggestionImgWrap {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ddContainer {
+    padding: 16px 16px 0;
+  }
+
+  .ddLayout {
+    gap: 16px;
+    padding-top: 20px;
+  }
+
+  .ddName {
+    font-size: 22px;
+  }
+
+  .ddPrice {
+    font-size: 20px;
+  }
+
+  .ddSizeSelector {
+    gap: 10px;
+  }
+
+  .ddSizeBtn {
+    width: 56px;
+  }
+
+  .ddSizeCup--short svg { width: 24px; height: 32px; }
+  .ddSizeCup--tall svg { width: 28px; height: 38px; }
+  .ddSizeCup--grande svg { width: 30px; height: 42px; }
+  .ddSizeCup--venti svg { width: 34px; height: 48px; }
+
+  .ddMilkSelector {
+    gap: 6px;
+  }
+
+  .ddMilkBtn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .ddAlsoLike {
+    padding: 32px 16px;
+  }
+
+  .ddAlsoLikeTitle {
+    font-size: 18px;
+  }
+
+  .ddSuggestionCard {
+    min-width: 140px;
+  }
+
+  .ddSuggestionImgWrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .ddSuggestionName {
+    font-size: 13px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE
+   Tokens handle most of it; these are explicit
+   overrides for drink-detail specifics.
+   ───────────────────────────────────────────── */
+
+[data-theme="dark"] .ddImage {
+  background: #2a2520;
+}
+
+[data-theme="dark"] .ddSizeCup {
+  color: #888;
+}
+
+[data-theme="dark"] .ddSizeBtn.active .ddSizeCup {
+  color: var(--color-starbucks-green);
+}
+
+[data-theme="dark"] .ddSizeBtn.active .ddSizeCup .cupOutline {
+  fill: rgba(0, 112, 74, 0.15);
+  stroke: var(--color-starbucks-green);
+}
+
+[data-theme="dark"] .ddSizeBtn:hover .ddSizeCup {
+  color: var(--color-starbucks-green);
+}
+
+[data-theme="dark"] .ddSizeBtnLabel {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .ddName,
+[data-theme="dark"] .ddCustomizeTitle,
+[data-theme="dark"] .ddAlsoLikeTitle,
+[data-theme="dark"] .ddBreadcrumbCurrent {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .ddCalories {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .ddDescription {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .ddPrice {
+  color: #00c76e;
+}
+
+[data-theme="dark"] .ddMilkBtn {
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .ddMilkBtn.active {
+  background: var(--color-starbucks-green);
+  border-color: var(--color-starbucks-green);
+  color: #fff;
+}
+
+[data-theme="dark"] .ddToggle {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .ddToggleSwitch {
+  background: #444;
+}
+
+[data-theme="dark"] .ddAddBtn {
+  color: #fff;
+}
+
+[data-theme="dark"] .ddNutrition {
+  color: #00c76e;
+}
+
+[data-theme="dark"] .ddBreadcrumb,
+[data-theme="dark"] .ddBreadcrumb a {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .ddSuggestionImgWrap {
+  background: #2a2520;
+}
+
+[data-theme="dark"] .ddSuggestionName {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .ddSuggestionBtn {
+  border-color: #00c76e;
+  color: #00c76e;
+}
+
+[data-theme="dark"] .ddSuggestionBtn:hover {
+  background: var(--color-starbucks-green);
+  color: #fff;
+}
+
+[data-theme="dark"] .ddSuggestionPrice {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .ddNotFound h1 {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .ddNotFound p {
+  color: #a0a0a0;
+}

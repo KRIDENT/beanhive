@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A1820">
+  <meta name="description" content="Beanhive — Admin Dashboard">
+  <title>Admin Dashboard | Beanhive</title>
+  <link rel="icon" type="image/png" href="Images/beanhive_logo-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/typography.css">
+  <link rel="stylesheet" href="src/styles/layout.css">
+  <link rel="stylesheet" href="src/components/navigation/navbar.css">
+  <link rel="stylesheet" href="src/components/admin/admin.css">
+  <link rel="stylesheet" href="src/components/footer/footer.css">
+  <link rel="stylesheet" href="src/components/preloader/preloader.css">
+  <link rel="stylesheet" href="src/components/search/search.css">
+  <link rel="stylesheet" href="src/components/cart/cart.css">
+  <link rel="stylesheet" href="src/components/toast/toast.css">
+  <link rel="stylesheet" href="src/components/favorites/favorites.css">
+</head>
+<body class="adminPage">
+
+  <!-- ── Preloader ──────────────────────────── -->
+  <div class="preloader" aria-label="Loading">
+    <div class="preloaderCup">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="steam steam--1"><path d="M42 38 Q44 28 40 18 Q38 10 42 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/></g>
+        <g class="steam steam--2"><path d="M56 36 Q58 26 54 16 Q52 8 56 0" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/></g>
+        <g class="steam steam--3"><path d="M70 38 Q72 28 68 18 Q66 10 70 2" stroke="#8c8578" stroke-width="2.5" stroke-linecap="round" fill="none"/></g>
+        <g class="cupBody">
+          <g class="cupSaucer">
+            <ellipse cx="55" cy="100" rx="42" ry="10" stroke="#3d3631" stroke-width="3.5" fill="none"/>
+            <ellipse cx="55" cy="98" rx="30" ry="6" stroke="#3d3631" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </g>
+          <path d="M28 48 L32 90 Q34 98 42 98 L68 98 Q76 98 78 90 L82 48 Z" stroke="#3d3631" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+          <path d="M82 56 Q98 58 98 72 Q98 86 82 84" stroke="#3d3631" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <ellipse class="cupLiquid" cx="55" cy="52" rx="26" ry="6" fill="#3d3631" opacity="0.8"/>
+        </g>
+      </svg>
+    </div>
+    <p class="preloaderText">Brewing<span class="preloaderDots"><span>.</span><span>.</span><span>.</span></span></p>
+  </div>
+
+  <!-- ── Top Navigation ─────────────────────── -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarInner">
+      <button class="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="/" class="navLogo" aria-label="Beanhive home">
+        <img src="Images/beanhive_logo-removebg-preview.png" alt="Beanhive" width="72" height="72" />
+      </a>
+      <ul class="navLinks">
+        <li><a href="menu.html" class="navLink">Menu</a></li>
+        <li><a href="rewards.html" class="navLink">Rewards</a></li>
+        <li><a href="gift-cards.html" class="navLink">Gift Cards</a></li>
+      </ul>
+      <div class="navActions">
+        <button class="navSearchBtn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="themeToggle" aria-label="Switch to dark mode">
+          <span class="themeToggleKnob"><span class="toggleSun"></span><span class="toggleMoon"></span></span>
+        </button>
+        <a href="store-locator.html" class="navLocationLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Find a store
+        </a>
+        <span class="navDivider" aria-hidden="true"></span>
+        <a href="signin.html" class="navSignIn">Sign in</a>
+        <a href="join.html" class="navBtnSecondary">Join now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Mobile Drawer ──────────────────────── -->
+  <div class="navDrawer" aria-label="Mobile navigation menu">
+    <a href="menu.html" class="navDrawerLink">Menu</a>
+    <a href="rewards.html" class="navDrawerLink">Rewards</a>
+    <a href="gift-cards.html" class="navDrawerLink">Gift Cards</a>
+    <div class="navDrawerDivider"></div>
+    <a href="store-locator.html" class="navDrawerLink navDrawerLocationLink">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Find a store
+    </a>
+    <div class="navDrawerActions">
+      <a href="signin.html" class="navBtnSecondary">Sign in</a>
+      <a href="join.html" class="navBtnPrimary">Join now</a>
+    </div>
+  </div>
+
+  <!-- ── Main Content ────────────────────────── -->
+  <main style="padding-top: var(--nav-height);">
+
+    <!-- Not Authorized State -->
+    <div class="adminNotAuthorized" id="adminNotAuthorized" style="display:none;">
+      <div class="adminNotAuthorizedCard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <h2>Access Denied</h2>
+        <p>You need admin privileges to view this page.</p>
+        <a href="index.html">Back to Home</a>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard (hidden until verified) -->
+    <div class="adminContainer" id="adminContent" style="display:none;">
+
+      <div class="adminHeader">
+        <h1 class="adminTitle">Admin Dashboard</h1>
+        <p class="adminSubtitle">Manage your Beanhive application</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="adminStatsRow">
+        <div class="adminStatCard">
+          <span class="adminStatValue" id="statTotalUsers">--</span>
+          <span class="adminStatLabel">Total Users</span>
+        </div>
+        <div class="adminStatCard">
+          <span class="adminStatValue" id="statTotalOrders">--</span>
+          <span class="adminStatLabel">Total Orders</span>
+        </div>
+        <div class="adminStatCard">
+          <span class="adminStatValue" id="statTotalRevenue">--</span>
+          <span class="adminStatLabel">Total Revenue</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="adminTabs" role="tablist">
+        <button class="adminTabBtn active" data-tab="users" role="tab" aria-selected="true">Users</button>
+        <button class="adminTabBtn" data-tab="orders" role="tab" aria-selected="false">Orders</button>
+        <button class="adminTabBtn" data-tab="menu" role="tab" aria-selected="false">Menu</button>
+        <button class="adminTabBtn" data-tab="analytics" role="tab" aria-selected="false">Analytics</button>
+      </div>
+
+      <!-- Users Panel -->
+      <div id="tab-users" class="adminTabPanel active">
+        <div class="adminTableWrap">
+          <table class="adminTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Orders Panel -->
+      <div id="tab-orders" class="adminTabPanel">
+        <div class="adminTableWrap">
+          <table class="adminTable">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Menu Panel -->
+      <div id="tab-menu" class="adminTabPanel">
+        <div class="adminMenuControls">
+          <select id="menuCategoryFilter" class="adminSelect">
+            <option value="">All Categories</option>
+          </select>
+          <button class="adminActionBtn" id="addMenuItemBtn">+ Add Item</button>
+        </div>
+        <div class="adminTableWrap">
+          <table class="adminTable">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Cal</th>
+                <th>Featured</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="menuTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Analytics Panel -->
+      <div id="tab-analytics" class="adminTabPanel">
+        <div class="analyticsControls">
+          <select id="analyticsPeriod" class="adminSelect">
+            <option value="7">Last 7 days</option>
+            <option value="30" selected>Last 30 days</option>
+            <option value="90">Last 90 days</option>
+            <option value="365">Last year</option>
+          </select>
+        </div>
+
+        <!-- Revenue Summary Cards -->
+        <div class="analyticsSummaryRow">
+          <div class="analyticsSummaryCard">
+            <span class="analyticsSummaryLabel">Today</span>
+            <span class="analyticsSummaryValue" id="revToday">$0.00</span>
+          </div>
+          <div class="analyticsSummaryCard">
+            <span class="analyticsSummaryLabel">This Week</span>
+            <span class="analyticsSummaryValue" id="revWeek">$0.00</span>
+          </div>
+          <div class="analyticsSummaryCard">
+            <span class="analyticsSummaryLabel">This Month</span>
+            <span class="analyticsSummaryValue" id="revMonth">$0.00</span>
+          </div>
+          <div class="analyticsSummaryCard">
+            <span class="analyticsSummaryLabel">All Time</span>
+            <span class="analyticsSummaryValue" id="revAllTime">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="analyticsChartsGrid">
+          <div class="analyticsChartCard analyticsChartWide">
+            <h3 class="analyticsChartTitle">Revenue Over Time</h3>
+            <canvas id="revenueChart"></canvas>
+          </div>
+          <div class="analyticsChartCard">
+            <h3 class="analyticsChartTitle">Orders by Status</h3>
+            <canvas id="statusChart"></canvas>
+          </div>
+          <div class="analyticsChartCard analyticsChartWide">
+            <h3 class="analyticsChartTitle">Top Selling Items</h3>
+            <canvas id="topItemsChart"></canvas>
+          </div>
+          <div class="analyticsChartCard">
+            <h3 class="analyticsChartTitle">New Users</h3>
+            <canvas id="usersChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Menu Item Modal ──────────────────────── -->
+  <div class="adminModal" id="menuModal" style="display:none;">
+    <div class="adminModalContent">
+      <div class="adminModalHeader">
+        <h3 class="adminModalTitle" id="menuModalTitle">Add Menu Item</h3>
+        <button class="adminModalClose" id="menuModalClose">&times;</button>
+      </div>
+      <form id="menuForm" class="adminForm">
+        <input type="hidden" id="menuFormId" />
+        <div class="adminFormRow">
+          <div class="adminFormGroup">
+            <label for="menuFormName">Name</label>
+            <input type="text" id="menuFormName" required />
+          </div>
+          <div class="adminFormGroup">
+            <label for="menuFormCategory">Category</label>
+            <input type="text" id="menuFormCategory" list="categoryList" required />
+            <datalist id="categoryList"></datalist>
+          </div>
+        </div>
+        <div class="adminFormRow">
+          <div class="adminFormGroup">
+            <label for="menuFormPrice">Price ($)</label>
+            <input type="number" id="menuFormPrice" step="0.01" min="0" required />
+          </div>
+          <div class="adminFormGroup">
+            <label for="menuFormCalories">Calories</label>
+            <input type="number" id="menuFormCalories" min="0" />
+          </div>
+        </div>
+        <div class="adminFormGroup">
+          <label for="menuFormDescription">Description</label>
+          <textarea id="menuFormDescription" rows="3"></textarea>
+        </div>
+        <div class="adminFormRow">
+          <div class="adminFormGroup adminFormCheck">
+            <label><input type="checkbox" id="menuFormIsFood" /> Food item</label>
+          </div>
+          <div class="adminFormGroup adminFormCheck">
+            <label><input type="checkbox" id="menuFormFeatured" /> Featured (homepage carousel)</label>
+          </div>
+        </div>
+        <div class="adminFormGroup">
+          <label for="menuFormImage">Image</label>
+          <div class="adminImageUpload">
+            <img id="menuFormImagePreview" class="adminImagePreview" src="" alt="" style="display:none;" />
+            <input type="file" id="menuFormImage" accept=".png,.jpg,.jpeg,.webp" />
+          </div>
+        </div>
+        <div class="adminFormActions">
+          <button type="button" class="adminActionBtn adminActionBtn--danger" id="menuFormCancel">Cancel</button>
+          <button type="submit" class="adminActionBtn" id="menuFormSubmit">Save Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footerInner">
+      <div class="footerColumns">
+        <div class="footerColumn">
+          <button class="footerColumnHeading" aria-expanded="false">About Us
+            <svg class="footerChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="footerColumnLinks">
+            <a href="/about" class="footerLink">Our Company</a>
+            <a href="/about/values" class="footerLink">Our Coffee</a>
+            <a href="/about/stories" class="footerLink">Stories and News</a>
+          </div>
+        </div>
+      </div>
+      <div class="footerLegal">
+        <a href="/legal/privacy" class="footerLegalLink">Privacy Notice</a>
+        <span class="footerLegalDot" aria-hidden="true"></span>
+        <a href="/legal/terms" class="footerLegalLink">Terms of Use</a>
+      </div>
+      <p class="footerCopyright">&copy; 2026 Beanhive. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ──────────────────────── -->
+  <div class="searchOverlay">
+    <div class="searchModal">
+      <div class="searchInputWrapper">
+        <svg class="searchInputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="searchInput" placeholder="Search drinks, pages, rewards..." autocomplete="off" />
+        <button class="searchCloseBtn" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="searchQuickLinks">
+        <span class="searchQuickLinksTitle">Quick Links</span>
+        <div class="searchQuickLinksList">
+          <a href="menu.html" class="searchQuickLink">Menu</a>
+          <a href="rewards.html" class="searchQuickLink">Rewards</a>
+          <a href="gift-cards.html" class="searchQuickLink">Gift Cards</a>
+          <a href="store-locator.html" class="searchQuickLink">Find a Store</a>
+        </div>
+      </div>
+      <div class="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="src/components/toast/toast.js"></script>
+  <script src="src/components/theme/theme-toggle.js"></script>
+  <script src="src/components/navigation/navbar.js" defer></script>
+  <script src="src/components/footer/footer.js" defer></script>
+  <script src="src/components/search/search.js" defer></script>
+  <script src="src/components/cart/cart.js" defer></script>
+  <script src="src/components/favorites/favorites.js" defer></script>
+  <script src="src/components/auth/auth-client.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.querySelector('.preloader').classList.add('loaded');
+      }, 1800);
+    });
+  </script>
+
+  <!-- ── Admin Page Logic ──────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    var API_HOST = window.location.hostname || 'localhost';
+    var API_BASE = 'http://' + API_HOST + ':3001/v1';
+    var currentUserId = null;
+
+    function unwrap(res, json) {
+      var payload = json.data || json;
+      if (!res.ok && json.error) {
+        payload = { error: json.error.message || json.error };
+      }
+      return { ok: res.ok, status: res.status, data: payload };
+    }
+
+    function getJSON(url) {
+      return fetch(url, { credentials: 'include' }).then(function (res) {
+        return res.json().then(function (json) { return unwrap(res, json); });
+      });
+    }
+
+    function postJSON(url, data) {
+      return fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().then(function (json) { return unwrap(res, json); });
+      });
+    }
+
+    function patchJSON(url, data) {
+      return fetch(url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().then(function (json) { return unwrap(res, json); });
+      });
+    }
+
+    function deleteJSON(url) {
+      return fetch(url, {
+        method: 'DELETE',
+        credentials: 'include'
+      }).then(function (res) {
+        return res.json().then(function (json) { return unwrap(res, json); });
+      });
+    }
+
+    // ── Tabs ─────────────────────────────────
+    function initTabs() {
+      var btns = document.querySelectorAll('.adminTabBtn');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          document.querySelectorAll('.adminTabPanel').forEach(function (p) {
+            p.classList.remove('active');
+          });
+          var tabName = btn.getAttribute('data-tab');
+          var panel = document.getElementById('tab-' + tabName);
+          if (panel) panel.classList.add('active');
+
+          if (tabName === 'analytics') loadAnalytics();
+        });
+      });
+    }
+
+    // ── Format date ──────────────────────────
+    function formatDate(dateStr) {
+      if (!dateStr) return '--';
+      var d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    // ── Populate stats ───────────────────────
+    function populateStats(stats) {
+      document.getElementById('statTotalUsers').textContent = stats.totalUsers || 0;
+      document.getElementById('statTotalOrders').textContent = stats.totalOrders || 0;
+      document.getElementById('statTotalRevenue').textContent = '$' + (stats.totalRevenue || 0).toFixed(2);
+    }
+
+    // ── Populate users table ─────────────────
+    function populateUsers(users) {
+      var tbody = document.getElementById('usersTableBody');
+      if (!users || users.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="adminEmptyState">No users found.</td></tr>';
+        return;
+      }
+
+      var html = '';
+      users.forEach(function (u) {
+        var isCurrentUser = u.id === currentUserId;
+        var isAdmin = u.role === 'admin';
+        var badgeClass = isAdmin ? 'adminRoleBadge--admin' : 'adminRoleBadge--customer';
+        var actionBtn = '';
+
+        if (!isCurrentUser) {
+          if (isAdmin) {
+            actionBtn = '<button class="adminActionBtn adminActionBtn--danger" data-user-id="' + u.id + '" data-new-role="customer">Remove Admin</button>';
+          } else {
+            actionBtn = '<button class="adminActionBtn" data-user-id="' + u.id + '" data-new-role="admin">Make Admin</button>';
+          }
+        } else {
+          actionBtn = '<span style="color:var(--color-gray-mid);font-size:var(--text-xs);">You</span>';
+        }
+
+        html +=
+          '<tr>' +
+            '<td>' + escapeHtml(u.firstName + ' ' + u.lastName) + '</td>' +
+            '<td>' + escapeHtml(u.email) + '</td>' +
+            '<td><span class="adminRoleBadge ' + badgeClass + '">' + escapeHtml(u.role) + '</span></td>' +
+            '<td>' + formatDate(u.createdAt) + '</td>' +
+            '<td>' + actionBtn + '</td>' +
+          '</tr>';
+      });
+
+      tbody.innerHTML = html;
+
+      // Wire role toggle buttons
+      tbody.querySelectorAll('.adminActionBtn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var userId = btn.getAttribute('data-user-id');
+          var newRole = btn.getAttribute('data-new-role');
+          toggleRole(userId, newRole);
+        });
+      });
+    }
+
+    // ── Populate orders table ────────────────
+    function populateOrders(orders) {
+      var tbody = document.getElementById('ordersTableBody');
+      if (!orders || orders.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="adminEmptyState">No orders found.</td></tr>';
+        return;
+      }
+
+      var html = '';
+      orders.forEach(function (o) {
+        var itemCount = o.items ? o.items.length : 0;
+        var statusClass = 'adminStatusBadge--' + (o.status || 'pending');
+        html +=
+          '<tr>' +
+            '<td>#' + o.id + '</td>' +
+            '<td>' + escapeHtml(o.customer.firstName + ' ' + o.customer.lastName) + '</td>' +
+            '<td>' + itemCount + ' item' + (itemCount !== 1 ? 's' : '') + '</td>' +
+            '<td>$' + parseFloat(o.total).toFixed(2) + '</td>' +
+            '<td><span class="adminStatusBadge ' + statusClass + '">' + escapeHtml(o.status || 'pending') + '</span></td>' +
+            '<td>' + formatDate(o.createdAt) + '</td>' +
+          '</tr>';
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    // ── Toggle user role ─────────────────────
+    function toggleRole(userId, newRole) {
+      patchJSON(API_BASE + '/admin/users/' + userId + '/role', { role: newRole })
+        .then(function (res) {
+          if (res.ok) {
+            if (window.BeanhiveToast) {
+              BeanhiveToast.success('Role updated', res.data.user.firstName + ' is now ' + newRole + '.');
+            }
+            // Reload users and stats
+            loadDashboardData();
+          } else {
+            if (window.BeanhiveToast) {
+              BeanhiveToast.error('Update failed', res.data.error || 'Could not update role.');
+            }
+          }
+        })
+        .catch(function () {
+          if (window.BeanhiveToast) {
+            BeanhiveToast.error('Connection error', 'Could not reach the server.');
+          }
+        });
+    }
+
+    // ══════════════════════════════════════════
+    // MENU MANAGEMENT
+    // ══════════════════════════════════════════
+    var allMenuItems = [];
+    var allCategories = [];
+
+    function populateMenu(items) {
+      allMenuItems = items || [];
+      var filter = document.getElementById('menuCategoryFilter').value;
+      var filtered = filter ? allMenuItems.filter(function (i) { return i.category === filter; }) : allMenuItems;
+
+      var tbody = document.getElementById('menuTableBody');
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="adminEmptyState">No menu items found.</td></tr>';
+        return;
+      }
+
+      var html = '';
+      filtered.forEach(function (item) {
+        var imgSrc = item.image || 'Images/beanhive_logo-removebg-preview.png';
+        html +=
+          '<tr>' +
+            '<td><img src="' + escapeHtml(imgSrc) + '" class="adminMenuThumb" alt="" /></td>' +
+            '<td>' + escapeHtml(item.name) + '</td>' +
+            '<td>' + escapeHtml(item.category) + '</td>' +
+            '<td>$' + parseFloat(item.price).toFixed(2) + '</td>' +
+            '<td>' + (item.calories || 0) + '</td>' +
+            '<td>' + (item.featured ? '<span class="adminRoleBadge adminRoleBadge--admin">Yes</span>' : '') + '</td>' +
+            '<td>' +
+              '<button class="adminActionBtn adminMenuEdit" data-id="' + item.id + '">Edit</button> ' +
+              '<button class="adminActionBtn adminActionBtn--danger adminMenuDelete" data-id="' + item.id + '">Delete</button>' +
+            '</td>' +
+          '</tr>';
+      });
+      tbody.innerHTML = html;
+
+      // Wire edit/delete
+      tbody.querySelectorAll('.adminMenuEdit').forEach(function (btn) {
+        btn.addEventListener('click', function () { openEditModal(parseInt(btn.dataset.id, 10)); });
+      });
+      tbody.querySelectorAll('.adminMenuDelete').forEach(function (btn) {
+        btn.addEventListener('click', function () { deleteMenuItem(parseInt(btn.dataset.id, 10)); });
+      });
+    }
+
+    function populateCategoryFilter(categories) {
+      allCategories = categories || [];
+      var select = document.getElementById('menuCategoryFilter');
+      var current = select.value;
+      select.innerHTML = '<option value="">All Categories</option>';
+      allCategories.forEach(function (cat) {
+        select.innerHTML += '<option value="' + escapeHtml(cat) + '">' + escapeHtml(cat) + '</option>';
+      });
+      select.value = current;
+
+      // Also populate datalist for form
+      var datalist = document.getElementById('categoryList');
+      datalist.innerHTML = '';
+      allCategories.forEach(function (cat) {
+        datalist.innerHTML += '<option value="' + escapeHtml(cat) + '">';
+      });
+    }
+
+    function loadMenuData() {
+      Promise.all([
+        getJSON(API_BASE + '/admin/menu'),
+        getJSON(API_BASE + '/menu/categories')
+      ]).then(function (results) {
+        if (results[1].ok) populateCategoryFilter(results[1].data.categories);
+        if (results[0].ok) populateMenu(results[0].data.items);
+      });
+    }
+
+    // ── Modal ────────────────────────────────
+    var modal = document.getElementById('menuModal');
+    var modalTitle = document.getElementById('menuModalTitle');
+    var form = document.getElementById('menuForm');
+
+    function openModal() {
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      form.reset();
+      document.getElementById('menuFormId').value = '';
+      document.getElementById('menuFormImagePreview').style.display = 'none';
+    }
+
+    function openAddModal() {
+      modalTitle.textContent = 'Add Menu Item';
+      document.getElementById('menuFormSubmit').textContent = 'Create Item';
+      closeModal(); // Reset form
+      modal.style.display = 'flex';
+    }
+
+    function openEditModal(id) {
+      var item = allMenuItems.find(function (i) { return i.id === id; });
+      if (!item) return;
+
+      modalTitle.textContent = 'Edit Menu Item';
+      document.getElementById('menuFormSubmit').textContent = 'Save Changes';
+      document.getElementById('menuFormId').value = item.id;
+      document.getElementById('menuFormName').value = item.name;
+      document.getElementById('menuFormCategory').value = item.category;
+      document.getElementById('menuFormPrice').value = item.price;
+      document.getElementById('menuFormCalories').value = item.calories || 0;
+      document.getElementById('menuFormDescription').value = item.description || '';
+      document.getElementById('menuFormIsFood').checked = item.isFood;
+      document.getElementById('menuFormFeatured').checked = item.featured;
+
+      var preview = document.getElementById('menuFormImagePreview');
+      if (item.image) {
+        preview.src = item.image;
+        preview.style.display = 'block';
+      } else {
+        preview.style.display = 'none';
+      }
+
+      openModal();
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      var id = document.getElementById('menuFormId').value;
+      var data = {
+        name: document.getElementById('menuFormName').value.trim(),
+        category: document.getElementById('menuFormCategory').value.trim(),
+        price: parseFloat(document.getElementById('menuFormPrice').value),
+        calories: parseInt(document.getElementById('menuFormCalories').value, 10) || 0,
+        description: document.getElementById('menuFormDescription').value.trim(),
+        isFood: document.getElementById('menuFormIsFood').checked,
+        featured: document.getElementById('menuFormFeatured').checked
+      };
+
+      var submitBtn = document.getElementById('menuFormSubmit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving...';
+
+      var request = id
+        ? patchJSON(API_BASE + '/admin/menu/' + id, data)
+        : postJSON(API_BASE + '/admin/menu', data);
+
+      request.then(function (res) {
+        if (res.ok) {
+          // Upload image if selected
+          var fileInput = document.getElementById('menuFormImage');
+          var itemId = id || res.data.item.id;
+          if (fileInput.files.length > 0) {
+            return uploadImage(itemId, fileInput.files[0]).then(function () {
+              return res;
+            });
+          }
+          return res;
+        }
+        return res;
+      }).then(function (res) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = id ? 'Save Changes' : 'Create Item';
+        if (res.ok) {
+          closeModal();
+          if (window.BeanhiveToast) {
+            BeanhiveToast.success(id ? 'Item updated' : 'Item created', res.data.item.name + ' saved.');
+          }
+          loadMenuData();
+          loadDashboardData();
+        } else {
+          if (window.BeanhiveToast) {
+            BeanhiveToast.error('Save failed', res.data.error || 'Could not save item.');
+          }
+        }
+      }).catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = id ? 'Save Changes' : 'Create Item';
+        if (window.BeanhiveToast) {
+          BeanhiveToast.error('Connection error', 'Could not reach the server.');
+        }
+      });
+    }
+
+    function uploadImage(itemId, file) {
+      var formData = new FormData();
+      formData.append('image', file);
+      return fetch(API_BASE + '/admin/menu/' + itemId + '/image', {
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+      }).then(function (res) { return res.json(); });
+    }
+
+    function deleteMenuItem(id) {
+      var item = allMenuItems.find(function (i) { return i.id === id; });
+      var name = item ? item.name : 'this item';
+      if (!confirm('Delete "' + name + '"? This cannot be undone.')) return;
+
+      deleteJSON(API_BASE + '/admin/menu/' + id).then(function (res) {
+        if (res.ok) {
+          if (window.BeanhiveToast) BeanhiveToast.success('Deleted', name + ' removed from menu.');
+          loadMenuData();
+          loadDashboardData();
+        } else {
+          if (window.BeanhiveToast) BeanhiveToast.error('Delete failed', res.data.error || 'Could not delete.');
+        }
+      });
+    }
+
+    function initMenuTab() {
+      document.getElementById('addMenuItemBtn').addEventListener('click', openAddModal);
+      document.getElementById('menuModalClose').addEventListener('click', closeModal);
+      document.getElementById('menuFormCancel').addEventListener('click', closeModal);
+      form.addEventListener('submit', handleFormSubmit);
+
+      document.getElementById('menuCategoryFilter').addEventListener('change', function () {
+        populateMenu(allMenuItems);
+      });
+
+      // Image preview
+      document.getElementById('menuFormImage').addEventListener('change', function (e) {
+        var file = e.target.files[0];
+        var preview = document.getElementById('menuFormImagePreview');
+        if (file) {
+          var reader = new FileReader();
+          reader.onload = function (ev) {
+            preview.src = ev.target.result;
+            preview.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Close modal on overlay click
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    // ── Load all dashboard data ──────────────
+    // ── Analytics ────────────────────────────
+    var _chartInstances = {};
+    var _analyticsLoaded = false;
+
+    function destroyCharts() {
+      Object.keys(_chartInstances).forEach(function (k) {
+        if (_chartInstances[k]) { _chartInstances[k].destroy(); _chartInstances[k] = null; }
+      });
+    }
+
+    function getChartColors() {
+      var isDark = document.documentElement.classList.contains('dark-mode') ||
+                   window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return {
+        text: isDark ? '#e0e0e0' : '#333333',
+        grid: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
+        green: '#00754a',
+        greenLight: 'rgba(0,117,74,0.15)',
+        gold: '#d4a847',
+        red: '#c62828',
+        blue: '#1565c0',
+        orange: '#ef6c00',
+        palette: ['#00754a', '#d4a847', '#c62828', '#1565c0', '#ef6c00', '#6a1b9a', '#00838f', '#ad1457']
+      };
+    }
+
+    function loadAnalytics(days) {
+      days = days || document.getElementById('analyticsPeriod').value || 30;
+      var c = getChartColors();
+
+      getJSON(API_BASE + '/admin/analytics?days=' + days).then(function (res) {
+        if (!res.ok) return;
+        var a = res.data.analytics;
+
+        // Revenue summary cards
+        document.getElementById('revToday').textContent = '$' + a.revenueSummary.today.toFixed(2);
+        document.getElementById('revWeek').textContent = '$' + a.revenueSummary.week.toFixed(2);
+        document.getElementById('revMonth').textContent = '$' + a.revenueSummary.month.toFixed(2);
+        document.getElementById('revAllTime').textContent = '$' + a.revenueSummary.allTime.toFixed(2);
+
+        destroyCharts();
+
+        // 1. Revenue Over Time — Bar chart
+        var revLabels = a.revenueByDay.map(function (r) {
+          var d = new Date(r.date + 'T00:00:00');
+          return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+        var revData = a.revenueByDay.map(function (r) { return r.revenue; });
+        var revOrders = a.revenueByDay.map(function (r) { return r.orders; });
+
+        _chartInstances.revenue = new Chart(document.getElementById('revenueChart'), {
+          type: 'bar',
+          data: {
+            labels: revLabels,
+            datasets: [
+              {
+                label: 'Revenue ($)',
+                data: revData,
+                backgroundColor: c.greenLight,
+                borderColor: c.green,
+                borderWidth: 2,
+                borderRadius: 4,
+                yAxisID: 'y'
+              },
+              {
+                label: 'Orders',
+                data: revOrders,
+                type: 'line',
+                borderColor: c.gold,
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                pointRadius: 3,
+                tension: 0.3,
+                yAxisID: 'y1'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { labels: { color: c.text } } },
+            scales: {
+              x: { ticks: { color: c.text, maxRotation: 45 }, grid: { color: c.grid } },
+              y: { position: 'left', ticks: { color: c.text, callback: function (v) { return '$' + v; } }, grid: { color: c.grid } },
+              y1: { position: 'right', ticks: { color: c.text }, grid: { display: false } }
+            }
+          }
+        });
+
+        // 2. Orders by Status — Doughnut chart
+        var statusLabels = a.ordersByStatus.map(function (s) { return s.status.charAt(0).toUpperCase() + s.status.slice(1); });
+        var statusData = a.ordersByStatus.map(function (s) { return s.count; });
+        var statusColors = a.ordersByStatus.map(function (s) {
+          if (s.status === 'confirmed') return c.green;
+          if (s.status === 'pending') return c.gold;
+          if (s.status === 'cancelled') return c.red;
+          return c.blue;
+        });
+
+        _chartInstances.status = new Chart(document.getElementById('statusChart'), {
+          type: 'doughnut',
+          data: {
+            labels: statusLabels,
+            datasets: [{
+              data: statusData,
+              backgroundColor: statusColors,
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom', labels: { color: c.text, padding: 16 } }
+            }
+          }
+        });
+
+        // 3. Top Selling Items — Horizontal bar chart
+        var topLabels = a.topItems.map(function (i) { return i.name; });
+        var topQty = a.topItems.map(function (i) { return i.quantity; });
+        var topRev = a.topItems.map(function (i) { return i.revenue; });
+
+        _chartInstances.topItems = new Chart(document.getElementById('topItemsChart'), {
+          type: 'bar',
+          data: {
+            labels: topLabels,
+            datasets: [
+              {
+                label: 'Units Sold',
+                data: topQty,
+                backgroundColor: c.green,
+                borderRadius: 4
+              },
+              {
+                label: 'Revenue ($)',
+                data: topRev,
+                backgroundColor: c.gold,
+                borderRadius: 4
+              }
+            ]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: { legend: { labels: { color: c.text } } },
+            scales: {
+              x: { ticks: { color: c.text }, grid: { color: c.grid } },
+              y: { ticks: { color: c.text }, grid: { display: false } }
+            }
+          }
+        });
+
+        // 4. New Users — Line chart
+        var userLabels = a.usersByDay.map(function (u) {
+          var d = new Date(u.date + 'T00:00:00');
+          return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+        var userData = a.usersByDay.map(function (u) { return u.count; });
+
+        _chartInstances.users = new Chart(document.getElementById('usersChart'), {
+          type: 'line',
+          data: {
+            labels: userLabels,
+            datasets: [{
+              label: 'New Users',
+              data: userData,
+              borderColor: c.blue,
+              backgroundColor: 'rgba(21,101,192,0.1)',
+              fill: true,
+              tension: 0.3,
+              pointRadius: 3,
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { labels: { color: c.text } } },
+            scales: {
+              x: { ticks: { color: c.text, maxRotation: 45 }, grid: { color: c.grid } },
+              y: { ticks: { color: c.text, stepSize: 1 }, grid: { color: c.grid }, beginAtZero: true }
+            }
+          }
+        });
+
+        _analyticsLoaded = true;
+      }).catch(function () {
+        if (window.BeanhiveToast) BeanhiveToast.error('Error', 'Could not load analytics data.');
+      });
+    }
+
+    // Period selector
+    var periodSelect = document.getElementById('analyticsPeriod');
+    if (periodSelect) {
+      periodSelect.addEventListener('change', function () {
+        loadAnalytics(this.value);
+      });
+    }
+
+    function loadDashboardData() {
+      Promise.all([
+        getJSON(API_BASE + '/admin/stats'),
+        getJSON(API_BASE + '/admin/users'),
+        getJSON(API_BASE + '/admin/orders')
+      ]).then(function (results) {
+        if (results[0].ok) populateStats(results[0].data);
+        if (results[1].ok) populateUsers(results[1].data.users);
+        if (results[2].ok) populateOrders(results[2].data.orders);
+      }).catch(function () {
+        if (window.BeanhiveToast) {
+          BeanhiveToast.error('Load failed', 'Could not load dashboard data.');
+        }
+      });
+    }
+
+    // ── Escape HTML ──────────────────────────
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str || ''));
+      return div.innerHTML;
+    }
+
+    // ── Init ─────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+      initTabs();
+
+      // Check auth and role
+      getJSON(API_BASE + '/users/me').then(function (res) {
+        if (res.ok && res.data.user && res.data.user.role === 'admin') {
+          currentUserId = res.data.user.id;
+          document.getElementById('adminContent').style.display = 'block';
+          document.getElementById('adminNotAuthorized').style.display = 'none';
+          initMenuTab();
+          loadDashboardData();
+          loadMenuData();
+        } else {
+          document.getElementById('adminContent').style.display = 'none';
+          document.getElementById('adminNotAuthorized').style.display = 'flex';
+        }
+      }).catch(function () {
+        document.getElementById('adminContent').style.display = 'none';
+        document.getElementById('adminNotAuthorized').style.display = 'flex';
+      });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
