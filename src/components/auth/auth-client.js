@@ -7,8 +7,7 @@
   'use strict';
 
   // Use port 3001 for the API server (regardless of frontend port)
-  var API_HOST = window.location.hostname || 'localhost';
-  var API_BASE = 'http://' + API_HOST + ':3001/v1/users';
+  var API_BASE = window.location.origin + '/v1/users';
 
   // ── API Helpers ──────────────────────────────
   // Unwrap standardized API response: { data: {...}, meta: {...} } or { error: { code, message }, meta: {...} }

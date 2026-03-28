@@ -745,8 +745,7 @@
   (function () {
     'use strict';
 
-    var API_HOST = window.location.hostname || 'localhost';
-    var API_BASE = 'http://' + API_HOST + ':3001/v1';
+    var API_BASE = window.location.origin + '/v1';
 
     var TIER_THRESHOLDS = { green: 0, gold: 650, reserve: 1200 };
     var TIER_ORDER = ['green', 'gold', 'reserve'];

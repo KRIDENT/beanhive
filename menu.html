@@ -573,8 +573,7 @@
   <script>
     // ── Menu data fetched from API ──────────────
     var placeholder = "Images/close-up-coffee-cup-with-beans.png";
-    var _menuApiHost = window.location.hostname || "localhost";
-    var _menuApiBase = "http://" + _menuApiHost + ":3001/v1";
+    var _menuApiBase = window.location.origin + "/v1";
 
     // Map sidebar labels to DB category names
     var categoryMap = {
@@ -781,8 +780,7 @@
     }, { passive: true });
 
     // ── Previous Orders ─────────────────────────
-    var _apiHost = window.location.hostname || 'localhost';
-    var _apiBase = 'http://' + _apiHost + ':3001/v1';
+    var _apiBase = window.location.origin + '/v1';
     var _imgMap = {
       'caramel macchiato': 'Images/Caramel Macchiato.png',
       'pumpkin spice latte': 'Images/Pumpkin Spice Latte.png',

@@ -42,8 +42,7 @@
     var now = Date.now();
     if (_apiCache && (now - _cacheTime) < CACHE_TTL) return;
 
-    var apiHost = window.location.hostname || 'localhost';
-    var apiBase = 'http://' + apiHost + ':3001/v1';
+    var apiBase = window.location.origin + '/v1';
 
     fetch(apiBase + '/menu')
       .then(function (res) { return res.json(); })

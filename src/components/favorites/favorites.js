@@ -6,8 +6,7 @@
 (function () {
   'use strict';
 
-  var API_HOST = window.location.hostname || 'localhost';
-  var API = 'http://' + API_HOST + ':3001/v1/favorites';
+  var API = window.location.origin + '/v1/favorites';
   var cachedFavorites = null; // { drinkId: true, ... }
 
   // ── SVG heart icon ─────────────────────────

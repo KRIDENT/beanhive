@@ -405,8 +405,7 @@
       checkoutBtn.disabled = true;
     }
 
-    var apiHost = window.location.hostname || 'localhost';
-    fetch('http://' + apiHost + ':3001/v1/orders', {
+    fetch(window.location.origin + '/v1/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
