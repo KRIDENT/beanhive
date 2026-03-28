@@ -39,6 +39,9 @@ require('./services/rewards-service/services/rewardsService');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Trust proxy (required for secure cookies behind Render/Cloudflare)
+app.set('trust proxy', 1);
+
 // ── Gateway Middleware ───────────────────────
 
 // Correlation ID — every request gets a unique trace ID
@@ -51,7 +54,11 @@ app.use(compression());
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
+    // Allow localhost and the deployed Render URL
     if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+    if (/\.onrender\.com$/.test(origin)) {
       return callback(null, true);
     }
     callback(new Error('Not allowed by CORS'));
