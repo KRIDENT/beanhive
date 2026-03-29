@@ -925,18 +925,23 @@
 
 .ftCardGrid4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--space-5);
   padding-bottom: var(--space-8);
 }
 
 .ftMiniCard {
   text-align: center;
-  transition: transform 0.2s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ftMiniCard:hover {
   transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .ftMiniCardLink {
@@ -948,10 +953,8 @@
 .ftMiniCardImage {
   width: 100%;
   aspect-ratio: 1;
-  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-cream);
-  margin-bottom: var(--space-3);
 }
 
 .ftMiniCardImage img {
@@ -971,17 +974,20 @@
   font-weight: 700;
   color: var(--color-gray-dark);
   margin-bottom: 2px;
+  padding: var(--space-3) var(--space-3) 0;
 }
 
 .ftMiniCardPrice {
   font-size: 13px;
   color: var(--color-gray-mid);
+  padding: 0 var(--space-3);
 }
 .ftMiniCardCategory {
   display: inline-block;
   font-size: 11px;
   color: var(--color-gray-mid);
   margin-top: 2px;
+  padding: 0 var(--space-3) var(--space-3);
 }
 .ftHeading {
   font-family: var(--font-display, 'Playfair Display', serif);
