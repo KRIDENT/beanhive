@@ -926,17 +926,22 @@
 .ftCardGrid4 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-8);
   padding-bottom: var(--space-8);
 }
 
 .ftMiniCard {
   text-align: center;
-  background: var(--card-bg);
+  background: var(--color-white);
   border: 1px solid var(--card-border);
   border-radius: var(--card-radius);
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="dark"] .ftMiniCard {
+  background: #2a2a2a;
 }
 
 .ftMiniCard:hover {
