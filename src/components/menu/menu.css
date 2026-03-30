@@ -816,13 +816,13 @@
 /* ── Featured Content Container ──────────── */
 
 .featuredTab {
-  padding-top: 60px;
+  padding-top: 90px;
 }
 
 .ftContent {
   max-width: 1100px;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-10) var(--space-10);
+  padding: var(--space-8) var(--space-8) var(--space-10);
 }
 
 /* ── Section Labels ────────────────────────── */
@@ -929,8 +929,8 @@
 
 .ftCardGrid4 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-10);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px;
   padding-bottom: var(--space-10);
 }
 
