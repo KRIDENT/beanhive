@@ -1524,12 +1524,12 @@
 
 @media (max-width: 480px) {
   .menuCategoryGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6) var(--space-5);
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 
   .menuCategoryThumb {
-    width: 70px;
+    width: 80px;
     height: 80px;
   }
 
