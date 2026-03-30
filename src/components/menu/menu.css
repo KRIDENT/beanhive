@@ -1525,7 +1525,7 @@
 @media (max-width: 480px) {
   .menuCategoryGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-5);
+    gap: var(--space-8);
   }
 
   .menuCategoryThumb {
