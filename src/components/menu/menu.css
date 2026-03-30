@@ -1546,3 +1546,10 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 470px) {
+  .ftCardGrid4 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
