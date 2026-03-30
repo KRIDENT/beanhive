@@ -196,8 +196,8 @@
   --color-gray-mid:         #a0a0a0;
   --color-gray-dark:        #e8e8e8;
 
-  /* ── Green Palette (slightly brighter) ── */
-  --color-green-dark:       #1a3a30;
+  /* ── Green Palette (lighter for dark bg) ── */
+  --color-green-dark:       #e8e8e8;
   --color-green-pale:       #1a3028;
   --color-green-accent:     #00c76e;
 
@@ -295,7 +295,7 @@
     --color-gray-light:       #2a2a2a;
     --color-gray-mid:         #a0a0a0;
     --color-gray-dark:        #e8e8e8;
-    --color-green-dark:       #1a3a30;
+    --color-green-dark:       #e8e8e8;
     --color-green-pale:       #1a3028;
     --color-green-accent:     #00c76e;
     --nav-bg:                 #1a1a1a;
