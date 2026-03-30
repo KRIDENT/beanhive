@@ -511,6 +511,8 @@
 /* Drawer location link (with icon inline) */
 .navDrawerLocationLink {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   align-items: center;
   gap: var(--space-3);
 }
