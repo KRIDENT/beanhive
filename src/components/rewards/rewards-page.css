@@ -1045,6 +1045,15 @@
   color: var(--text-primary, #ddd);
 }
 
+[data-theme="dark"] .rewards-status__btn--filled {
+  background: #00754a;
+  color: #fff;
+}
+
+[data-theme="dark"] .rewards-status__btn--filled:hover {
+  background: #00955e;
+}
+
 [data-theme="dark"] .tier-card--active {
   outline-color: #2e9e6b;
   box-shadow: 0 0 16px rgba(46, 158, 107, 0.3);
