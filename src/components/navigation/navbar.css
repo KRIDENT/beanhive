@@ -327,25 +327,7 @@
   transform: translateX(0);
 }
 
-/* Drawer backdrop overlay */
-.navDrawer::before {
-  content: '';
-  position: fixed;
-  top: var(--nav-height);
-  left: 0;
-  width: 100%;
-  height: calc(100vh - var(--nav-height));
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--duration-slow) var(--ease-out);
-  z-index: -1;
-}
-
-.navDrawer.open::before {
-  opacity: 1;
-  pointer-events: auto;
-}
+/* No backdrop — drawer is full-width solid */
 
 @media (min-width: 1024px) {
   .navDrawer {
@@ -461,6 +443,8 @@
 
 /* Drawer location link (with icon inline) */
 .navDrawerLocationLink {
+  display: flex;
+  align-items: center;
   gap: var(--space-3);
 }
 
@@ -470,7 +454,7 @@
 }
 
 .navDrawerLocationLink::after {
-  content: '›';
+  display: none;
 }
 
 /* ── Mobile: show search & theme toggle ──── */
