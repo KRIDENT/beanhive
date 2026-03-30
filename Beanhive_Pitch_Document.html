@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beanhive — Project Pitch Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1e1e1e;
+      line-height: 1.7;
+      background: #fff;
+    }
+
+    @media print {
+      body { font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+      .cover { min-height: 100vh; }
+    }
+
+    /* ── Print Button ──────────────────────── */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00754a;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .print-btn:hover { background: #005c3a; }
+
+    /* ── Cover Page ────────────────────────── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e3932 0%, #00754a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .cover-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .cover-tagline {
+      font-size: 22px;
+      font-weight: 400;
+      opacity: 0.85;
+      margin-bottom: 48px;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 3px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 2px;
+      margin-bottom: 48px;
+    }
+
+    .cover-type {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 600;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .cover-date {
+      font-size: 16px;
+      opacity: 0.6;
+    }
+
+    /* ── Content Pages ─────────────────────── */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: #1e3932;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #00754a;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #1e3932;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #00754a;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    /* ── Tables ─────────────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    th {
+      background: #1e3932;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e8e8e8;
+      color: #333;
+    }
+
+    tr:nth-child(even) td {
+      background: #f9f9f7;
+    }
+
+    /* ── Highlight Boxes ───────────────────── */
+    .highlight {
+      background: #f0f7f4;
+      border-left: 4px solid #00754a;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+      color: #1e3932;
+      font-weight: 500;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .stat-card {
+      background: #f9f9f7;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #00754a;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #00754a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: #e8e8e8;
+      margin: 48px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- COVER PAGE                                 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-type">Project Pitch Document</div>
+    <div class="cover-logo">Beanhive</div>
+    <div class="cover-tagline">A Full-Stack Coffee Shop Web Application</div>
+    <div class="cover-divider"></div>
+    <p style="max-width:520px;opacity:0.8;font-size:16px;line-height:1.8;">
+      A production-ready e-commerce platform featuring ordering, rewards, account management,
+      and admin operations — built entirely with vanilla web technologies.
+    </p>
+    <div style="margin-top:60px;">
+      <div class="cover-date">March 2026</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- OVERVIEW                                   -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Project Overview</h1>
+
+    <p>
+      <strong>Beanhive</strong> is a fully functional coffee shop e-commerce platform built from scratch.
+      It replicates the core experience of major coffee chains — browsing a menu, ordering drinks,
+      earning rewards, managing your account, and administering the business — all in a lightweight,
+      framework-free package.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">13</div>
+        <div class="stat-label">Pages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Services</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">API Endpoints</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Dependencies</div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <p>
+        Built with <strong>zero frontend framework dependencies</strong> — pure HTML, CSS, and JavaScript.
+        The entire backend runs on 11 npm packages, demonstrating intentional, minimal architecture.
+      </p>
+    </div>
+
+    <h2>Technology Stack</h2>
+
+    <table>
+      <tr><th>Layer</th><th>Technology</th></tr>
+      <tr><td>Frontend</td><td>HTML5, CSS3 (custom properties/design tokens), Vanilla JavaScript</td></tr>
+      <tr><td>Backend</td><td>Node.js, Express 5.2</td></tr>
+      <tr><td>Database</td><td>SQLite (better-sqlite3, WAL mode)</td></tr>
+      <tr><td>Authentication</td><td>bcryptjs (12 rounds), express-session, Passport.js (Google OAuth)</td></tr>
+      <tr><td>Email</td><td>Resend (transactional emails)</td></tr>
+      <tr><td>File Uploads</td><td>Multer (image validation, 5MB limit)</td></tr>
+      <tr><td>Analytics</td><td>Chart.js (admin dashboard charts)</td></tr>
+      <tr><td>Deployment</td><td>Render (web service), GitHub (source control)</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- PAGES                                      -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Application Pages</h1>
+
+    <table>
+      <tr><th>Page</th><th>Purpose</th></tr>
+      <tr><td><strong>Home</strong></td><td>Hero banner, featured drinks carousel, seasonal promotions, rewards enrollment CTA, app download section</td></tr>
+      <tr><td><strong>Menu</strong></td><td>Full product catalog with category filtering, tabbed navigation (Menu, Featured, Previous, Favorites)</td></tr>
+      <tr><td><strong>Drink Detail</strong></td><td>Individual product page with description, calories, size selector, add-to-cart, and favorite toggle</td></tr>
+      <tr><td><strong>Rewards</strong></td><td>Star balance, tier progress (Green → Gold → Reserve), milestone tracker with benefits breakdown</td></tr>
+      <tr><td><strong>Gift Cards</strong></td><td>Gift card denomination selector with purchase flow</td></tr>
+      <tr><td><strong>Store Locator</strong></td><td>Location finder with address search, store details, and hours</td></tr>
+      <tr><td><strong>Sign In</strong></td><td>Email/password login with password visibility toggle and forgot password link</td></tr>
+      <tr><td><strong>Join</strong></td><td>Registration form with validation (name, email, phone, password)</td></tr>
+      <tr><td><strong>Profile</strong></td><td>Account dashboard — stats cards, order history, favorites, settings, sign out</td></tr>
+      <tr><td><strong>Forgot Password</strong></td><td>Email entry form to trigger password reset token</td></tr>
+      <tr><td><strong>Reset Password</strong></td><td>Token-based new password form with confirmation</td></tr>
+      <tr><td><strong>Admin Dashboard</strong></td><td>User management, order viewing, full menu CRUD, revenue analytics with charts</td></tr>
+      <tr><td><strong>404</strong></td><td>Custom error page with animated coffee cup SVG illustration</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CUSTOMER FEATURES                          -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Customer Features</h1>
+
+    <h3>Authentication</h3>
+    <ul>
+      <li>Email/password registration and login with server-side validation</li>
+      <li>Google OAuth 2.0 one-click sign-in</li>
+      <li>Token-based password reset flow with email delivery</li>
+      <li>Email verification with resend capability</li>
+      <li>Persistent sessions (7-day secure httpOnly cookies)</li>
+    </ul>
+
+    <h3>Shopping Cart</h3>
+    <ul>
+      <li>Persistent cart via localStorage (survives page refresh and navigation)</li>
+      <li>Slide-in cart drawer with item list, quantities, and size display</li>
+      <li>Real-time subtotal, tax (8.25%), and total calculation</li>
+      <li>One-click checkout that creates a server-side order</li>
+      <li>Toast notification with item image on add-to-cart</li>
+    </ul>
+
+    <h3>Menu &amp; Ordering</h3>
+    <ul>
+      <li>Browse by category with sidebar/tab filtering</li>
+      <li>Drink detail pages with description, nutrition, and size options</li>
+      <li>Order history with status tracking (Pending → Confirmed → Cancelled)</li>
+      <li>Reorder from previous orders</li>
+    </ul>
+
+    <h3>Rewards Program</h3>
+    <ul>
+      <li>Automatic star earning: 2 stars per $1 spent</li>
+      <li>Three-tier system: Green (0–649), Gold (650–1,199), Reserve (1,200+)</li>
+      <li>Visual milestone tracker with benefits at each level</li>
+      <li>Transaction history showing every earn/redeem event</li>
+      <li>Auto-enrollment on account creation</li>
+    </ul>
+
+    <h3>Favorites</h3>
+    <ul>
+      <li>Heart toggle on any drink card or detail page</li>
+      <li>Server-synced favorites list (persists across devices)</li>
+      <li>Dedicated Favorites tab in menu with quick reorder</li>
+      <li>Optimistic UI updates with instant visual feedback</li>
+    </ul>
+
+    <h3>Search</h3>
+    <ul>
+      <li>Global search modal triggered by Ctrl+K / Cmd+K</li>
+      <li>Searches menu items and site pages simultaneously</li>
+      <li>Results grouped by category with keyboard navigation</li>
+      <li>Cached menu data (5-minute TTL) for fast results</li>
+    </ul>
+
+    <h3>Dark Mode</h3>
+    <ul>
+      <li>Toggle in navbar with smooth sliding pill animation</li>
+      <li>Preference persisted in localStorage</li>
+      <li>Applied before render (no flash of wrong theme)</li>
+      <li>Full coverage across all 13 pages</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ADMIN FEATURES                             -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Admin Features</h1>
+
+    <h3>User Management</h3>
+    <ul>
+      <li>View all registered users with role, email, and join date</li>
+      <li>Promote customers to admin or demote admins to customer</li>
+      <li>Role changes take effect immediately (checked on every API request)</li>
+      <li>Self-demotion protection (admins cannot remove their own role)</li>
+    </ul>
+
+    <h3>Menu Management (Full CRUD)</h3>
+    <ul>
+      <li>Create new menu items with name, category, price, calories, and description</li>
+      <li>Upload product images (PNG, JPG, WebP — 5MB limit)</li>
+      <li>Mark items as food vs. drink, and featured vs. standard</li>
+      <li>Edit all fields on existing items including image replacement</li>
+      <li>Delete items with confirmation</li>
+      <li>Filter menu items by category</li>
+    </ul>
+
+    <h3>Order Overview</h3>
+    <ul>
+      <li>View all orders across all users (last 50)</li>
+      <li>See customer name, item count, total, status, and date</li>
+      <li>Status badges for quick visual scanning</li>
+    </ul>
+
+    <h3>Analytics Dashboard</h3>
+    <ul>
+      <li><strong>Summary cards:</strong> Total users, total orders, total revenue, today/week/month/all-time breakdowns</li>
+      <li><strong>Revenue Over Time:</strong> Bar + line chart with 7/30/90/365-day selector</li>
+      <li><strong>Orders by Status:</strong> Doughnut chart (pending/confirmed/cancelled)</li>
+      <li><strong>Top 10 Selling Items:</strong> Horizontal bar chart by units and revenue</li>
+      <li><strong>New Users Over Time:</strong> Line chart showing growth</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- BACKEND ARCHITECTURE                       -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Backend Architecture</h1>
+
+    <p>
+      The server follows a <strong>service-oriented architecture</strong> with 7 distinct services,
+      each owning its own routes, controllers, services, and repositories. All services share
+      a common database, middleware stack, and utility layer.
+    </p>
+
+    <table>
+      <tr><th>Service</th><th>Prefix</th><th>Responsibility</th></tr>
+      <tr><td>Auth</td><td>/v1/auth</td><td>Google OAuth 2.0 flow, session creation</td></tr>
+      <tr><td>User</td><td>/v1/users</td><td>Registration, login, logout, profile, password reset, email verification</td></tr>
+      <tr><td>Menu</td><td>/v1/menu</td><td>Product catalog, categories, featured items, slug-based lookups</td></tr>
+      <tr><td>Orders</td><td>/v1/orders</td><td>Checkout, order history, cancellation, tax calculation</td></tr>
+      <tr><td>Rewards</td><td>/v1/rewards</td><td>Star balance, tier management, transaction history</td></tr>
+      <tr><td>Favorites</td><td>/v1/favorites</td><td>Add/remove/check favorites, synced to user account</td></tr>
+      <tr><td>Admin</td><td>/v1/admin</td><td>User roles, menu CRUD, image upload, analytics</td></tr>
+    </table>
+
+    <h2>Database Schema</h2>
+    <p>SQLite database with WAL mode enabled, foreign key constraints, and 9 tables:</p>
+
+    <table>
+      <tr><th>Table</th><th>Purpose</th></tr>
+      <tr><td>users</td><td>Accounts (name, email, hashed password, role, Google ID, verification status)</td></tr>
+      <tr><td>sessions</td><td>Server-side session storage</td></tr>
+      <tr><td>menu_items</td><td>Product catalog (slug, name, category, price, calories, image, featured flag)</td></tr>
+      <tr><td>orders</td><td>Order records (items JSON, subtotal, tax, total, status)</td></tr>
+      <tr><td>favorites</td><td>User-drink favorite pairings (unique constraint)</td></tr>
+      <tr><td>rewards</td><td>User star balance and tier (one record per user)</td></tr>
+      <tr><td>rewards_transactions</td><td>Star earn/redeem history with order linkage</td></tr>
+      <tr><td>password_reset_tokens</td><td>One-time tokens with expiration and used flag</td></tr>
+      <tr><td>email_verification_tokens</td><td>Email verification tokens with expiration</td></tr>
+    </table>
+
+    <h2>Middleware Stack</h2>
+    <ul>
+      <li><strong>Correlation ID</strong> — every request gets a unique trace UUID</li>
+      <li><strong>Compression</strong> — gzip for all responses</li>
+      <li><strong>CORS</strong> — origin whitelist (localhost + deployed URL)</li>
+      <li><strong>Body Parsing</strong> — JSON and URL-encoded form data</li>
+      <li><strong>Session</strong> — secure cookie-based sessions</li>
+      <li><strong>Request Logger</strong> — logs method, path, status, and duration</li>
+      <li><strong>Error Handler</strong> — standardized error responses with correlation ID</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SECURITY                                   -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>Security</h1>
+
+    <table>
+      <tr><th>Measure</th><th>Implementation</th></tr>
+      <tr><td>Password Hashing</td><td>bcryptjs with 12 salt rounds</td></tr>
+      <tr><td>Session Cookies</td><td>httpOnly, Secure (HTTPS), SameSite: Lax, 7-day expiry</td></tr>
+      <tr><td>SQL Injection Prevention</td><td>Parameterized queries (prepared statements) throughout</td></tr>
+      <tr><td>CORS</td><td>Origin whitelist — only localhost and deployed URL allowed</td></tr>
+      <tr><td>Admin Authorization</td><td>Role checked from database on every request (instant revocation)</td></tr>
+      <tr><td>Password Reset</td><td>Cryptographically random tokens, 1-hour expiration, single-use</td></tr>
+      <tr><td>File Upload Validation</td><td>MIME type filtering, 5MB size limit, sanitized filenames</td></tr>
+      <tr><td>Request Tracing</td><td>Correlation IDs on every request for audit trails</td></tr>
+      <tr><td>Trust Proxy</td><td>Configured for deployment behind reverse proxies (Render/Cloudflare)</td></tr>
+    </table>
+
+    <h1 style="margin-top:60px;">UX &amp; Polish</h1>
+
+    <h3>Loading States</h3>
+    <ul>
+      <li><strong>Preloader:</strong> Custom animated SVG coffee cup with 3 staggered steam lines and "Brewing..." text</li>
+      <li><strong>Skeleton loaders:</strong> Shimmer animation placeholders for images, text, and cards while data loads</li>
+    </ul>
+
+    <h3>Notifications</h3>
+    <ul>
+      <li>4 toast types (success, info, warning, error) with auto-dismiss</li>
+      <li>Slide-in animation from bottom-left, max 4 stacked</li>
+      <li>Accessible via aria-live region</li>
+    </ul>
+
+    <h3>Animations</h3>
+    <ul>
+      <li>Cart drawer slides from right with backdrop overlay</li>
+      <li>Search modal scales up with spring animation</li>
+      <li>Heart icon animates with scale + rotate on favorite toggle</li>
+      <li>Hamburger menu morphs to X on open</li>
+      <li>Theme toggle pill slides smoothly between sun/moon</li>
+    </ul>
+
+    <h3>Responsive Design</h3>
+    <ul>
+      <li>Mobile-first with breakpoint at 1024px</li>
+      <li>Touch-friendly buttons (min 44px tap target)</li>
+      <li>Flexible grids with auto-fill/minmax</li>
+      <li>Hamburger menu on mobile, full nav on desktop</li>
+    </ul>
+
+    <h3>Accessibility</h3>
+    <ul>
+      <li>ARIA labels on all interactive elements</li>
+      <li>Semantic HTML (nav, main, section, article, button)</li>
+      <li>Full keyboard navigation (Tab, Enter, Escape, arrow keys)</li>
+      <li>Visible focus outlines</li>
+      <li>Alt text on all images</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- WHAT MAKES IT NOTABLE                      -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="content page-break">
+    <h1>What Makes Beanhive Notable</h1>
+
+    <h2>Zero Framework Dependencies</h2>
+    <p>
+      No React, Vue, Angular, or Tailwind. Every component — the cart drawer, search modal,
+      toast system, skeleton loaders, theme toggle — is built from scratch with vanilla HTML, CSS,
+      and JavaScript. This demonstrates deep understanding of web fundamentals and produces a
+      lightweight, fast-loading application.
+    </p>
+
+    <h2>Minimal Backend Footprint</h2>
+    <p>
+      The entire server runs on just <strong>11 npm packages</strong>. Every dependency was chosen
+      intentionally — bcrypt for security, multer for uploads, express-session for auth. No ORM,
+      no bloated middleware chains, no unnecessary abstractions.
+    </p>
+
+    <h2>Complete User Journey</h2>
+    <p>
+      From landing page to checkout to rewards — every step of the customer experience is implemented.
+      Users can browse, search, favorite, order, earn stars, track their tier, manage their profile,
+      and recover their password. Admins can manage everything from a dedicated dashboard.
+    </p>
+
+    <h2>Production-Ready Architecture</h2>
+    <p>
+      Health check endpoints, structured error handling, gzip compression, request correlation IDs,
+      environment-based configuration, secure cookie settings, and CORS policies — the application
+      is built with deployment and observability in mind from day one.
+    </p>
+
+    <div class="section-divider"></div>
+
+    <h2>Live Demo</h2>
+    <div class="highlight">
+      <p><strong>Deployed at:</strong> https://beanhive.onrender.com</p>
+      <p><strong>Source Code:</strong> https://github.com/KRIDENT/beanhive</p>
+    </div>
+
+    <div style="text-align:center;margin-top:60px;padding:40px;opacity:0.5;">
+      <p style="font-family:'Playfair Display',serif;font-size:24px;color:#1e3932;">Beanhive</p>
+      <p style="font-size:13px;color:#999;">Handcrafted coffee drinks, rewards, and more.</p>
+    </div>
+  </div>
+
+</body>
+</html>
