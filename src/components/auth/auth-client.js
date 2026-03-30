@@ -107,17 +107,33 @@
         }
       }
 
-      // Update mobile drawer too
-      var drawerSignIn = document.querySelector('.navDrawerActions .navBtnSecondary');
-      if (drawerSignIn) {
-        drawerSignIn.textContent = 'Hi, ' + user.firstName + '!';
-        drawerSignIn.href = 'profile.html';
+      // Update mobile drawer
+      var drawer = document.querySelector('.navDrawer');
+      if (drawer && !drawer.querySelector('.navDrawerProfile')) {
+        // Create profile section at top of drawer
+        var profileSection = document.createElement('div');
+        profileSection.className = 'navDrawerProfile';
+
+        var initials = (user.firstName.charAt(0) + (user.lastName ? user.lastName.charAt(0) : '')).toUpperCase();
+
+        profileSection.innerHTML =
+          '<a href="profile.html" class="navDrawerProfileLink">' +
+            '<div class="navDrawerProfileAvatar">' + initials + '</div>' +
+            '<div class="navDrawerProfileInfo">' +
+              '<span class="navDrawerProfileName">Hi, ' + user.firstName + '!</span>' +
+              '<span class="navDrawerProfileEmail">' + user.email + '</span>' +
+            '</div>' +
+          '</a>';
+
+        drawer.insertBefore(profileSection, drawer.firstChild);
       }
-      var drawerJoin = document.querySelector('.navDrawerActions .navBtnPrimary');
-      if (drawerJoin && drawerJoin.textContent.trim().toLowerCase() === 'join now') {
-        drawerJoin.textContent = 'Sign out';
-        drawerJoin.href = '#';
-        drawerJoin.addEventListener('click', function (e) {
+
+      // Change bottom buttons to Sign out only
+      var drawerActions = document.querySelector('.navDrawerActions');
+      if (drawerActions) {
+        drawerActions.innerHTML =
+          '<a href="#" class="navBtnPrimary" id="drawerSignOut">Sign out</a>';
+        document.getElementById('drawerSignOut').addEventListener('click', function (e) {
           e.preventDefault();
           logout();
         });

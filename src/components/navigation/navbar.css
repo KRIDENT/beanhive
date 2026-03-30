@@ -434,6 +434,74 @@
   height: 20px;
 }
 
+/* ── Drawer Profile Section (logged in) ── */
+.navDrawerProfile {
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.navDrawerProfileLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+  padding: var(--space-2) 0;
+  border-radius: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.navDrawerProfileLink:hover {
+  opacity: 0.8;
+}
+
+.navDrawerProfileAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-starbucks-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.navDrawerProfileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.navDrawerProfileName {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-gray-dark);
+}
+
+.navDrawerProfileEmail {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-gray-mid);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .navDrawerProfileName {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .navDrawerProfileEmail {
+  color: #888;
+}
+
 /* Drawer divider line */
 .navDrawerDivider {
   height: 1px;
