@@ -314,9 +314,9 @@
   width: 100%;
   height: calc(100vh - var(--nav-height));
   overflow-y: auto;
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-10) var(--space-8);
 
-  background-color: #ffffff;
+  background: #ffffff !important;
   border-top: 1px solid var(--nav-border);
 
   transform: translateX(-100%);
@@ -338,13 +338,13 @@
 .navDrawerLink {
   position: relative;
   display: inline-block;
-  padding: var(--space-5) 0;
-  margin-bottom: var(--space-1);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-4);
 
   font-family: var(--font-body);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 700;
-  color: var(--nav-text);
+  color: var(--color-gray-dark);
   text-decoration: none;
 
   cursor: pointer;
@@ -359,7 +359,7 @@
 .navDrawerLink::after {
   content: '';
   position: absolute;
-  bottom: 8px;
+  bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
@@ -482,7 +482,7 @@
 /* ── Dark Mode — Mobile Drawer ───────────── */
 
 [data-theme="dark"] .navDrawer {
-  background-color: #1A1820;
+  background: #1A1820 !important;
   border-top-color: #2a2a2a;
 }
 
