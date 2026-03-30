@@ -60,6 +60,7 @@
           el.style.border = 'none';
           el.style.fontWeight = '600';
           el.style.color = 'var(--color-starbucks-green)';
+          el.style.textAlign = 'center';
 
           // Add sign out link after the greeting (desktop)
           var signOutLink = document.createElement('a');
