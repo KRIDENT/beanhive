@@ -362,8 +362,14 @@
 /* ── Rewards Page Dark Mode (all sections) ── */
 
 [data-theme="dark"] .get-started,
-[data-theme="dark"] .app-cta {
+[data-theme="dark"] .app-cta,
+[data-theme="dark"] .rewards-banner {
+  background-color: #1e3932;
   color: #FFFFFF;
+}
+
+[data-theme="dark"] .tier-card__header--dark {
+  background-color: #1e3932;
 }
 
 [data-theme="dark"] .get-started__heading,

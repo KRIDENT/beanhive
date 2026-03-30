@@ -258,6 +258,10 @@
 
 /* ── Dark Mode ───────────────────────────── */
 
+[data-theme="dark"] .hero {
+  background-color: #1e3932;
+}
+
 [data-theme="dark"] .heroHeading,
 [data-theme="dark"] .heroSubheading {
   color: #FFFFFF;

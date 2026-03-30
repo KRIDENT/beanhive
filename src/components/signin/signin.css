@@ -313,6 +313,15 @@
   margin-top: calc(-1 * var(--space-2));
 }
 
+/* ── Dark Mode ───────────────────────────── */
+[data-theme="dark"] .signinSubmitBtn {
+  background-color: #00754a;
+}
+
+[data-theme="dark"] .signinSubmitBtn:hover {
+  background-color: #00955e;
+}
+
 /* ── Google OAuth Button ─────────────────────── */
 .googleOAuthBtn {
   display: flex;
