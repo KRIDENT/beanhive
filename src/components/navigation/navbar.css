@@ -119,6 +119,8 @@
   .navLocationLink,
   .navDivider,
   .navSignIn,
+  .navSignOut,
+  .navUserGreeting,
   .navActions > .navBtnSecondary,
   .navActions > .navBtnPrimary {
     display: none !important;
