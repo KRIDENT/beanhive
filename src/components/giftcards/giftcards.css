@@ -298,3 +298,54 @@
     font-size: var(--text-xl);
   }
 }
+
+/* ── Dark Mode ───────────────────────────── */
+[data-theme="dark"] .gc-pageTitle {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .gc-categoryLabel {
+  color: #ccc;
+}
+
+[data-theme="dark"] .gc-cardText {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .gc-receivedHeading {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .gc-infoBanner {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .gc-infoBanner p {
+  color: #ccc;
+}
+
+[data-theme="dark"] .gc-btnOutline {
+  border-color: #888;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .gc-btnOutline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .gc-businessBanner {
+  background: #2a2535;
+}
+
+[data-theme="dark"] .gc-businessBanner h2,
+[data-theme="dark"] .gc-businessBanner p {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .gc-infoBlock h3 {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .gc-infoFooter {
+  border-top-color: #333;
+}
