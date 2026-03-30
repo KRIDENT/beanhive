@@ -640,7 +640,16 @@
 }
 
 [data-theme="dark"] .ddAddBtn {
+  background: #00754a;
   color: #fff;
+}
+
+[data-theme="dark"] .ddAddBtn:hover {
+  background: #00955e;
+}
+
+[data-theme="dark"] .ddNotFoundLink {
+  background: #00754a;
 }
 
 [data-theme="dark"] .ddNutrition {
