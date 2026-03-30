@@ -1499,7 +1499,7 @@
 
   .menuCategoryGrid {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-5) var(--space-4);
+    gap: var(--space-8) var(--space-6);
   }
 
   .menuCategoryThumb {
@@ -1524,11 +1524,12 @@
 
 @media (max-width: 480px) {
   .menuCategoryGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-5);
   }
 
   .menuCategoryThumb {
-    width: 80px;
+    width: 70px;
     height: 80px;
   }
 
