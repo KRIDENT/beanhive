@@ -1003,10 +1003,7 @@
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 24px;
-  color: var(--text-primary, #1e3932);
-}
-@media (prefers-color-scheme: dark) {
-  .ftHeading { color: var(--text-primary, #fff); }
+  color: var(--color-gray-dark);
 }
 
 /* ── Full-Width Promo Banners ──────────────── */
