@@ -270,6 +270,17 @@
               </label>
             </div>
 
+            <!-- Quantity Selector -->
+            <div class="ddQuantity">
+              <button type="button" class="ddQtyBtn ddQtyMinus" aria-label="Decrease quantity">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="ddQtyValue">1</span>
+              <button type="button" class="ddQtyBtn ddQtyPlus" aria-label="Increase quantity">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+
             <!-- Add to Order Button -->
             <button class="ddAddBtn productCardCta" type="button">Add to Order</button>
 
@@ -533,6 +544,31 @@
       }
 
       updatePrice();
+
+      /* ── Quantity Selector ─────────────────── */
+      var ddQty = 1;
+      var ddQtyValue = document.querySelector('.ddQtyValue');
+      var ddQtyMinus = document.querySelector('.ddQtyMinus');
+      var ddQtyPlus = document.querySelector('.ddQtyPlus');
+
+      function updateQtyDisplay() {
+        ddQtyValue.textContent = ddQty;
+        ddQtyMinus.disabled = ddQty <= 1;
+        ddQtyMinus.style.opacity = ddQty <= 1 ? '0.35' : '1';
+      }
+
+      if (ddQtyMinus) {
+        ddQtyMinus.addEventListener('click', function () {
+          if (ddQty > 1) { ddQty--; updateQtyDisplay(); }
+        });
+      }
+      if (ddQtyPlus) {
+        ddQtyPlus.addEventListener('click', function () {
+          if (ddQty < 20) { ddQty++; updateQtyDisplay(); }
+        });
+      }
+
+      updateQtyDisplay();
 
       /* ── Size Selector ──────────────────────── */
       var sizeBtns = document.querySelectorAll('.ddSizeBtn');

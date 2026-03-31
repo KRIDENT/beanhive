@@ -32,6 +32,7 @@
 
   function addToCart(item) {
     var cart = getCart();
+    var qtyToAdd = item.qty || 1;
     var existing = null;
     for (var i = 0; i < cart.length; i++) {
       if (cart[i].id === item.id) {
@@ -40,7 +41,7 @@
       }
     }
     if (existing) {
-      existing.qty += 1;
+      existing.qty += qtyToAdd;
     } else {
       cart.push({
         id: item.id,
@@ -48,7 +49,7 @@
         price: item.price,
         img: item.img,
         size: item.size || 'Grande',
-        qty: 1
+        qty: qtyToAdd
       });
     }
     saveCart(cart);
@@ -351,12 +352,17 @@
       var img = imgEl ? imgEl.getAttribute('src') : '';
       var id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
+      // Check for quantity selector on drink detail page
+      var qtyEl = document.querySelector('.ddQtyValue');
+      var qty = qtyEl ? parseInt(qtyEl.textContent, 10) || 1 : 1;
+
       addToCart({
         id: id,
         name: name,
         price: price,
         img: img,
-        size: 'Grande'
+        size: 'Grande',
+        qty: qty
       });
 
       // "Added!" feedback

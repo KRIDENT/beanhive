@@ -289,6 +289,62 @@
   transform: translateX(18px);
 }
 
+/* ── Quantity Selector ──────────────────────────── */
+
+.ddQuantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  margin: var(--space-6) 0;
+}
+
+.ddQtyBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gray-mid);
+  background: transparent;
+  color: var(--color-gray-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ddQtyBtn:hover {
+  border-color: var(--color-starbucks-green);
+  color: var(--color-starbucks-green);
+}
+
+.ddQtyBtn:disabled {
+  cursor: not-allowed;
+}
+
+.ddQtyValue {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-gray-dark);
+  min-width: 32px;
+  text-align: center;
+}
+
+[data-theme="dark"] .ddQtyBtn {
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .ddQtyBtn:hover {
+  border-color: var(--color-starbucks-green);
+  color: var(--color-starbucks-green);
+}
+
+[data-theme="dark"] .ddQtyValue {
+  color: #e0e0e0;
+}
+
 /* ── Add to Order Button ─────────────────────── */
 
 .ddAddBtn {
