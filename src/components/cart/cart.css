@@ -454,8 +454,12 @@
   background: #2a2a2a;
 }
 
+[data-theme="dark"] .cartCheckoutBtn {
+  background: #00754a;
+}
+
 [data-theme="dark"] .cartCheckoutBtn:hover {
-  background: #0f211d;
+  background: #00955e;
 }
 
 /* -- Responsive --------------------------------- */

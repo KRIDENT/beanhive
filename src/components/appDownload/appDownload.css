@@ -398,3 +398,8 @@
   line-height: 1.2;
   color: var(--color-white);
 }
+
+/* ── Dark Mode ───────────────────────────── */
+[data-theme="dark"] .appSection {
+  background-color: #1e3932;
+}

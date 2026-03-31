@@ -1550,3 +1550,17 @@
     gap: 24px;
   }
 }
+
+/* ── Dark Mode Fixes ─────────────────────── */
+[data-theme="dark"] .menuStoreBanner {
+  background: #1e3932;
+}
+
+[data-theme="dark"] .prevBtnFilled {
+  background: #00754a;
+  border-color: #00754a;
+}
+
+[data-theme="dark"] .ftBannerGreen {
+  background: #1e3932;
+}

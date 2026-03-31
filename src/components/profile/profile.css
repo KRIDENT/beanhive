@@ -1152,3 +1152,8 @@
     font-size: var(--text-xs);
   }
 }
+
+/* ── Dark Mode Fixes ─────────────────────── */
+[data-theme="dark"] .giftCardDisplay {
+  background: linear-gradient(135deg, #1e3932, var(--color-starbucks-green));
+}

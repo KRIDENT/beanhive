@@ -309,7 +309,7 @@
 }
 
 [data-theme="dark"] .gc-cardText {
-  color: #1e3932;
+  color: #2a2a2a;
 }
 
 [data-theme="dark"] .gc-receivedHeading {
@@ -348,4 +348,12 @@
 
 [data-theme="dark"] .gc-infoFooter {
   border-top-color: #333;
+}
+
+[data-theme="dark"] .gc-btnFilled {
+  background: #00754a;
+}
+
+[data-theme="dark"] .gc-btnFilled:hover {
+  background: #00955e;
 }

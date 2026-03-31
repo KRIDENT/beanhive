@@ -143,3 +143,26 @@
   40% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+/* ── Dark Mode ───────────────────────────── */
+[data-theme="dark"] .preloader {
+  background: #1A1820;
+}
+
+[data-theme="dark"] .preloaderText {
+  color: #e8e8e8;
+}
+
+[data-theme="dark"] .preloaderCup svg .steam path {
+  stroke: #666;
+}
+
+[data-theme="dark"] .preloaderCup svg .cupBody path,
+[data-theme="dark"] .preloaderCup svg .cupBody ellipse,
+[data-theme="dark"] .preloaderCup svg .cupSaucer ellipse {
+  stroke: #888;
+}
+
+[data-theme="dark"] .preloaderCup svg .cupLiquid {
+  fill: #888;
+}
